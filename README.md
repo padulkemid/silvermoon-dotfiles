@@ -8,6 +8,7 @@ symlinks all already done.
 # 📷 Pics
 
 ![prompt screen](https://i.imgur.com/wzSHSCk.png)
+![work in progress](https://i.imgur.com/rhaqcfX.png)
 
 # 🗒 Progress
 
