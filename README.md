@@ -10,8 +10,17 @@ symlinks all already done.
 ![prompt screen](https://i.imgur.com/wzSHSCk.png)
 ![work in progress](https://i.imgur.com/rhaqcfX.png)
 
+# 🏃🏻‍♂️ 💨 Running the Script
+
+1. Change to this directory
+2. Run the script
+3. ???
+4. Profit!
+
+```console
+padulkemid@silvermoon: ~/.dotfiles $ ./install.sh
+```
+
 # 🗒 Progress
 
-I will create install script to use this later ( auto-symlink ) and setup. This
-would only work on Catalina since Big Sur had a security troubles ( `yabai` is
-supported but need several new configs ).
+Gonna check any bugs if it exists.
