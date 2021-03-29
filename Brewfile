@@ -89,6 +89,7 @@ cask "slack"
 cask "spotify"
 cask "steelseries-engine"
 cask "time-out"
+cask "unshaky"
 
 # Disgusting, I just need the debugger ( since its hard to use debugger on vim )
 cask "visual-studio-code"
