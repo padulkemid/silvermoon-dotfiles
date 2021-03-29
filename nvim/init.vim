@@ -40,6 +40,12 @@ set splitbelow
 set fileformats=unix,dos,mac
 set textwidth=80
 set re=0
+set spelllang=en
+"}}}
+
+" Spellcheck
+"{{{
+nnoremap <silent> <F8> :set spell!<CR>
 "}}}
 
 " Undo
@@ -76,7 +82,7 @@ set backspace=indent,eol,start
 "{{{
 set laststatus=2
 
-" "" Display format
+" Display format
 function! s:statusline_expr()
 let pur = "%#PmenuSel#"
 let gra = "%#LineNr#"
