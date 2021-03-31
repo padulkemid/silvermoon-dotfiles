@@ -14,3 +14,9 @@ export ASDF_DATA_DIR="$ALL_CONFIG_DIR/asdf"
 export HISTFILE="$ALL_SHARE_DIR/history"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix)/opt/openssl@1.1"
 
+# android path
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
