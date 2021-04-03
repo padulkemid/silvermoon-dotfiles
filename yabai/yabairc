@@ -15,6 +15,9 @@
 #============================================================
 #!/usr/bin/env sh
 
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 # bar settings
 yabai -m config status_bar                   off
 yabai -m config status_bar_text_font         "Lato:Regular:12.0"
