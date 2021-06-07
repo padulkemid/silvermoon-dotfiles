@@ -43,6 +43,8 @@ alias v="nvim"
 alias please="sudo"
 alias ls="gls --color -AF --group-directories-first"
 alias tmux="tmux -f $ALL_CONFIG_DIR/tmux/tmux.conf new -s padul"
+alias set_sirius_env="source $ALL_SHARE_DIR/scripts/set_sirius_env"
+alias unset_sirius_env="source $ALL_SHARE_DIR/scripts/unset_sirius_env"
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
@@ -54,7 +56,8 @@ alias strc="nvim $STARSHIP_CONFIG_LOCATION"
 alias skc="nvim $SKHDRC_LOCATION"
 alias ybc="nvim $YABAIRC_LOCATION"
 
-# functions
+# apps
+## java jdk version chooser
 jdk() {
   version="$1"
   
@@ -62,6 +65,11 @@ jdk() {
 
   java -version
 }
+
+## google cloud sdk
+export CLOUDSDK_PYTHON="$(brew --prefix)/bin/python3"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # shells
 eval "$(jump shell)"
