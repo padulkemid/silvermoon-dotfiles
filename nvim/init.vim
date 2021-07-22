@@ -239,6 +239,9 @@ Plug 'jparise/vim-graphql'
 " Markdown
 Plug 'plasticboy/vim-markdown'
 
+" Discord
+Plug 'vimsence/vimsence'
+
 call plug#end()
 "}}}
 
@@ -361,6 +364,13 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Applying codeAction to the selected region.
+xmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>caqf  <Plug>(coc-fix-current)
+
 autocmd CursorHold * silent call CocActionAsync('highlight')
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 command! -nargs=0 Format :call CocAction('format')
@@ -368,6 +378,12 @@ command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImpo
 
 autocmd FileType go nmap gtj :CocCommand go.tags.add json<CR>
 
+"}}}
+
+" vimsence
+"{{{
+let g:vimsence_small_text = 'NeoVim'
+let g:vimsence_small_image = 'neovim'
 "}}}
 
 "}}}
