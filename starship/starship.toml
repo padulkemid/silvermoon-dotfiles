@@ -1,6 +1,6 @@
 [character]
-success_symbol = "[aury ▲ -](red)"
-error_symbol = "[universe ▼ -](blue)"
+success_symbol = "[silvermoon ▲ -](red)"
+error_symbol = "[silvermoon ▼ -](blue)"
 
 [conda]
 symbol = " "

@@ -95,7 +95,7 @@ let pos = ' %-12(%l : %c%V%) '
 let pct = ' %P '
 
 
-return pur.' aury '.'%*'.' [%n] %f %<'.mod.gra.ro.ft.fug.sep.pos.'%*'.pct
+return pur.' silvermoon '.'%*'.' [%n] %f %<'.mod.gra.ro.ft.fug.sep.pos.'%*'.pct
 endfunction
 let &statusline = s:statusline_expr()
 "}}}
@@ -365,8 +365,8 @@ function! s:show_documentation()
 endfunction
 
 " Applying codeAction to the selected region.
-xmap <leader>ca  <Plug>(coc-codeaction-selected)
-nmap <leader>ca  <Plug>(coc-codeaction-selected)
+xmap <leader>cac  <Plug>(coc-codeaction-selected)
+nmap <leader>cac  <Plug>(coc-codeaction-selected)
 
 " Apply AutoFix to problem on the current line.
 nmap <leader>caqf  <Plug>(coc-fix-current)
