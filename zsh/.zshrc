@@ -11,7 +11,7 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 
-plugins=(git brew osx)
+plugins=(git brew macos)
 
 autoload -Uz compinit && compinit
 
