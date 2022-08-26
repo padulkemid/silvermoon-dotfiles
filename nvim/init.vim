@@ -215,7 +215,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
-Plug 'psliwka/vim-smoothie'
+" Plug 'psliwka/vim-smoothie'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
@@ -232,6 +232,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " Dart
 " Plug 'dart-lang/dart-vim-plugin'
+
+" Go
+" Plug 'fatih/vim-go'
 
 " GraphQL
 Plug 'jparise/vim-graphql'
@@ -299,7 +302,8 @@ let g:vim_markdown_folding_style_pythonic = 1
 " CtrlP
 "{{{
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git/\|vendor\|_site\|_production*'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|coverage\|\.git/\|vendor\|_site\|_production*'
+let g:ctrlp_max_files = 0
 "}}}
 
 " Emmet
@@ -369,7 +373,7 @@ xmap <leader>cac  <Plug>(coc-codeaction-selected)
 nmap <leader>cac  <Plug>(coc-codeaction-selected)
 
 " Apply AutoFix to problem on the current line.
-nmap <leader>caqf  <Plug>(coc-fix-current)
+nmap <leader>caf  <Plug>(coc-fix-current)
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 command! -nargs=0 Prettier :CocCommand prettier.formatFile

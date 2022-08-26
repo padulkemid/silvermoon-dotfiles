@@ -34,6 +34,7 @@ export SKHDRC_LOCATION="$ALL_DOTFILES_DIR/skhd/skhdrc"
 export YABAIRC_LOCATION="$ALL_DOTFILES_DIR/yabai/yabairc"
 export JUMP_HOME="$ALL_CONFIG_DIR/jump"
 export ASDF_SH_LOCATION="$(brew --prefix)/opt/asdf"
+export GITCONFIG_LOCATION="$ALL_DOTFILES_DIR/git/config"
 
 # aliases
 ## commands override
@@ -45,6 +46,7 @@ alias ls="gls --color -AF --group-directories-first"
 alias tmux="tmux -f $ALL_CONFIG_DIR/tmux/tmux.conf new -s padul"
 alias set_sirius_env="source $ALL_SHARE_DIR/scripts/set_sirius_env"
 alias unset_sirius_env="source $ALL_SHARE_DIR/scripts/unset_sirius_env"
+alias create_arch_tree="$ALL_SHARE_DIR/scripts/create_arch_tree"
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
@@ -55,6 +57,7 @@ alias tc="nvim $TMUX_CONF_LOCATION"
 alias strc="nvim $STARSHIP_CONFIG_LOCATION"
 alias skc="nvim $SKHDRC_LOCATION"
 alias ybc="nvim $YABAIRC_LOCATION"
+alias gtc="nvim $GITCONFIG_LOCATION"
 
 # apps
 ## java jdk version chooser
@@ -74,4 +77,5 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 # shells
 eval "$(jump shell)"
 eval "$(starship init zsh)"
+eval "$(thefuck --alias)"
 [ -s "$ASDF_SH_LOCATION/asdf.sh" ] && \. "$ASDF_SH_LOCATION/asdf.sh"

@@ -20,5 +20,7 @@
   "prettier.jsxBracketSameLine": true,
   "prettier.arrowParens": "always",
   "prettier.trailingComma": "es5",
-  "prettier.endOfLine": "lf"
+  "prettier.endOfLine": "lf",
+
+  "go.goplsPath": "/Users/padulkemid/.config/asdf/installs/golang/1.18/packages/bin/gopls"
 }
