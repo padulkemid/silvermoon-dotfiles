@@ -7,6 +7,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "mongodb/brew"
+tap "robotsandpencils/made"
 
 # System ( GNU stuffs, etc. )
 brew "coreutils"
@@ -67,6 +68,9 @@ cask "quicklook-csv"
 cask "quicklook-json"
 cask "quicklookase"
 cask "webpquicklook"
+
+# XCode
+brew "xcodes"
 
 # Casks ( Apps, etc. )
 cask "alfred"
