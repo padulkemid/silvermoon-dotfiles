@@ -25,7 +25,6 @@ font:
     family: SF Mono Powerline
     style: Bold Italic
   size: 14.5
-  use_thin_strokes: true
 
 ## color
 draw_bold_text_with_bright_colors: true

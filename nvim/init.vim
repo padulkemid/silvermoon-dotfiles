@@ -185,6 +185,8 @@ map <silent> <leader>ee <Plug>(easymotion-bd-e)
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
+" for buffer destroy
+nmap <leader>; :bw<CR>
 "}}}
 
 "============================================================
@@ -204,8 +206,8 @@ Plug 'tpope/vim-unimpaired'
 " Vim Another Omniscience Being
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+" Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
 
 " Godsense
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -243,7 +245,7 @@ Plug 'jparise/vim-graphql'
 Plug 'plasticboy/vim-markdown'
 
 " Discord
-Plug 'vimsence/vimsence'
+" Plug 'vimsence/vimsence'
 
 call plug#end()
 "}}}
@@ -260,32 +262,32 @@ let g:fzf_layout= { 'down': '~60%' }
 
 " Goyo
 "{{{
-function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  Limelight
-  " ...
-endfunction
+" function! s:goyo_enter()
+  " if executable('tmux') && strlen($TMUX)
+    " silent !tmux set status off
+    " silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  " endif
+  " set noshowmode
+  " set noshowcmd
+  " set scrolloff=999
+  " Limelight
+  " " ...
+" endfunction
 
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  endif
-  set showmode
-  set showcmd
-  set scrolloff=5
-  Limelight!
-  " ...
-endfunction
+" function! s:goyo_leave()
+  " if executable('tmux') && strlen($TMUX)
+    " silent !tmux set status on
+    " silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  " endif
+  " set showmode
+  " set showcmd
+  " set scrolloff=5
+  " Limelight!
+  " " ...
+" endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" autocmd! User GoyoEnter nested call <SID>goyo_enter()
+" autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 "}}}
 
@@ -340,10 +342,10 @@ endfunction
 "{{{
 set pumheight=10
 inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
+    \ coc#pum#visible() ? coc#pum#next(1) :
     \ <SID>check_back_space() ? "\<TAB>" :
     \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -351,7 +353,7 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -386,8 +388,8 @@ autocmd FileType go nmap gtj :CocCommand go.tags.add json<CR>
 
 " vimsence
 "{{{
-let g:vimsence_small_text = 'NeoVim'
-let g:vimsence_small_image = 'neovim'
+" let g:vimsence_small_text = 'NeoVim'
+" let g:vimsence_small_image = 'neovim'
 "}}}
 
 "}}}
@@ -399,7 +401,7 @@ let g:vimsence_small_image = 'neovim'
 "{{{
 
 " Tags
-command MakeTags !ctags -R .
+" command MakeTags !ctags -R .
 
 " Typo
 command W :w
@@ -407,10 +409,10 @@ command Q :q
 command Wq :wq
 
 " vue
-autocmd BufRead,BufNewFile *.vue set filetype=vue
+" autocmd BufRead,BufNewFile *.vue set filetype=vue
 
 " vim-pencil + md
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+" autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 "}}}
 

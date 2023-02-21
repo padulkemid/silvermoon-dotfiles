@@ -33,7 +33,7 @@ export STARSHIP_CONFIG_LOCATION="$ALL_DOTFILES_DIR/starship/starship.toml"
 export SKHDRC_LOCATION="$ALL_DOTFILES_DIR/skhd/skhdrc"
 export YABAIRC_LOCATION="$ALL_DOTFILES_DIR/yabai/yabairc"
 export JUMP_HOME="$ALL_CONFIG_DIR/jump"
-export ASDF_SH_LOCATION="$(brew --prefix)/opt/asdf"
+export ASDF_SH_LOCATION="$(brew --prefix asdf)/libexec/asdf.sh"
 export GITCONFIG_LOCATION="$ALL_DOTFILES_DIR/git/config"
 
 # aliases
@@ -78,4 +78,4 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 eval "$(jump shell)"
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
-[ -s "$ASDF_SH_LOCATION/asdf.sh" ] && \. "$ASDF_SH_LOCATION/asdf.sh"
+. $ASDF_SH_LOCATION
