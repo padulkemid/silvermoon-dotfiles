@@ -165,6 +165,10 @@ nnoremap L $
 vnoremap H ^
 vnoremap L g_
 
+nnoremap J mzJ`z
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 map q: :q
 
 nmap <leader>tp :tabp<CR>
@@ -177,11 +181,11 @@ nmap <leader>f :CtrlP .<CR>
 nmap <leader>ag :Ag<space>
 
 " for easy motion
-map <leader>e <Plug>(easymotion-prefix)
-map <silent> <leader>ew <Plug>(easymotion-bd-w)
-map <silent> <leader>ee <Plug>(easymotion-bd-e)
+" map <leader>e <Plug>(easymotion-prefix)
+" map <silent> <leader>ew <Plug>(easymotion-bd-w)
+" map <silent> <leader>ee <Plug>(easymotion-bd-e)
 
-" for easy algin
+" for easy align
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
@@ -215,11 +219,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Utilites
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'psliwka/vim-smoothie'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " Web
 Plug 'mattn/emmet-vim'

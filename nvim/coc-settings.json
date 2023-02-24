@@ -1,11 +1,7 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "json"
-  ],
+  "[javascript][javascriptreact][typescript][typescriptreact][json]": {
+    "coc.preferences.formatOnSave": true
+  },
 
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
@@ -17,10 +13,12 @@
   "prettier.semi": true,
   "prettier.singleQuote": true,
   "prettier.bracketSpacing": true,
-  "prettier.jsxBracketSameLine": true,
+  "prettier.bracketSameLine": true,
   "prettier.arrowParens": "always",
   "prettier.trailingComma": "es5",
   "prettier.endOfLine": "lf",
 
-  "go.goplsPath": "/Users/padulkemid/.config/asdf/installs/golang/1.18/packages/bin/gopls"
+  "go.goplsPath": "/Users/padulkemid/.config/asdf/installs/golang/1.18/packages/bin/gopls",
+
+  "coverage.uncoveredSign.text": "♠"
 }
