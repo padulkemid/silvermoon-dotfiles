@@ -181,7 +181,7 @@ nmap <leader>gb :Git blame<CR>
 
 " command dewa, hati-hati
 nmap <leader>f :CtrlP .<CR>
-nmap <leader>ag :Ag<space>
+nmap <leader>rg :Rg<space>
 
 " for easy motion
 " map <leader>e <Plug>(easymotion-prefix)
