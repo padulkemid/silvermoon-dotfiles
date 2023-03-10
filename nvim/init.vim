@@ -63,6 +63,7 @@ syntax on
 set termguicolors
 colorscheme iceberg
 set colorcolumn=80
+set background=light
 
 nmap <silent> <leader><leader> :noh<CR>
 "}}}
@@ -175,6 +176,8 @@ nmap <leader>tp :tabp<CR>
 nmap <leader>tn :tabn<CR>
 nmap <leader>te :tabe<CR>
 nmap <leader>tc :tabc<CR>
+
+nmap <leader>gb :Git blame<CR>
 
 " command dewa, hati-hati
 nmap <leader>f :CtrlP .<CR>
@@ -419,4 +422,3 @@ command Wq :wq
 " autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 "}}}
-
