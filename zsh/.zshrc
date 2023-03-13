@@ -26,7 +26,7 @@ export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 
 # locations
 export ZSHRC_LOCATION="$ALL_DOTFILES_DIR/zsh/.zshrc"
-export INITVIM_LOCATION="$ALL_DOTFILES_DIR/nvim/init.vim"
+export INITLUA_LOCATION="$ALL_DOTFILES_DIR/nvim/init.lua"
 export ALACRITTY_YAML_LOCATION="$ALL_DOTFILES_DIR/alacritty/alacritty.yml"
 export TMUX_CONF_LOCATION="$ALL_DOTFILES_DIR/tmux/tmux.conf"
 export STARSHIP_CONFIG_LOCATION="$ALL_DOTFILES_DIR/starship/starship.toml"
@@ -51,7 +51,7 @@ alias create_arch_tree="$ALL_SHARE_DIR/scripts/create_arch_tree"
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
 alias szc="source $ZSHRC_LOCATION"
-alias vc="nvim $INITVIM_LOCATION"
+alias vc="nvim $INITLUA_LOCATION"
 alias alc="nvim $ALACRITTY_YAML_LOCATION"
 alias tc="nvim $TMUX_CONF_LOCATION"
 alias strc="nvim $STARSHIP_CONFIG_LOCATION"
