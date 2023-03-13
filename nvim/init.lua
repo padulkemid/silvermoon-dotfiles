@@ -34,13 +34,13 @@ require('lazy').setup({
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip'
+      'saadparwaiz1/cmp_luasnip',
     },
   },
 
   {
     'folke/which-key.nvim',
-    opts = {}
+    opts = {},
   },
 
   {
@@ -86,7 +86,7 @@ require('lazy').setup({
 
   {
     'numToStr/Comment.nvim',
-    opts = {}
+    opts = {},
   },
 
   {
@@ -110,7 +110,6 @@ require('lazy').setup({
     end,
   },
 
-
   {
     'andythigpen/nvim-coverage',
     requires = 'nvim-lua/plenary.nvim',
@@ -118,12 +117,12 @@ require('lazy').setup({
       require('coverage').setup {
         signs = {
           covered = { hl = 'CoverageCovered', text = '' },
-          uncovered = { hl = 'GitGutterDelete', text = '♠' }
+          uncovered = { hl = 'GitGutterDelete', text = '♠' },
+          partial = { hl = 'GitGutterChange', text = '❖' }
         },
       }
     end,
   },
-
 
   {
     'nvim-treesitter/nvim-treesitter',
@@ -135,31 +134,19 @@ require('lazy').setup({
     end,
   },
 
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
   require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
 
-  -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  --
-  --    An additional note is that if you only copied in the `init.lua`, you can just comment this line
-  --    to get rid of the warning telling you that there are not plugins in `lua/custom/plugins/`.
   { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
--- See `:help vim.o`
 
--- Light mode
+-- Colors
 vim.o.background = 'light'
+vim.o.colorcolumn = 80
 
--- Set highlight on search
-vim.o.hlsearch = false
+-- Add textwidth maximum limit
+vim.o.textwidth = 80
 
 -- Make line numbers default
 vim.wo.number = true
@@ -199,7 +186,17 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- Indentation
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
+vim.o.wrap = false
+
 -- [[ Basic Keymaps ]]
+-- Map leader to do nothing
+vim.keymap.set({ 'n', 'v' }, ',', '<Nop>', { silent = true })
+
 -- Remove highlight after doing something
 vim.keymap.set('n', '<leader><leader>', ':noh<CR>', { silent = true })
 
@@ -232,6 +229,10 @@ vim.keymap.set('', '<C-l>', '<C-W>l')
 vim.keymap.set('n', 'n', 'nzzzv', { remap = true })
 vim.keymap.set('n', 'N', 'Nzzzv', { remap = true })
 
+-- Scroll buffer and centers it
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
 -- Motion shortcut remap
 vim.keymap.set('n', 'H', '^', { remap = true })
 vim.keymap.set('n', 'L', '$', { remap = true })
@@ -243,6 +244,8 @@ vim.keymap.set('n', 'J', 'mzJ`z', { remap = true })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { remap = true })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { remap = true })
 
+-- Remap q: so it doesn't confuse :q
+vim.keymap.set('', 'q:', ':q')
 
 -- [[ Fugitive ]]
 vim.keymap.set('n', '<leader>gb', ':Git blame<CR>')
@@ -360,10 +363,10 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -394,7 +397,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<leader>K', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
