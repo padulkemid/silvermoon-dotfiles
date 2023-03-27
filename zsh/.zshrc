@@ -60,15 +60,6 @@ alias ybc="nvim $YABAIRC_LOCATION"
 alias gtc="nvim $GITCONFIG_LOCATION"
 
 # apps
-## java jdk version chooser
-jdk() {
-  version="$1"
-  
-  export JAVA_HOME="$(/usr/libexec/java_home -v $version)"
-
-  java -version
-}
-
 ## google cloud sdk
 export CLOUDSDK_PYTHON="$(brew --prefix)/bin/python3"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
