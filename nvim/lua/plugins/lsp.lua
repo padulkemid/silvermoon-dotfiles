@@ -47,9 +47,6 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Setup mason so it can manage external tooling
-require('mason').setup()
-
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
@@ -70,8 +67,10 @@ mason_lspconfig.setup_handlers {
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local luasnip_loaders_from_vscode = require 'luasnip.loaders.from_vscode'
 
 luasnip.config.setup {}
+luasnip_loaders_from_vscode.lazy_load()
 
 cmp.setup {
   snippet = {
@@ -107,6 +106,8 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    { name = 'buffer' },
+    { name = 'path' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },

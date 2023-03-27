@@ -20,6 +20,7 @@ require('lazy').setup({
   'tpope/vim-unimpaired',
 
   require 'utils.autoformat',
+  -- require 'utils.debug',
 
   { import = 'repo' },
 }, {})
