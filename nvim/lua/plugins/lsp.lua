@@ -30,7 +30,26 @@ end
 
 
 local servers = {
-  gopls = {},
+  gopls = {
+    analyses = {
+      nilness = true,
+      unusedparams = true,
+      unusedwrite = true,
+      useany = true
+    },
+    experimentalPostfixCompletions = true,
+    gofumpt = true,
+    usePlaceholders = true,
+    hints = {
+      assignVariableTypes = true,
+      compositeLiteralFields = true,
+      compositeLiteralTypes = true,
+      constantValues = true,
+      functionTypeParameters = true,
+      parameterNames = true,
+      rangeVariableTypes = true
+    }
+  },
   tsserver = {},
   lua_ls = {
     Lua = {
@@ -67,10 +86,9 @@ mason_lspconfig.setup_handlers {
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-local luasnip_loaders_from_vscode = require 'luasnip.loaders.from_vscode'
 
 luasnip.config.setup {}
-luasnip_loaders_from_vscode.lazy_load()
+require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup {
   snippet = {
@@ -106,9 +124,23 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'buffer' },
-    { name = 'path' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' },
   },
 }
+
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'path' },
+    { name = 'cmdline' }
+  }
+})
