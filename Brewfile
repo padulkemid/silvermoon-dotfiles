@@ -67,7 +67,7 @@ brew "xcodes"
 
 # Casks ( Apps, etc. )
 cask "alfred"
-cask "brave-browser"
+cask "google-chrome"
 cask "arc"
 cask "discord"
 cask "docker"

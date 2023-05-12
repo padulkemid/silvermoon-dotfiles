@@ -83,9 +83,6 @@ main() {
     printf "🔗 Symlinking dotfiles\n"
     symlinkDotfiles
 
-    printf "ⓥ Installing junegunn/vim-plug"
-    installVimPlug
-
     printf "🍺 Installing Homebrew and its packages\n"
     installBrew
 
