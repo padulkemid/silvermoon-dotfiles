@@ -6,7 +6,7 @@ export ZSH="$ALL_CONFIG_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 
 # zsh config
-ZSH_THEME="robbyrussell"
+ZSH_THEME="imajes"
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
@@ -27,7 +27,7 @@ export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 # locations
 export ZSHRC_LOCATION="$ALL_DOTFILES_DIR/zsh/.zshrc"
 export INITLUA_LOCATION="$ALL_DOTFILES_DIR/nvim/init.lua"
-export ALACRITTY_YAML_LOCATION="$ALL_DOTFILES_DIR/alacritty/alacritty.yml"
+export ALACRITTY_YAML_LOCATION="$ALL_DOTFILES_DIR/alacritty/alacritty.toml"
 export TMUX_CONF_LOCATION="$ALL_DOTFILES_DIR/tmux/tmux.conf"
 export STARSHIP_CONFIG_LOCATION="$ALL_DOTFILES_DIR/starship/starship.toml"
 export SKHDRC_LOCATION="$ALL_DOTFILES_DIR/skhd/skhdrc"
@@ -47,6 +47,7 @@ alias tmux="tmux -f $ALL_CONFIG_DIR/tmux/tmux.conf new -s padul"
 alias set_sirius_env="source $ALL_SHARE_DIR/scripts/set_sirius_env"
 alias unset_sirius_env="source $ALL_SHARE_DIR/scripts/unset_sirius_env"
 alias create_arch_tree="$ALL_SHARE_DIR/scripts/create_arch_tree"
+alias tctl="docker exec temporal-admin-tools tctl"
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"

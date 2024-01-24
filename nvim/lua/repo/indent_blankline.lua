@@ -1,5 +1,6 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
+  version = "2.20.8",
   dependencies = {
     'tpope/vim-fugitive',
     'tpope/vim-sleuth',

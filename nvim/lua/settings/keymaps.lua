@@ -44,12 +44,17 @@ vim.keymap.set('v', 'H', '^', { remap = true })
 vim.keymap.set('v', 'L', 'g_', { remap = true })
 
 -- Alt-like movestyle to move block
-vim.keymap.set('n', 'J', 'mzJ`z', { remap = true })
+-- vim.keymap.set('n', 'J', 'mzJ`z', { remap = true })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { remap = true })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { remap = true })
 
 -- Remap q: so it doesn't confuse :q
 vim.keymap.set('', 'q:', ':q')
+vim.keymap.set('', ':Q', ':q')
+vim.keymap.set('', ':W', ':w')
 
--- Blaming your shit because you're lame af
-vim.keymap.set('n', '<leader>gb', ':Git blame<CR>')
+-- Git thingy
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { remap = false })
+vim.keymap.set('n', '<leader>gb', function()
+  vim.cmd.Git({ 'blame' })
+end, { remap = false })

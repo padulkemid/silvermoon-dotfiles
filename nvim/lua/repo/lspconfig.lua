@@ -6,6 +6,6 @@ return {
   dependencies = {
     'williamboman/mason-lspconfig.nvim',
     'folke/neodev.nvim',
-    { 'j-hui/fidget.nvim', opts = {} },
+    { 'j-hui/fidget.nvim', opts = {}, tag = 'legacy' },
   },
 }

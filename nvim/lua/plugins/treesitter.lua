@@ -1,7 +1,7 @@
 local tsconfig = require('nvim-treesitter.configs')
 
 tsconfig.setup {
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim' },
+  ensure_installed = { 'c', 'go', 'lua', 'tsx', 'typescript', 'javascript', 'help', 'vim' },
   auto_install = true,
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
