@@ -1,0 +1,66 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "0x33374c"
+blue = "0x2d5393"
+cyan = "0x3f83a6"
+green = "0x668e3d"
+magenta = "0x7759b4"
+red = "0xcc517a"
+white = "0xdcdfe7"
+yellow = "0xc57339"
+
+[colors.normal]
+black = "0x262a3f"
+blue = "0x22478e"
+cyan = "0x327698"
+green = "0x598030"
+magenta = "0x6845ad"
+red = "0xcc3768"
+white = "0x8389a3"
+yellow = "0xb6662d"
+
+[colors.primary]
+background = "0xe8e9ec"
+foreground = "0x33374c"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 13
+
+[font.bold]
+family = "JetBrainsMonoNL Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMonoNL Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrainsMonoNL Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMonoNL Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 1
+y = 1
+
+[keyboard]
+bindings = [
+  { key = "Back", mods = "Super", chars = "\u0015"},
+]
+
+[window]
+decorations = "full"
+dynamic_title = false
+title = "padulcritty"
+
+[window.padding]
+x = 4
+y = 12
