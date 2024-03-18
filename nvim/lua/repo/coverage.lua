@@ -1,6 +1,9 @@
 return {
   'andythigpen/nvim-coverage',
-  cmd = { 'Coverage' },
+  cmd = 'Coverage',
+  init = function()
+    require('utils.helpers').lazy_load 'nvim-coverage'
+  end,
   requires = 'nvim-lua/plenary.nvim',
   config = function()
     require('coverage').setup {

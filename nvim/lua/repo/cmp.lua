@@ -2,6 +2,9 @@ return {
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
+    init = function()
+      require('utils.helpers').lazy_load 'nvim-cmp'
+    end,
     dependencies = {
       {
         'L3MON4D3/LuaSnip',

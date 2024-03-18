@@ -5,7 +5,10 @@ vim.keymap.set('n', '<Bslash>', ':Neotree<CR>')
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
-  cmd = { 'Neotree' },
+  cmd = 'Neotree',
+  init = function()
+    require('utils.helpers').lazy_load 'neo-tree.nvim'
+  end,
   dependencies = {
     'MunifTanjim/nui.nvim',
   },
