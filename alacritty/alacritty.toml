@@ -2,28 +2,28 @@
 draw_bold_text_with_bright_colors = true
 
 [colors.bright]
-black = "0x33374c"
-blue = "0x2d5393"
-cyan = "0x3f83a6"
-green = "0x668e3d"
-magenta = "0x7759b4"
-red = "0xcc517a"
-white = "0xdcdfe7"
-yellow = "0xc57339"
+black = "0x8a8980"
+blue = "0x6693bf"
+cyan = "0x5e857a"
+green = "0x6e915f"
+magenta = "0x624c83"
+red = "0xd7474b"
+white = "0x43436c"
+yellow = "0x836f4a"
 
 [colors.normal]
-black = "0x262a3f"
-blue = "0x22478e"
-cyan = "0x327698"
-green = "0x598030"
-magenta = "0x6845ad"
-red = "0xcc3768"
-white = "0x8389a3"
-yellow = "0xb6662d"
+black = "0x1f1f28"
+blue = "0x4d699b"
+cyan = "0x597b75"
+green = "0x6f894e"
+magenta = "0xb35b79"
+red = "0xc84053"
+white = "0x545464"
+yellow = "0x77713f"
 
 [colors.primary]
-background = "0xe8e9ec"
-foreground = "0x33374c"
+background = "0xf2ecbc"
+foreground = "0x8a8980"
 
 [env]
 TERM = "alacritty"

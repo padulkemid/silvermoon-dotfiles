@@ -1,8 +1,8 @@
 return {
-  'cocopon/iceberg.vim',
+  'rebelot/kanagawa.nvim',
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme 'iceberg'
+    vim.cmd.colorscheme 'kanagawa'
   end,
 }

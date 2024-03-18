@@ -6,7 +6,7 @@ return {
   opts = {
     options = {
       icons_enabled = false,
-      theme = 'iceberg',
+      theme = 'kanagawa',
       component_separators = '|',
       section_separators = '',
     },
