@@ -30,7 +30,7 @@ end
 
 
 local servers = {
-  kotlin_language_server = {},
+  -- kotlin_language_server = {},
   gopls = {
     analyses = {
       nilness = true,

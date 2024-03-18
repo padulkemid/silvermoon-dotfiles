@@ -6,7 +6,8 @@ export ZSH="$ALL_CONFIG_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 
 # zsh config
-ZSH_THEME="imajes"
+# this is my own personal theme based on "imajes"
+ZSH_THEME="padulkemid"
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
@@ -33,7 +34,6 @@ export STARSHIP_CONFIG_LOCATION="$ALL_DOTFILES_DIR/starship/starship.toml"
 export SKHDRC_LOCATION="$ALL_DOTFILES_DIR/skhd/skhdrc"
 export YABAIRC_LOCATION="$ALL_DOTFILES_DIR/yabai/yabairc"
 export JUMP_HOME="$ALL_CONFIG_DIR/jump"
-export ASDF_SH_LOCATION="$(brew --prefix asdf)/libexec/asdf.sh"
 export GITCONFIG_LOCATION="$ALL_DOTFILES_DIR/git/config"
 
 # aliases
@@ -55,7 +55,6 @@ alias szc="source $ZSHRC_LOCATION"
 alias vc="nvim $INITLUA_LOCATION"
 alias alc="nvim $ALACRITTY_YAML_LOCATION"
 alias tc="nvim $TMUX_CONF_LOCATION"
-alias strc="nvim $STARSHIP_CONFIG_LOCATION"
 alias skc="nvim $SKHDRC_LOCATION"
 alias ybc="nvim $YABAIRC_LOCATION"
 alias gtc="nvim $GITCONFIG_LOCATION"
@@ -68,6 +67,4 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 
 # shells
 eval "$(jump shell)"
-eval "$(starship init zsh)"
-eval "$(thefuck --alias)"
-. $ASDF_SH_LOCATION
+eval "$(vfox activate zsh)"

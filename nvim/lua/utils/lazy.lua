@@ -5,7 +5,6 @@ require('lazy').setup({
   'nvim-lua/plenary.nvim',
 
   require 'utils.autoformat',
-  -- require 'utils.debug',
 
   { import = 'repo' },
 }, {
