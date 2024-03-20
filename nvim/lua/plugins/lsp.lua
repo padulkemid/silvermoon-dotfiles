@@ -20,7 +20,7 @@ local on_attach = function(_, bufnr)
   nmap('<leader>K', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Eslint formatting functionality
-  nmap('<leader>ef', ':EslintFixAll<CR>')
+  -- nmap('<leader>ef', ':EslintFixAll<CR>')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)

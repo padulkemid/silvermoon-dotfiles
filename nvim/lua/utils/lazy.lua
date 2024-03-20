@@ -4,7 +4,7 @@ require('lazy').setup({
   'tpope/vim-surround',
   'nvim-lua/plenary.nvim',
 
-  require 'utils.autoformat',
+  -- require 'utils.autoformat',
 
   { import = 'repo' },
 }, {
