@@ -2,32 +2,38 @@
 draw_bold_text_with_bright_colors = true
 
 [colors.bright]
-black = "0x1f1f28"
-blue = "0x6693bf"
-cyan = "0x5e857a"
-green = "0x6e915f"
-magenta = "0x624c83"
-red = "0xd7474b"
-white = "0x545464"
-yellow = "0x836f4a"
+black = "#8a8980"
+blue = "#6693bf"
+cyan = "#5e857a"
+green = "#6e915f"
+magenta = "#624c83"
+red = "#d7474b"
+white = "#43436c"
+yellow = "#836f4a"
 
 [colors.normal]
-black = "0x8a8980"
-blue = "0x4d699b"
-cyan = "0x597b75"
-green = "0x6f894e"
-magenta = "0xb35b79"
-red = "0xc84053"
-white = "0x545464"
-yellow = "0x77713f"
+black = "#1F1F28"
+blue = "#4d699b"
+cyan = "#597b75"
+green = "#6f894e"
+magenta = "#b35b79"
+red = "#c84053"
+white = "#545464"
+yellow = "#77713f"
 
 [colors.primary]
-background = "0xf2ecbc"
-foreground = "0x545464"
+background = "#f2ecbc"
+foreground = "#545464"
+dim_foreground = "#545464"
+bright_foreground = "#545464"
 
-[colors.selection]
-foreground = "0x545464"
-background = "0xb5cbd2"
+[[colors.indexed_colors]]
+index = 16
+color = "#e98a00"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#e82424"
 
 [env]
 TERM = "alacritty"
