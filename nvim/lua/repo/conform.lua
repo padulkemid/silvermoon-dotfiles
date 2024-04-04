@@ -19,10 +19,10 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { 'prettierd' },
-      typescript = { 'prettierd' },
-      javascriptreact = { 'prettierd' },
-      typescriptreact = { 'prettierd' },
+      javascript = { { 'prettierd', 'prettier' } },
+      javascriptreact = { { 'prettierd', 'prettier' } },
+      typescript = { { 'prettierd', 'prettier' } },
+      typescriptreact = { { 'prettierd', 'prettier' } },
       kotlin = { 'ktlint' },
       go = { 'gofumpt', 'goimports', 'golines' },
       json = { 'jq' },
