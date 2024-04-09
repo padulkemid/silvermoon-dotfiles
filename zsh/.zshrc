@@ -18,7 +18,8 @@ autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
 
 # gnu stuffs
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -58,6 +59,13 @@ alias tc="nvim $TMUX_CONF_LOCATION"
 alias skc="nvim $SKHDRC_LOCATION"
 alias ybc="nvim $YABAIRC_LOCATION"
 alias gtc="nvim $GITCONFIG_LOCATION"
+
+# themes
+# fzf
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
+--color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
+--color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
 
 # apps
 ## google cloud sdk
