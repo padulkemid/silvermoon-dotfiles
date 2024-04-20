@@ -1,11 +1,13 @@
 # defaults
 export LC_ALL="en_US.UTF-8"
 export EDITOR="nvim"
+export SHELL="zsh"
 
 # config store dirs
 export ALL_DOTFILES_DIR="$HOME/.dotfiles"
 export ALL_CONFIG_DIR="$HOME/.config"
 export ALL_SHARE_DIR="$HOME/.local/share"
+export TMUX_PLUGIN_MANAGER_PATH="${ALL_CONFIG_DIR}/tmux/plugins/tpm"
 
 # config cleanups
 export LESSHISTFILE="-"
