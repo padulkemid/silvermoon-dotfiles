@@ -69,7 +69,7 @@ export FZF_DEFAULT_OPTS=" \
 
 # apps
 ## google cloud sdk
-export CLOUDSDK_PYTHON="$(brew --prefix)/bin/python3"
+export CLOUDSDK_PYTHON="$(brew --prefix)/bin/python3.11"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
