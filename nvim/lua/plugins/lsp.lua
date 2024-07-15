@@ -1,4 +1,4 @@
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -18,11 +18,23 @@ local on_attach = function(_, bufnr)
   -- Access docs
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<leader>K', vim.lsp.buf.signature_help, 'Signature Documentation')
-end
 
+  -- Disable `tsserver`
+  if client.name == 'tsserver' then
+    local ns_id = vim.lsp.diagnostic.get_namespace(client.id)
+
+    vim.diagnostic.enable(false, { bufnr = bufnr, ns_id = ns_id})
+  end
+end
 
 local servers = {
   kotlin_language_server = {},
+  tsserver = {},
+  cssls = {},
+  dockerls = {},
+  jsonls = {},
+  sqlls = {},
+  yamlls = {},
   gopls = {
     analyses = {
       nilness = true,
@@ -43,12 +55,16 @@ local servers = {
       rangeVariableTypes = true
     }
   },
-  tsserver = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
+  },
+  html = {
+    completion = {
+      attributeDefaultValue = 'singlequotes'
+    }
   },
 }
 
