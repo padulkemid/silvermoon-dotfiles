@@ -49,6 +49,9 @@ alias set_sirius_env="source $ALL_SHARE_DIR/scripts/set_sirius_env"
 alias unset_sirius_env="source $ALL_SHARE_DIR/scripts/unset_sirius_env"
 alias create_arch_tree="$ALL_SHARE_DIR/scripts/create_arch_tree"
 alias tctl="docker exec temporal-admin-tools tctl"
+alias man="\man"
+alias pdsh="$ALL_SHARE_DIR/scripts/pdsh"
+alias create_norg_note="$ALL_SHARE_DIR/scripts/create_norg_note"
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
