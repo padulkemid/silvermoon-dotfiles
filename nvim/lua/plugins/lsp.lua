@@ -7,7 +7,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-
   -- LSP keymaps
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
@@ -23,7 +22,7 @@ local on_attach = function(client, bufnr)
   if client.name == 'tsserver' then
     local ns_id = vim.lsp.diagnostic.get_namespace(client.id)
 
-    vim.diagnostic.enable(false, { bufnr = bufnr, ns_id = ns_id})
+    vim.diagnostic.enable(false, { bufnr = bufnr, ns_id = ns_id })
   end
 end
 
@@ -40,7 +39,7 @@ local servers = {
       nilness = true,
       unusedparams = true,
       unusedwrite = true,
-      useany = true
+      useany = true,
     },
     experimentalPostfixCompletions = true,
     gofumpt = true,
@@ -52,8 +51,8 @@ local servers = {
       constantValues = true,
       functionTypeParameters = true,
       parameterNames = true,
-      rangeVariableTypes = true
-    }
+      rangeVariableTypes = true,
+    },
   },
   lua_ls = {
     Lua = {
@@ -63,8 +62,8 @@ local servers = {
   },
   html = {
     completion = {
-      attributeDefaultValue = 'singlequotes'
-    }
+      attributeDefaultValue = 'singlequotes',
+    },
   },
 }
 
@@ -142,14 +141,21 @@ cmp.setup {
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer' }
-  }
+    { name = 'buffer' },
+  },
 })
 
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'path' },
-    { name = 'cmdline' }
-  }
+    { name = 'cmdline' },
+  },
+})
+
+cmp.setup.filetype({ 'sql', 'mysql', 'plsql' }, {
+  sources = {
+    { name = 'vim-dadbod-completion' },
+    { name = 'buffer' },
+  },
 })
