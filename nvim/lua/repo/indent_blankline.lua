@@ -1,6 +1,6 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
-  version = "2.20.8",
+  main = 'ibl',
   dependencies = {
     'tpope/vim-fugitive',
     'tpope/vim-sleuth',
@@ -10,7 +10,8 @@ return {
     require('utils.helpers').lazy_load 'indent-blankline.nvim'
   end,
   opts = {
-    char = '┊',
-    show_trailing_blankline_indent = false,
+    indent = {
+      char = '╎',
+    },
   },
 }

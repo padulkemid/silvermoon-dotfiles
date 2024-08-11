@@ -5,37 +5,30 @@ tap "homebrew/cask-drivers"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
+tap "mongodb/brew"
 tap "robotsandpencils/made"
 
-# System ( GNU stuffs, etc. )
+# System
 brew "coreutils"
-brew "curl"
+brew "moreutils"
 brew "findutils"
-brew "gawk"
+brew "curl"
 brew "gnu-sed"
 brew "gnupg"
-brew "grep"
 brew "make"
-brew "moreutils"
-brew "openssl@1.1"
-brew "openssl@3"
-brew "perl"
 brew "screen"
 brew "telnet"
-brew "wget"
 
-# Developer thingy
-brew "asdf"
+# Dev
+brew "mise"
 brew "git"
 brew "neovim"
 
-# Prompt related things
+# Prompt
 brew "fzf"
 brew "jq"
 brew "jump"
-brew "readline"
 brew "reattach-to-user-namespace"
-brew "starship"
 brew "ripgrep"
 brew "tmux"
 brew "trash-cli"
@@ -43,15 +36,18 @@ brew "tree"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
-brew "zsh-syntax-highlighting"
+brew "zsh-fast-syntax-highlighting"
 brew "thefuck"
-cask "alacritty"
+brew "luarocks"
 
 # Flavours
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
 
-# Quicklook plugins
+# XCode
+brew "xcodes"
+
+# Quicklook
 cask "qlcolorcode"
 cask "qlmarkdown"
 cask "qlprettypatch"
@@ -62,37 +58,36 @@ cask "quicklook-json"
 cask "quicklookase"
 cask "webpquicklook"
 
-# XCode
-brew "xcodes"
 
-# Casks ( Apps, etc. )
+# Apps
+cask "alacritty"
 cask "alfred"
-cask "google-chrome"
+cask "android-file-transfer"
+cask "android-studio"
+cask "appium-inspector"
 cask "arc"
-cask "discord"
+cask "bruno"
 cask "docker"
 cask "dozer"
+cask "floorp"
 cask "flux"
+cask "google-chrome"
+cask "google-cloud-sdk"
+cask "intellij-idea"
 cask "karabiner-elements"
+cask "keyboard-cleaner"
+cask "libreoffice"
+cask "mongodb-compass"
 cask "notion"
-cask "obsidian"
+cask "offset-explorer"
 cask "onyx"
 cask "openvpn-connect"
 cask "postman"
+cask "rar"
+cask "readdle-spark"
 cask "slack"
 cask "spotify"
 cask "steelseries-gg"
-cask "time-out"
-cask "unshaky"
-cask "gather"
-cask "google-cloud-sdk"
-cask "libreoffice"
-cask "miro"
-cask "ngrok"
-cask "offset-explorer"
-cask "rar" # this is actually a CLI tool but they put it in `casks` wth is going on
+cask "visual-studio-code"
+cask "whatsapp"
 cask "zoom"
-
-# Disgusting, I just need the debugger ( since its hard to use debugger on vim )
-# cask "visual-studio-code"
-# UPDATE: fuck yeah, `nvim-dap` is awesome, go to hell vscode

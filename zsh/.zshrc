@@ -78,4 +78,4 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 
 # shells
 eval "$(jump shell)"
-eval "$(vfox activate zsh)"
+eval "$(mise activate zsh)"

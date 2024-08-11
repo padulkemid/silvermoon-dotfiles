@@ -18,16 +18,28 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-# bar settings
-yabai -m config status_bar                   off
-yabai -m config status_bar_text_font         "Lato:Regular:12.0"
-yabai -m config status_bar_icon_font         "3270Medium Nerd Font:Medium:12.0"
-yabai -m config status_bar_background_color  0xff000000
-yabai -m config status_bar_foreground_color  0xffffffff
-yabai -m config status_bar_space_icon_strip  I II III IV V VI VII VIII IX X
-yabai -m config status_bar_power_icon_strip   
-yabai -m config status_bar_space_icon        
-yabai -m config status_bar_clock_icon        
+# desktop labels
+yabai -m space 1 --label web
+yabai -m space 2 --label work
+yabai -m space 3 --label debug
+yabai -m space 4 --label slack
+yabai -m space 5 --label personal
+
+# window rules
+yabai -m rule --add app="^Floorp$" space=web
+yabai -m rule --add app="^Spark Desktop$" space=web
+yabai -m rule --add app="^Alacritty$" space=work
+# yabai -m rule --add app="^WezTerm$" space=work
+yabai -m rule --add app="^IntelliJ IDEA$" space=work
+yabai -m rule --add app="^Visual Studio Code$" space=work
+yabai -m rule --add app="^Docker Desktop$" space=work
+yabai -m rule --add app="^Bruno$" space=debug
+yabai -m rule --add app="^Postman$" space=debug
+yabai -m rule --add app="^Slack$" space=slack
+yabai -m rule --add app="^Spotify$" space=personal
+yabai -m rule --add app="^WhatsApp$" space=personal
+yabai -m rule --add app="^Notion$" space=personal
+yabai -m rule --add app="^(Calculator|System Preferences|Archive Utility)$" manage=off
 
 # global settings
 yabai -m config mouse_follows_focus          off
@@ -58,4 +70,4 @@ yabai -m config left_padding                 20
 yabai -m config right_padding                20
 yabai -m config window_gap                   10
 
-echo "yabai configuration loaded.."
+echo "conf loaded"
