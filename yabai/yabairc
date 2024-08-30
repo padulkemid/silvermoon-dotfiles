@@ -29,10 +29,9 @@ yabai -m space 5 --label personal
 yabai -m rule --add app="^Floorp$" space=web
 yabai -m rule --add app="^Spark Desktop$" space=web
 yabai -m rule --add app="^Alacritty$" space=work
-# yabai -m rule --add app="^WezTerm$" space=work
 yabai -m rule --add app="^IntelliJ IDEA$" space=work
 yabai -m rule --add app="^Visual Studio Code$" space=work
-yabai -m rule --add app="^Docker Desktop$" space=work
+yabai -m rule --add app="^OrbStack$" space=work
 yabai -m rule --add app="^Bruno$" space=debug
 yabai -m rule --add app="^Postman$" space=debug
 yabai -m rule --add app="^Slack$" space=slack
