@@ -85,18 +85,22 @@ size = 13
 
 [font.bold]
 family = "JetBrainsMonoNL Nerd Font"
+# family = "Google Sans Mono Nerd"
 style = "Bold"
 
 [font.bold_italic]
 family = "JetBrainsMonoNL Nerd Font"
+# family = "Google Sans Mono Nerd"
 style = "Bold Italic"
 
 [font.italic]
 family = "JetBrainsMonoNL Nerd Font"
+# family = "Google Sans Mono Nerd"
 style = "Italic"
 
 [font.normal]
 family = "JetBrainsMonoNL Nerd Font"
+# family = "Google Sans Mono Nerd"
 style = "Regular"
 
 [font.offset]

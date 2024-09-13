@@ -27,6 +27,7 @@ return {
       go = { 'gofumpt', 'golines', 'goimports' },
       json = { 'jq' },
       yaml = { 'yamlfmt' },
+      dart = { 'dartls' },
     },
     log_level = vim.log.levels.ERROR,
     notify_on_error = true,
