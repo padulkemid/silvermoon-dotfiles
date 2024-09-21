@@ -65,6 +65,19 @@ local servers = {
       attributeDefaultValue = 'singlequotes',
     },
   },
+  emmet_language_server = {
+    filetypes = {
+      'css',
+      'html',
+      'javascript',
+      'javascriptreact',
+      'less',
+      'sass',
+      'scss',
+      'template',
+      'typescriptreact',
+    },
+  },
 }
 
 -- Setup neovim lua configuration
