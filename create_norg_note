@@ -1,0 +1,60 @@
+#!/bin/zsh
+
+# Check if the correct number of parameters is passed
+if [[ "$#" -ne 3 ]] && [[ "$#" -ne 1 ]]; then
+  echo "Usage: <-p|-l> [<ticket-number>] <note-title>"
+  exit 1
+fi
+
+# Assign parameters to variables
+MODIFIER=$1
+
+if [[ "$MODIFIER" == "-p" ]]; then
+  if [ "$#" -ne 1 ]; then
+    echo "Usage for -p: -p only needs -p"
+    exit 1
+  fi
+else
+  if [[ "$#" -ne 3 ]]; then
+    echo "Usage for -l: -l <ticket-number> <note-title>"
+    exit 1
+  fi
+  TICKET_NUMBER=$2
+  NOTE_TITLE=$3
+fi
+
+# Determine the date in YYYY-MM-DD format
+CURRENT_DATE=$(date +%F)
+
+# Find the highest number in the existing files
+MAX_NUMBER=$(ls *.norg 2> /dev/null | rg -o '^\d{3}' | sort -n | tail -1)
+
+# If no files exist, start from 000
+if [[ -z "$MAX_NUMBER" ]]; then
+  MAX_NUMBER="000"
+fi
+
+# Increment the highest number by 1
+NEW_NUMBER=$(printf "%03d" $((10#$MAX_NUMBER + 1)))
+
+
+# Declare the NEW_FILE variable
+NEW_FILE=""
+
+# Assign the new file name based on the modifier
+if [[ "$MODIFIER" == "-p" ]]; then
+  NEW_FILE="${NEW_NUMBER}-prod-sup-${CURRENT_DATE}.norg"
+elif [[ "$MODIFIER" == "-l" ]]; then
+  # Format the note title to replace spaces with hyphens and convert to lowercase
+  FORMATTED_TITLE=$(echo "$NOTE_TITLE" | tr ' ' '-' | tr '[:upper:]' '[:lower:]')
+  NEW_FILE="${NEW_NUMBER}-LP-${TICKET_NUMBER}-${FORMATTED_TITLE}.norg"
+else
+  echo "Invalid modifier. Use -p for prod sup notes or -l for LP tickets."
+  exit 1
+fi
+
+# Create the new file
+touch "$NEW_FILE"
+
+echo "Created file: $NEW_FILE"
+

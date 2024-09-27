@@ -7,8 +7,7 @@ symlinks all already done.
 
 # 📷 Pics
 
-![prompt screen](https://i.imgur.com/ABuEkB4.png)
-![work in progress](https://i.imgur.com/QREEyt3.png)
+![prompt screen](https://i.imgur.com/QrcY9Ly.png)
 
 # 🏃🏻‍♂️ 💨 Running the Script
 

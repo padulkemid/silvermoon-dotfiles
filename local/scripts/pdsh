@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+run_eval() {
+  eval "$(ssh-agent -s)"
+  ssh-add --apple-use-keychain ~/.ssh/id_rsa
+}
+
+run_tunnel() {
+  ssh -vT git@github.com
+}
+
+echo "running eval"
+run_eval
+
+echo "running tunnel to github"
+run_tunnel
+
+echo "running tmux"
+tmux
+
