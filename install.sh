@@ -8,12 +8,8 @@ createDirs() {
     "$DEFAULT_DOTFILES_CONFIG_DIR"
     "$DEFAULT_DOTFILES_CONFIG_DIR/alacritty"
     "$DEFAULT_DOTFILES_CONFIG_DIR/karabiner"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/karabiner/assets"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/karabiner/assets/complex_modifications"
     "$DEFAULT_DOTFILES_CONFIG_DIR/nvim"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/nvim/colors"
     "$DEFAULT_DOTFILES_CONFIG_DIR/skhd"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/starship"
     "$DEFAULT_DOTFILES_CONFIG_DIR/tmux"
     "$DEFAULT_DOTFILES_CONFIG_DIR/yabai"
     "$DEFAULT_DOTFILES_CONFIG_DIR/zsh"
@@ -66,7 +62,6 @@ symlinkDotfiles() {
   ln -sv "$(pwd)/zsh/.zprofile" "$HOME/.zprofile"
   ln -sv "$(pwd)/zsh/.zprofile" "$HOME/.profile"
   ln -sv "$(pwd)/zsh/.zshrc" "$DEFAULT_DOTFILES_CONFIG_DIR/zsh/.zshrc"
-  ln -sv "$(pwd)/starship/starship.toml" "$DEFAULT_DOTFILES_CONFIG_DIR/starship.toml"
 }
 
 
