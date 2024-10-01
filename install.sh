@@ -81,7 +81,7 @@ main() {
     printf "🍺 Installing Homebrew and its packages\n"
     installBrew
 
-    printf "After this you should configure your git config, asdf config, and yabai ( extra steps on macOS Big Sur )\n"
+    printf "After this you should configure your git config, mise config, and yabai ( extra steps on macOS Big Sur+ )\n"
     printf "Thank you! \n"
   fi
     printf "Okay then, take your time!\n"
