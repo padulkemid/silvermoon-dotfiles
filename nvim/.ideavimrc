@@ -1,0 +1,51 @@
+" Settings
+let mapleader=","
+set scrolloff=5
+set ideajoin
+
+" Searching
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" Plugins
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+
+" Maps
+"--- idea
+map Q gq
+
+"--- highlight
+nmap <silent> <leader><leader> :noh<CR>
+
+"--- escape
+inoremap <C-c> <Esc>
+xmap <C-c> "*y
+xmap <C-v> "*p
+
+"--- window
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+"--- texts
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+
+"--- tabs
+nmap <leader>tp :tabp<CR>
+nmap <leader>tn :tabn<CR>
+
+"--- actions
+map <leader>ef <Action>(ReformatCode)
+map <leader>f <Action>(SearchEverywhere)
+map <leader>; <Action>(CloseContent)
+map K <Action>(ShowHoverInfo)
+map <leader>ca <Action>(ShowIntentionActions)
