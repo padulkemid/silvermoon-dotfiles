@@ -1,2 +1,7 @@
 [tools]
+node = "latest"
 go = "latest"
+java = "latest"
+kotlin = "latest"
+erlang = "latest"
+elixir = "latest"

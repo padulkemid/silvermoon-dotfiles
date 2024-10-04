@@ -1,3 +1,6 @@
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # defaults
 export LC_ALL="en_US.UTF-8"
 export EDITOR="nvim"
@@ -22,3 +25,4 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+

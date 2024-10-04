@@ -23,7 +23,6 @@ source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlight
 
 # gnu stuffs
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 
 # locations
@@ -73,8 +72,8 @@ export FZF_DEFAULT_OPTS=" \
 # apps
 ## google cloud sdk
 export CLOUDSDK_PYTHON="$(brew --prefix)/bin/python3.11"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # shells
 eval "$(jump shell)"
