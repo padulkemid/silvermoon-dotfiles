@@ -1,7 +1,7 @@
 # core paths
 GPG_TTY=$(tty)
 export GPG_TTY
-export PATH="$HOME/bin:/usr/local/sbin:$PATH"
+export PATH="$(brew --prefix)/bin:$PATH"
 export ZSH="$ALL_CONFIG_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 
@@ -27,6 +27,7 @@ export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 
 # locations
 export ZSHRC_LOCATION="$ALL_DOTFILES_DIR/zsh/.zshrc"
+export ZPROFILE_LOCATION="$ALL_DOTFILES_DIR/zsh/.zprofile"
 export INITLUA_LOCATION="$ALL_DOTFILES_DIR/nvim/init.lua"
 export ALACRITTY_YAML_LOCATION="$ALL_DOTFILES_DIR/alacritty/alacritty.toml"
 export TMUX_CONF_LOCATION="$ALL_DOTFILES_DIR/tmux/tmux.conf"
@@ -35,6 +36,7 @@ export SKHDRC_LOCATION="$ALL_DOTFILES_DIR/skhd/skhdrc"
 export YABAIRC_LOCATION="$ALL_DOTFILES_DIR/yabai/yabairc"
 export JUMP_HOME="$ALL_CONFIG_DIR/jump"
 export GITCONFIG_LOCATION="$ALL_DOTFILES_DIR/git/config"
+export MISE_CONFIG_LOCATION="$ALL_DOTFILES_DIR/mise/config.toml"
 
 # aliases
 ## commands override
@@ -54,6 +56,7 @@ alias create_norg_note="$ALL_SHARE_DIR/scripts/create_norg_note"
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
+alias zpc="nvim $ZPROFILE_LOCATION"
 alias szc="source $ZSHRC_LOCATION"
 alias vc="nvim $INITLUA_LOCATION"
 alias alc="nvim $ALACRITTY_YAML_LOCATION"
@@ -61,6 +64,7 @@ alias tc="nvim $TMUX_CONF_LOCATION"
 alias skc="nvim $SKHDRC_LOCATION"
 alias ybc="nvim $YABAIRC_LOCATION"
 alias gtc="nvim $GITCONFIG_LOCATION"
+alias mc="nvim $MISE_CONFIG_LOCATION"
 
 # themes
 # fzf

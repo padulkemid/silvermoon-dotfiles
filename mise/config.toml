@@ -1,0 +1,9 @@
+[tools]
+go = "latest"
+erlang = "latest"
+elixir = "latest"
+kotlin = "1.9.22"
+node = "20.8.0"
+ruby = "2.7.5"
+flutter = "3.19.6"
+java = "18"
