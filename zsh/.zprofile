@@ -14,6 +14,7 @@ export TMUX_PLUGIN_MANAGER_PATH="${ALL_CONFIG_DIR}/tmux/plugins/tpm"
 
 # config cleanups
 export LESSHISTFILE="-"
+export REDISCLI_HISTFILE="-"
 export ZDOTDIR="$ALL_CONFIG_DIR/zsh"
 export ASDF_DATA_DIR="$ALL_CONFIG_DIR/asdf"
 export HISTFILE="$ALL_SHARE_DIR/history"

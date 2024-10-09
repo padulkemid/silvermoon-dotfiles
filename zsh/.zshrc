@@ -82,3 +82,24 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 # shells
 eval "$(jump shell)"
 eval "$(mise activate zsh)"
+
+# options
+export IGNOREEOF=2
+
+# bash like ctrl-d wrapper for IGNOREEOF
+setopt ignore_eof
+function bash-ctrl-d() {
+  if [[ $CURSOR == 0 && -z $BUFFER ]]
+  then
+    [[ -z $IGNOREEOF || $IGNOREEOF == 0 ]] && exit
+    if [[ "$LASTWIDGET" == "bash-ctrl-d" ]]
+    then
+      (( --__BASH_IGNORE_EOF <= 0 )) && exit
+    else
+      (( __BASH_IGNORE_EOF = IGNOREEOF ))
+    fi
+  fi
+}
+zle -N bash-ctrl-d
+bindkey "^d" bash-ctrl-d
+
