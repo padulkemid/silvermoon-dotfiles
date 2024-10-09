@@ -2,7 +2,7 @@
 
 # Check if the correct number of parameters is passed
 if [[ "$#" -ne 3 ]] && [[ "$#" -ne 1 ]]; then
-  echo "Usage: <-p|-l> [<ticket-number>] <note-title>"
+  echo "Usage: <-p|-t> [<ticket-number>] <note-title>"
   exit 1
 fi
 
@@ -16,7 +16,7 @@ if [[ "$MODIFIER" == "-p" ]]; then
   fi
 else
   if [[ "$#" -ne 3 ]]; then
-    echo "Usage for -l: -l <ticket-number> <note-title>"
+    echo "Usage for -t: -t <ticket-number> <note-title>"
     exit 1
   fi
   TICKET_NUMBER=$2
@@ -47,7 +47,7 @@ if [[ "$MODIFIER" == "-p" ]]; then
 elif [[ "$MODIFIER" == "-l" ]]; then
   # Format the note title to replace spaces with hyphens and convert to lowercase
   FORMATTED_TITLE=$(echo "$NOTE_TITLE" | tr ' ' '-' | tr '[:upper:]' '[:lower:]')
-  NEW_FILE="${NEW_NUMBER}-LP-${TICKET_NUMBER}-${FORMATTED_TITLE}.norg"
+  NEW_FILE="${NEW_NUMBER}-DL-${TICKET_NUMBER}-${FORMATTED_TITLE}.norg"
 else
   echo "Invalid modifier. Use -p for prod sup notes or -l for LP tickets."
   exit 1
