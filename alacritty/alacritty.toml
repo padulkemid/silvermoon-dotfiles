@@ -81,31 +81,36 @@ color = "#DC8A78"
 TERM = "alacritty"
 
 [font]
-size = 13
+size = 14
 
-[font.bold]
-family = "JetBrainsMonoNL Nerd Font"
-# family = "Google Sans Mono Nerd"
-style = "Bold"
-
-[font.bold_italic]
-family = "JetBrainsMonoNL Nerd Font"
-# family = "Google Sans Mono Nerd"
-style = "Bold Italic"
-
-[font.italic]
-family = "JetBrainsMonoNL Nerd Font"
-# family = "Google Sans Mono Nerd"
-style = "Italic"
+# [font.bold]
+# # family = "GeistMono Nerd Font"
+# family = "JetBrainsMonoNL Nerd Font"
+# style = "Bold"
+#
+# [font.bold_italic]
+# # family = "GeistMono Nerd Font"
+# family = "JetBrainsMonoNL Nerd Font"
+# style = "Bold Italic"
+#
+# [font.italic]
+# # family = "GeistMono Nerd Font"
+# family = "JetBrainsMonoNL Nerd Font"
+# style = "Italic"
 
 [font.normal]
-family = "JetBrainsMonoNL Nerd Font"
-# family = "Google Sans Mono Nerd"
+# family = "GeistMono Nerd Font Mono"
+family = "GohuFont uni14 Nerd Font"
+# family = "JetBrainsMonoNL Nerd Font"
 style = "Regular"
 
 [font.offset]
 x = 1
-y = 1
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
 
 [keyboard]
 bindings = [
@@ -118,5 +123,5 @@ dynamic_title = false
 title = "padulcritty"
 
 [window.padding]
-x = 4
-y = 10
+x = 8
+y = 8
