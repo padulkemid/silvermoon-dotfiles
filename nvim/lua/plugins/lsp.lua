@@ -18,22 +18,23 @@ local on_attach = function(client, bufnr)
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<leader>K', vim.lsp.buf.signature_help, 'Signature Documentation')
 
-  -- Disable `tsserver`
-  if client.name == 'tsserver' then
+  -- Disable `ts_ls`
+  if client.name == 'ts_ls' then
     local ns_id = vim.lsp.diagnostic.get_namespace(client.id)
 
     vim.diagnostic.enable(false, { bufnr = bufnr, ns_id = ns_id })
   end
 end
 
+local mason_registry = require('mason-registry')
+local vue_plugin_path = mason_registry.get_package('vue-language-server'):get_install_path() ..
+    '/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
+
 local servers = {
-  kotlin_language_server = {},
-  ts_ls = {},
-  cssls = {},
-  dockerls = {},
   jsonls = {},
-  sqlls = {},
-  yamlls = {},
+  emmet_language_server = {},
+  volar = {},
+  lexical = {},
   gopls = {
     analyses = {
       nilness = true,
@@ -65,19 +66,6 @@ local servers = {
       attributeDefaultValue = 'singlequotes',
     },
   },
-  emmet_language_server = {
-    filetypes = {
-      'css',
-      'html',
-      'javascript',
-      'javascriptreact',
-      'less',
-      'sass',
-      'scss',
-      'template',
-      'typescriptreact',
-    },
-  },
 }
 
 -- Setup neovim lua configuration
@@ -100,6 +88,28 @@ mason_lspconfig.setup_handlers {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
+    }
+  end,
+  ['ts_ls'] = function()
+    require('lspconfig').ts_ls.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      init_options = {
+        plugins = {
+          {
+            name = '@vue/typescript-plugin',
+            location = vue_plugin_path,
+            languages = { 'vue' }
+          }
+        }
+      },
+      filetypes = {
+        'typescript',
+        'typescriptreact',
+        'javascript',
+        'javascriptreact',
+        'vue'
+      }
     }
   end,
 }
