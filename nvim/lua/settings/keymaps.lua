@@ -58,3 +58,6 @@ vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { remap = false })
 vim.keymap.set('n', '<leader>gb', function()
   vim.cmd.Git({ 'blame' })
 end, { remap = false })
+
+-- Terminal exit
+vim.keymap.set('t', '<C-\\><C-\\>', '<C-\\><C-n>', { remap = true })

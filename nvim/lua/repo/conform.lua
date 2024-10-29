@@ -27,6 +27,7 @@ return {
       go = { 'gofumpt', 'golines', 'goimports' },
       json = { 'jq' },
       dart = { 'dartls' },
+      kotlin = { 'ktlint' }
     },
     log_level = vim.log.levels.ERROR,
     notify_on_error = true,

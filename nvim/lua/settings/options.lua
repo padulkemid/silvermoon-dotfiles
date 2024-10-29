@@ -5,11 +5,15 @@ vim.g.maplocalleader = ','
 -- Respect .editorconfig
 vim.g.editorconfig = true
 
+-- Theme
+vim.cmd.colorscheme 'default'
+vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })
+
 -- Remove mode in command bar (since it has been handled from lualine)
 vim.o.showmode = false
 
 -- Colors
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.o.termguicolors = true
 
 -- Add textwidth maximum limit

@@ -2,6 +2,11 @@ local telescope = require('telescope')
 local builtin = require('telescope.builtin')
 
 telescope.setup {
+  pickers = {
+    colorscheme = {
+      enable_preview = true
+    }
+  },
   defaults = {
     mappings = {
       i = {

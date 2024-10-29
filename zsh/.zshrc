@@ -12,7 +12,7 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 
-plugins=(git brew macos)
+plugins=(git brew)
 
 autoload -Uz compinit && compinit
 
@@ -68,16 +68,16 @@ alias mc="nvim $MISE_CONFIG_LOCATION"
 
 # themes
 # fzf
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
---color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
---color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
+# --color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
+# --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
 
 # apps
 ## google cloud sdk
 export CLOUDSDK_PYTHON="$(brew --prefix)/bin/python3"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+# source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # shells
 eval "$(jump shell)"
@@ -102,4 +102,3 @@ function bash-ctrl-d() {
 }
 zle -N bash-ctrl-d
 bindkey "^d" bash-ctrl-d
-

@@ -33,6 +33,7 @@ local vue_plugin_path = mason_registry.get_package('vue-language-server'):get_in
 local servers = {
   jsonls = {},
   emmet_language_server = {},
+  kotlin_language_server = {},
   volar = {},
   lexical = {},
   gopls = {
