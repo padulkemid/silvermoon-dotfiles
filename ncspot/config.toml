@@ -1,0 +1,66 @@
+default_keybindings = false
+audio_cache_size = 1024
+statusbar_format = "%title - %artists"
+
+[track_format]
+left = "%title - %artists"
+center = ""
+right = "%saved %duration"
+
+[theme]
+background = "#000000"
+primary = "#FFFFFF"
+secondary = "#00FFFF"
+title = "#00FFFF"
+playing = "#FF0000"
+playing_selected = "#FF00FF"
+playing_bg = "#000000"
+highlight = "#000000"
+highlight_bg = "#00FFFF"
+error = "#FFFFFF"
+error_bg = "#CD0000"
+statusbar = "#000000"
+statusbar_progress = "#00FFFF"
+statusbar_bg = "#00FFFF"
+cmdline = "#FFFFFF"
+cmdline_bg = "#000000"
+
+[keybindings]
+# settings
+"Ctrl+r" = "reload"
+"i" = "insert"
+"?" = "help"
+# movements
+"Ctrl+d" = "move down 5"
+"Ctrl+u" = "move up 5"
+"h" = "move left 1"
+"j" = "move down 1"
+"k" = "move up 1"
+"l" = "move right 1"
+"g" = "move top"
+"Shift+g" = "move bottom"
+"Ctrl+o" = "back"
+# players
+"=" = "volup 5"
+"-" = "voldown 5"
+"Enter" = "play"
+"p" = "playpause"
+"a" = "goto artist"
+"Shift+a" = "goto album"
+"Shift+l" = "next"
+"Shift+h" = "previous"
+"Ctrl+l" = "seek +10000"
+"Ctrl+h" = "seek -10000"
+"s" = "stop"
+"Shift+s" = "shuffle"
+"r" = "repeat"
+# screens
+"1" = "focus library"
+"2" = "focus queue"
+# selections
+"o" = "open selected"
+"Shift+o" = "open current"
+"y" = "share selected"
+"Shift+y" = "share current"
+# disables
+"Ctrl+c" = "noop"
