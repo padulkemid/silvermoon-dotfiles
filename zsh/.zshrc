@@ -53,6 +53,7 @@ alias tctl="docker exec temporal-admin-tools tctl"
 alias man="\man"
 alias pdsh="$ALL_SHARE_DIR/scripts/pdsh"
 alias create_norg_note="$ALL_SHARE_DIR/scripts/create_norg_note"
+alias spot="ncspot"
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
@@ -66,18 +67,9 @@ alias ybc="nvim $YABAIRC_LOCATION"
 alias gtc="nvim $GITCONFIG_LOCATION"
 alias mc="nvim $MISE_CONFIG_LOCATION"
 
-# themes
-# fzf
-# export FZF_DEFAULT_OPTS=" \
-# --color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
-# --color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
-# --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
-
 # apps
-## google cloud sdk
 export CLOUDSDK_PYTHON="$(brew --prefix)/bin/python3"
-# source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-# source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+export GOPATH="$ALL_SHARE_DIR/go"
 
 # shells
 eval "$(jump shell)"
