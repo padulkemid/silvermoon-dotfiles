@@ -1,4 +1,7 @@
 local on_attach = function(client, bufnr)
+  -- disable syntax highlight
+  client.server_capabilities.semanticTokensProvider = nil
+
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc

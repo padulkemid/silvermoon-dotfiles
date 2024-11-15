@@ -2,20 +2,8 @@ local tsconfig = require('nvim-treesitter.configs')
 
 --- @diagnostic disable-next-line: missing-fields
 tsconfig.setup {
-  ensure_installed = { 'lua', 'tsx', 'typescript', 'javascript', 'vimdoc', 'vim' },
   auto_install = true,
   sync_install = false,
-  highlight = { enable = true },
-  indent = { enable = true, disable = { 'python' } },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<c-space>',
-      node_incremental = '<c-space>',
-      scope_incremental = '<c-s>',
-      node_decremental = '<M-space>',
-    },
-  },
 }
 
 -- Treesitter keymaps

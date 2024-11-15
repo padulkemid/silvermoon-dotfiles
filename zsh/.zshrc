@@ -18,7 +18,7 @@ autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 
 # gnu stuffs
@@ -46,14 +46,12 @@ alias v="nvim"
 alias please="sudo"
 alias ls="gls --color -AF --group-directories-first"
 alias tmux="tmux -f $ALL_CONFIG_DIR/tmux/tmux.conf new -s padul"
-alias set_sirius_env="source $ALL_SHARE_DIR/scripts/set_sirius_env"
-alias unset_sirius_env="source $ALL_SHARE_DIR/scripts/unset_sirius_env"
-alias create_arch_tree="$ALL_SHARE_DIR/scripts/create_arch_tree"
 alias tctl="docker exec temporal-admin-tools tctl"
 alias man="\man"
 alias pdsh="$ALL_SHARE_DIR/scripts/pdsh"
 alias create_norg_note="$ALL_SHARE_DIR/scripts/create_norg_note"
 alias spot="ncspot"
+# alias update_yabai=`echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai`
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"

@@ -20,6 +20,7 @@ telescope.setup {
 }
 
 pcall(telescope.load_extension, 'fzf')
+pcall(telescope.load_extension, 'rest')
 
 -- Telescope keymaps
 vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
@@ -32,3 +33,6 @@ vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iag
 vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = '[G]oto [R]eferences' })
 vim.keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, { desc = '[D]ocument [S]ymbols' })
 vim.keymap.set('n', '<leader>ws', builtin.lsp_dynamic_workspace_symbols, { desc = '[W]orkspace [S]ymbols' })
+
+-- Rest Nvim keymaps
+vim.keymap.set('n', '<leader>re', telescope.extensions.rest.select_env, { desc = '[R]est [E]nv' })

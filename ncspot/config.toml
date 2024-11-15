@@ -43,6 +43,7 @@ cmdline_bg = "#000000"
 # players
 "=" = "volup 5"
 "-" = "voldown 5"
+"m" = "voldown 100"
 "Enter" = "play"
 "p" = "playpause"
 "a" = "goto artist"

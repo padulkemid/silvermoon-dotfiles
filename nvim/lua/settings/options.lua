@@ -5,9 +5,6 @@ vim.g.maplocalleader = ','
 -- Respect .editorconfig
 vim.g.editorconfig = true
 
--- Theme
-vim.cmd.colorscheme 'default'
-vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })
 
 -- Remove mode in command bar (since it has been handled from lualine)
 vim.o.showmode = false
@@ -61,3 +58,8 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.wrap = false
+
+-- Theme
+vim.cmd.colorscheme 'default'
+vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })
+vim.cmd.syntax 'off'
