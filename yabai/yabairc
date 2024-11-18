@@ -14,7 +14,6 @@ yabai -m rule --add app="^Floorp$" space=web
 yabai -m rule --add app="^Spark Desktop$" space=web
 yabai -m rule --add app="^Alacritty$" space=work
 yabai -m rule --add app="^IntelliJ IDEA$" space=work
-yabai -m rule --add app="^Visual Studio Code$" space=work
 yabai -m rule --add app="^OrbStack$" space=work
 yabai -m rule --add app="^Slack$" space=slack
 yabai -m rule --add app="^Spotify$" space=personal
