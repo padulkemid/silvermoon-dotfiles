@@ -1,7 +1,3 @@
--- Unless you are still migrating, remove the deprecated commands from v1.x
-vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
-vim.keymap.set('n', '<Bslash>', ':Neotree<CR>')
-
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
@@ -14,5 +10,7 @@ return {
   },
   config = function()
     require('neo-tree').setup {}
+
+    vim.keymap.set('n', '<Bslash>', ':Neotree<CR>')
   end,
 }
