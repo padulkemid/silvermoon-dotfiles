@@ -6,6 +6,7 @@ return {
   config = function()
     local files = require 'mini.files'
     local icons = require 'mini.icons'
+
     -- setup mini things
     files.setup()
     icons.setup {

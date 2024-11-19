@@ -2,7 +2,7 @@ return {
   {
     'nvim-telescope/telescope.nvim',
     cmd = { 'Telescope' },
-    lazy = false,
+    event = { 'VimEnter' },
     version = '*',
     init = function()
       require('utils.helpers').lazy_load 'telescope.nvim'
