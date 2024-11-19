@@ -18,7 +18,6 @@ vim.o.textwidth = 80
 
 -- Make line numbers default
 vim.wo.number = true
-vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -37,7 +36,7 @@ vim.o.hlsearch = true
 vim.o.infercase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = 'no'
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -60,6 +59,5 @@ vim.o.expandtab = true
 vim.o.wrap = false
 
 -- Theme
-vim.cmd.colorscheme 'default'
 vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })
 vim.cmd.syntax 'off'

@@ -1,10 +1,5 @@
 require('lazy').setup({
-  'tpope/vim-fugitive',
-  'tpope/vim-sleuth',
-  'tpope/vim-surround',
-  'nvim-lua/plenary.nvim',
-
-  { import = 'repo' },
+  { import = 'plugins' },
 }, {
   defaults = {
     lazy = true

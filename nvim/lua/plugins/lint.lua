@@ -5,6 +5,7 @@ return {
     require('utils.helpers').lazy_load 'nvim-lint'
   end,
   config = function()
+    local set = vim.keymap.set
     local lint = require 'lint'
 
     lint.linters_by_ft = {
@@ -26,8 +27,6 @@ return {
       end,
     })
 
-    vim.keymap.set('n', '<leader>eg', function()
-      lint.try_lint()
-    end, { desc = 'Trigger linting for current file' })
+    set('n', '<leader>eg', function() lint.try_lint() end, { desc = 'Trigger linting for current file' })
   end,
 }

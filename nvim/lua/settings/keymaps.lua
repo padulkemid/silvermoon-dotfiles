@@ -1,64 +1,62 @@
+local set = vim.keymap.set
+
 -- Map leader to do nothing
-vim.keymap.set({ 'n', 'v' }, ',', '<Nop>', { silent = true })
+set({ 'n', 'v' }, ',', '<Nop>', { silent = true })
 
 -- Remove highlight after doing something
-vim.keymap.set('n', '<leader><leader>', ':noh<CR>', { silent = true })
+set('n', '<leader><leader>', ':noh<CR>', { silent = true })
 
 -- Move tabs back and forth
-vim.keymap.set('n', '<leader>te', ':tabe<CR>')
-vim.keymap.set('n', '<leader>tn', ':tabn<CR>')
-vim.keymap.set('n', '<leader>tp', ':tabp<CR>')
+set('n', '<leader>te', ':tabe<CR>')
+set('n', '<leader>tn', ':tabn<CR>')
+set('n', '<leader>tp', ':tabp<CR>')
 
 -- Destroy buffer
-vim.keymap.set('n', '<leader>;', ':bw<CR>')
+set('n', '<leader>;', ':bw<CR>')
 
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Remap for copying and paste-ing from outside buffer (MacOS only)
-vim.keymap.set('x', '<C-c>', '"*y')
-vim.keymap.set('x', '<C-v>', '"*p')
+set('x', '<C-c>', '"*y')
+set('x', '<C-v>', '"*p')
 
 -- Map escape to be easier to work with
-vim.keymap.set('i', '<C-c>', '<Esc>', { silent = true })
+set('i', '<C-c>', '<Esc>', { silent = true })
 
 -- Move windows back and forth, vim motions
-vim.keymap.set('', '<C-j>', '<C-W>j')
-vim.keymap.set('', '<C-k>', '<C-W>k')
-vim.keymap.set('', '<C-h>', '<C-W>h')
-vim.keymap.set('', '<C-l>', '<C-W>l')
+set('', '<C-j>', '<C-W>j')
+set('', '<C-k>', '<C-W>k')
+set('', '<C-h>', '<C-W>h')
+set('', '<C-l>', '<C-W>l')
 
 -- Search next word and centers the buffer
-vim.keymap.set('n', 'n', 'nzzzv', { remap = true })
-vim.keymap.set('n', 'N', 'Nzzzv', { remap = true })
+set('n', 'n', 'nzzzv', { remap = true })
+set('n', 'N', 'Nzzzv', { remap = true })
 
 -- Scroll buffer and centers it
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
+set('n', '<C-d>', '<C-d>zz')
+set('n', '<C-u>', '<C-u>zz')
 
 -- Motion shortcut remap
-vim.keymap.set('n', 'H', '^', { remap = true })
-vim.keymap.set('n', 'L', '$', { remap = true })
-vim.keymap.set('v', 'H', '^', { remap = true })
-vim.keymap.set('v', 'L', 'g_', { remap = true })
+set('n', 'H', '^', { remap = true })
+set('n', 'L', '$', { remap = true })
+set('v', 'H', '^', { remap = true })
+set('v', 'L', 'g_', { remap = true })
 
 -- Alt-like movestyle to move block
--- vim.keymap.set('n', 'J', 'mzJ`z', { remap = true })
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { remap = true })
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { remap = true })
+-- set('n', 'J', 'mzJ`z', { remap = true })
+set('v', 'J', ":m '>+1<CR>gv=gv", { remap = true })
+set('v', 'K', ":m '<-2<CR>gv=gv", { remap = true })
 
 -- Remap q: so it doesn't confuse :q
-vim.keymap.set('', 'q:', ':q')
-vim.keymap.set('', ':Q', ':q')
-vim.keymap.set('', ':W', ':w')
-
--- Git thingy
-vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [S]how' })
-vim.keymap.set('n', '<leader>gb', ':Git blame<CR>', { desc = '[G]it [B]lame'})
+set('', 'q:', ':q')
+set('', ':Q', ':q')
+set('', ':W', ':w')
 
 -- Terminal exit
-vim.keymap.set('t', '<C-\\><C-\\>', '<C-\\><C-n>', { remap = true })
+set('t', '<C-\\><C-\\>', '<C-\\><C-n>', { remap = true })
 
 -- Copy filepath
-vim.keymap.set('n', '<leader>cfp', ':let @+=expand("%:p")<CR>', { desc = '[C]opy [F]ull [P]ath' })
+set('n', '<leader>cfp', ':let @+=expand("%:p")<CR>', { desc = '[C]opy [F]ull [P]ath' })
