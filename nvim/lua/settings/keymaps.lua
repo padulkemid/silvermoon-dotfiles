@@ -54,10 +54,11 @@ vim.keymap.set('', ':Q', ':q')
 vim.keymap.set('', ':W', ':w')
 
 -- Git thingy
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { remap = false })
-vim.keymap.set('n', '<leader>gb', function()
-  vim.cmd.Git({ 'blame' })
-end, { remap = false })
+vim.keymap.set('n', '<leader>gs', ':Git<CR>', { desc = '[G]it [S]how' })
+vim.keymap.set('n', '<leader>gb', ':Git blame<CR>', { desc = '[G]it [B]lame'})
 
 -- Terminal exit
 vim.keymap.set('t', '<C-\\><C-\\>', '<C-\\><C-n>', { remap = true })
+
+-- Copy filepath
+vim.keymap.set('n', '<leader>cfp', ':let @+=expand("%:p")<CR>', { desc = '[C]opy [F]ull [P]ath' })
