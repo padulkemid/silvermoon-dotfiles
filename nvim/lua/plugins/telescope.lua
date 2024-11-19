@@ -31,6 +31,9 @@ return {
           }
         },
         defaults = {
+          preview = {
+            treesitter = false,
+          },
           mappings = {
             i = {
               ['<C-k>'] = 'move_selection_previous',
