@@ -8,7 +8,14 @@ return {
     local icons = require 'mini.icons'
 
     -- setup mini things
-    files.setup()
+    files.setup {
+      mappings = {
+        go_in_plus = '<CR>',
+        go_out_plus = '<BS>',
+        reset = 'r',
+      }
+    }
+
     icons.setup {
       style = 'ascii'
     }
@@ -16,6 +23,6 @@ return {
     -- setup keymaps
     local set = vim.keymap.set
 
-    set('n', '<Bslash>', files.open, { desc = 'Open Files'})
+    set('n', '<Bslash>', files.open, { desc = 'Open Files' })
   end
 }
