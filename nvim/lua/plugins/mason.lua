@@ -1,6 +1,6 @@
 return {
   'williamboman/mason.nvim',
-  event = { 'VimEnter'},
+  event = { 'VeryLazy'},
   init = function()
     require('utils.helpers').lazy_load 'mason.nvim'
   end,
