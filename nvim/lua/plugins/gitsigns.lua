@@ -55,7 +55,6 @@ return {
       -- setup normal keymaps
       set('n', '<leader>gba', gitsigns.blame, { buffer = bufnr, desc = '[G]it [B]lame [A]ll' })
       set('n', '<leader>gbl', gitsigns.blame_line, { buffer = bufnr, desc = '[G]it [B]lame [L]ine' })
-      set('n', '<leader>gs', ':Git<CR>', {buffer = bufnr, desc = '[G]it [S]how'})
     end
   },
 }
