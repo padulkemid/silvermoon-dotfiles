@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.nvim',
-  cmd = { 'Pick'},
+  cmd = { 'Pick' },
   init = function()
     require('utils.helpers').lazy_load 'mini.nvim'
   end,

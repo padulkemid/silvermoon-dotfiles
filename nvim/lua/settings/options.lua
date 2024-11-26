@@ -5,9 +5,8 @@ vim.g.maplocalleader = ','
 -- Respect .editorconfig
 vim.g.editorconfig = true
 
-
--- Remove mode in command bar (since it has been handled from lualine)
-vim.o.showmode = false
+-- Show statusbar
+vim.o.laststatus = 2
 
 -- Colors
 vim.o.background = 'dark'
