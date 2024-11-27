@@ -23,7 +23,7 @@ set('x', '<C-c>', '"*y')
 set('x', '<C-v>', '"*p')
 
 -- Map escape to be easier to work with
-set('i', '<C-c>', '<Esc>', { silent = true })
+set('i', '<C-c>', '<C-[>', { silent = true })
 
 -- Move windows back and forth, vim motions
 set('', '<C-j>', '<C-W>j')
