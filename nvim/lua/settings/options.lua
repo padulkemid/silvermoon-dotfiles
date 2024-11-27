@@ -59,5 +59,6 @@ vim.o.expandtab = true
 vim.o.wrap = false
 
 -- Theme
-vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })
 vim.cmd.syntax 'off'
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'Black', fg = 'White' })
+vim.api.nvim_set_hl(0, 'StatusLine', { fg = 'White', bg = 'Black', cterm = { reverse = true } })
