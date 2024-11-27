@@ -9,7 +9,7 @@ a big note: This config only works in _intel based macs_ not the M one.
 
 # 📷 Pics
 
-![prompt screen](https://i.imgur.com/QrcY9Ly.png)
+![prompt screen](https://i.imgur.com/FE68Egt.png)
 
 # 🏃🏻‍♂️ 💨 Running the Script
 
