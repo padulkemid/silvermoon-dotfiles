@@ -8,8 +8,8 @@ set('n', '<leader><leader>', ':noh<CR>', { silent = true })
 
 -- Move tabs back and forth
 set('n', '<leader>te', ':tabe<CR>')
-set('n', '<leader>tn', ':tabn<CR>')
-set('n', '<leader>tp', ':tabp<CR>')
+set('n', '<leader>tn', 'gt')
+set('n', '<leader>tp', 'gT')
 
 -- Destroy buffer
 set('n', '<leader>;', ':bw<CR>')
