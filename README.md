@@ -7,6 +7,8 @@ symlinks all already done.
 
 a big note: This config only works in _intel based macs_ not the M one.
 
+faq: why no syntax highlighting? I'm colorblind
+
 # 📷 Pics
 
 ![prompt screen](https://i.imgur.com/FE68Egt.png)

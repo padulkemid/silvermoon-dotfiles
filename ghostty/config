@@ -27,3 +27,6 @@ window-padding-color = background
 window-decoration = false
 window-theme = ghostty
 macos-window-shadow = false
+
+# updates
+auto-update = off
