@@ -1,0 +1,29 @@
+# colors
+theme = Abernathy
+background = 000000
+foreground = ffffff
+
+# fonts
+font-family = GohuFont uni14 Nerd Font
+font-size = 14 
+font-synthetic-style = false
+
+# cursor
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+# mouse
+mouse-scroll-multiplier = 2
+
+# keybinds
+keybind = super+backspace=text:\x15
+
+# window
+window-padding-x = 2
+window-padding-y = 2
+window-padding-balance = false
+window-padding-color = background
+window-decoration = false
+window-theme = ghostty
+macos-window-shadow = false

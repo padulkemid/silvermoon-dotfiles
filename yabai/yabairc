@@ -6,21 +6,21 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 # desktop labels
 yabai -m space 1 --label web
 yabai -m space 2 --label work
-yabai -m space 3 --label slack
+yabai -m space 3 --label mail
 yabai -m space 4 --label personal
 
 # window rules
 yabai -m rule --add app="^Floorp$" space=web
-yabai -m rule --add app="^Spark Desktop$" space=web
-yabai -m rule --add app="^Alacritty$" space=work
+yabai -m rule --add app="^Spark Desktop$" space=mail
+yabai -m rule --add app="^Ghostty$" space=work
 yabai -m rule --add app="^IntelliJ IDEA$" space=work
 yabai -m rule --add app="^OrbStack$" space=work
-yabai -m rule --add app="^Slack$" space=slack
-yabai -m rule --add app="^OBS$" space=slack
+yabai -m rule --add app="^Slack$" space=mail
+yabai -m rule --add app="^OBS$" space=mail
 yabai -m rule --add app="^Spotify$" space=personal
 yabai -m rule --add app="^WhatsApp$" space=personal
 yabai -m rule --add app="^Notion$" space=personal
-yabai -m rule --add app="^(Calculator|System Preferences|Archive Utility)$" manage=off
+yabai -m rule --add app="^(Calculator|System Settings|Archive Utility)$" manage=off
 
 # global settings
 yabai -m config mouse_follows_focus          off
