@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+NOTE_TITLE=$1
+
+if [[ -z "$NOTE_TITLE" ]]; then
+    echo "Error: Note title is required"
+    echo "Usage: $0 <note-title>"
+    exit 1
+fi
+
+CURRENT_DATE=$(date +%F)
+MAX_NUMBER=$(ls *.norg 2> /dev/null | rg -o '^\d{3}' | sort -n | tail -1)
+
+if [[ -z "$MAX_NUMBER" ]]; then
+  MAX_NUMBER="000"
+fi
+
+NEW_NUMBER=$(printf "%03d" $((10#$MAX_NUMBER + 1)))
+FILENAME="${NEW_NUMBER}_${CURRENT_DATE}_${NOTE_TITLE}.norg"
+
+touch "$FILENAME"
+
+echo "File created! => $FILENAME"
+

@@ -48,7 +48,8 @@ alias tmux="tmux -f $ALL_CONFIG_DIR/tmux/tmux.conf new -s padul"
 alias tctl="docker exec temporal-admin-tools tctl"
 alias man="\man"
 alias pdsh="$ALL_SHARE_DIR/scripts/pdsh"
-alias create_norg_note="$ALL_SHARE_DIR/scripts/create_norg_note"
+alias cnn="$ALL_SHARE_DIR/scripts/create_norg_note"
+alias csn="$ALL_SHARE_DIR/scripts/create_sena_note"
 alias spot="ncspot"
 # alias update_yabai=`echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai`
 
