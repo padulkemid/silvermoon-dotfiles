@@ -36,6 +36,7 @@ export JUMP_HOME="$ALL_CONFIG_DIR/jump"
 export GITCONFIG_LOCATION="$ALL_DOTFILES_DIR/git/config"
 export MISE_CONFIG_LOCATION="$ALL_DOTFILES_DIR/mise/config.toml"
 export GHOSTTY_CONFIG_LOCATION="$ALL_DOTFILES_DIR/ghostty/config"
+export ALACRITTY_CONFIG_LOCATION="$ALL_DOTFILES_DIR/alacritty/alacritty.toml"
 
 # aliases
 ## commands override
@@ -59,6 +60,7 @@ alias zpc="nvim $ZPROFILE_LOCATION"
 alias szc="source $ZSHRC_LOCATION"
 alias vc="nvim $INITLUA_LOCATION"
 alias ghc="nvim $GHOSTTY_CONFIG_LOCATION"
+alias alc="nvim $ALACRITTY_CONFIG_LOCATION"
 alias tc="nvim $TMUX_CONF_LOCATION"
 alias skc="nvim $SKHDRC_LOCATION"
 alias ybc="nvim $YABAIRC_LOCATION"
