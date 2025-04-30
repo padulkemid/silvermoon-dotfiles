@@ -13,6 +13,7 @@ yabai -m space 4 --label personal
 yabai -m rule --add app="^Floorp$" space=web
 yabai -m rule --add app="^Spark Desktop$" space=mail
 yabai -m rule --add app="^Ghostty$" space=work
+yabai -m rule --add app="^Alacritty$" space=work
 yabai -m rule --add app="^IntelliJ IDEA$" space=work
 yabai -m rule --add app="^OrbStack$" space=work
 yabai -m rule --add app="^Slack$" space=mail
