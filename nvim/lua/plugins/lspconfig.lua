@@ -5,7 +5,7 @@ return {
   end,
   dependencies = {
     {
-      "Bilal2453/luvit-meta",
+      'Bilal2453/luvit-meta',
       lazy = true,
     },
     {
@@ -16,7 +16,7 @@ return {
       'folke/lazydev.nvim',
       'williamboman/mason-lspconfig.nvim',
       'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    }
+    },
   },
   config = function()
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -27,8 +27,8 @@ return {
     local mason_lspconfig = require 'mason-lspconfig'
     -- volar compatibility for ts_ls
     local mason_registry = require 'mason-registry'
-    local vue_plugin_path = mason_registry.get_package('vue-language-server'):get_install_path() ..
-        '/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
+    local vue_plugin_path = mason_registry.get_package('vue-language-server'):get_install_path()
+      .. '/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
 
     -- lsp servers
     local servers = {
@@ -43,16 +43,16 @@ return {
             {
               name = '@vue/typescript-plugin',
               location = vue_plugin_path,
-              languages = { 'vue' }
-            }
-          }
+              languages = { 'vue' },
+            },
+          },
         },
         filetypes = {
           'typescript',
           'typescriptreact',
           'javascript',
           'javascriptreact',
-          'vue'
+          'vue',
         },
       },
       gopls = {
@@ -84,6 +84,7 @@ return {
           semanticTokensProvider = vim.NIL,
         },
       },
+      cssls = true,
       html = {
         settings = {
           html = {
@@ -97,7 +98,8 @@ return {
 
     -- setup the servers
     mason_lspconfig.setup {
-      ensure_installed = vim.tbl_keys(servers)
+      automatic_installation = true,
+      ensure_installed = vim.tbl_keys(servers),
     }
 
     -- setup lspconfig
@@ -134,8 +136,6 @@ return {
         set('n', 'K', vim.lsp.buf.hover, { buffer = 0, desc = 'Hover Documentation' })
         set('n', '<leader>K', vim.lsp.buf.signature_help, { buffer = 0, desc = 'Signature Documentation' })
 
-        client.server_capabilities.semanticTokensProvider = nil
-
         if settings.server_capabilities then
           for key, value in pairs(settings.server_capabilities) do
             if value == vim.NIL then
@@ -153,7 +153,7 @@ return {
 
           vim.diagnostic.enable(false, { bufnr = bufnr, ns_id = ns_id })
         end ]]
-      end
+      end,
     })
-  end
+  end,
 }

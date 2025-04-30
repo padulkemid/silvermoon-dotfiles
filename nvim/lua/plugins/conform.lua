@@ -6,7 +6,7 @@ return {
     {
       '<leader>ef',
       function()
-        require('conform').format { async = true, lsp_fallback = true }
+        require('conform').format { async = true }
       end,
       mode = '',
       desc = 'Format buffer',
@@ -23,11 +23,12 @@ return {
       javascriptreact = { 'prettierd' },
       typescript = { 'prettierd' },
       typescriptreact = { 'prettierd' },
+      css = { 'prettierd' },
       vue = { 'prettierd' },
       go = { 'gofumpt', 'golines', 'goimports' },
       json = { 'jq' },
       dart = { 'dartls' },
-      kotlin = { 'ktlint' }
+      kotlin = { 'ktlint' },
     },
     log_level = vim.log.levels.ERROR,
     notify_on_error = true,

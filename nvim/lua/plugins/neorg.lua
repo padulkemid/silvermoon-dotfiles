@@ -2,7 +2,6 @@ return {
   'nvim-neorg/neorg',
   version = '*',
   ft = 'norg',
-  cmd = 'Neorg',
   dependencies = { 'nvim-lua/plenary.nvim' },
   init = function()
     require('utils.helpers').lazy_load 'neorg'
