@@ -11,7 +11,7 @@ faq: why no syntax highlighting? I'm colorblind
 
 # 📷 Pics
 
-![prompt screen](https://i.imgur.com/FE68Egt.png)
+![prompt screen](https://i.imgur.com/H7EJkwn.png)
 
 # 🏃🏻‍♂️ 💨 Running the Script
 
@@ -26,6 +26,6 @@ padulkemid@silvermoon: ~/.dotfiles $ ./install.sh
 
 # 🗒 Progress
 
-- [ ] doesnt work in M chip, need to reconfigure
+- [ ] doesnt work in M chip, need to reconfigure (to cater this, please run down all the plugins and review it 1-by-1)
 - [x] `yabai` doesn't do excellent stuff with `csrutil` enabled (its ok though)
 - [x] minimal install works

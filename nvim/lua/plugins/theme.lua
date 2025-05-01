@@ -14,7 +14,7 @@ return {
       palettes = {
         github_dark_high_contrast = {
           fg = {
-            default = 'white',
+            default = '#ffffff',
           },
         },
       },
