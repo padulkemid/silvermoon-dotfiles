@@ -1,5 +1,5 @@
 return {
-  'akinsho/flutter-tools.nvim',
+  'nvim-flutter/flutter-tools.nvim',
   ft = 'dart',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -8,9 +8,6 @@ return {
   config = function()
     local set = vim.keymap.set
     local on_attach = function(client, bufnr)
-      -- disable syntax highlight
-      client.server_capabilities.semanticTokensProvider = nil
-
       set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = 'Flutter [C]ode [A]ction' })
       set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = 'Flutter [G]oto [D]efinition' })
       set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'Flutter Hover Documentation' })

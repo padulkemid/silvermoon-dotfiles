@@ -21,7 +21,10 @@ return {
       groups = {
         github_dark_high_contrast = {
           Normal = { fg = 'white', bg = 'black' },
+          NormalNC = { bg = 'black' },
           StatusLine = { fg = 'black', bg = 'white' },
+          StatusLineNC = { fg = 'black', bg = 'darkgray' },
+          WinSeparator = { fg = 'white', bg = 'black' },
         },
       },
     }

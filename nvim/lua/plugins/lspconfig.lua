@@ -27,14 +27,24 @@ return {
     local mason_lspconfig = require 'mason-lspconfig'
     -- volar compatibility for ts_ls
     local mason_registry = require 'mason-registry'
-    local vue_plugin_path = mason_registry.get_package('vue-language-server'):get_install_path()
-      .. '/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
+    local mason_install_location = require 'mason-core.installer.InstallLocation'
+
+    local vue_plugin_path = mason_registry.get_package 'vue-language-server'
+    local vue_ls = mason_install_location.global():package(vue_plugin_path.name) .. '/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
 
     -- lsp servers
     local servers = {
       jsonls = true,
       emmet_language_server = true,
       kotlin_language_server = true,
+      cucumber_language_server = {
+        settings = {
+          cucumber = {
+            features = { '**/*.feature' },
+            glue = { '**/*_steps.ts', '**/*_step.ts' },
+          },
+        },
+      },
       volar = true,
       lexical = true,
       ts_ls = {
@@ -42,7 +52,7 @@ return {
           plugins = {
             {
               name = '@vue/typescript-plugin',
-              location = vue_plugin_path,
+              location = vue_ls,
               languages = { 'vue' },
             },
           },
@@ -79,11 +89,7 @@ return {
           },
         },
       },
-      lua_ls = {
-        server_capabilities = {
-          semanticTokensProvider = vim.NIL,
-        },
-      },
+      lua_ls = true,
       cssls = true,
       html = {
         settings = {
@@ -96,11 +102,11 @@ return {
       },
     }
 
-    -- setup the servers
+    --[[ -- setup the servers
     mason_lspconfig.setup {
       automatic_installation = true,
-      ensure_installed = vim.tbl_keys(servers),
-    }
+      ensure_installed = vim.tbl_keys(servers)
+    } ]]
 
     -- setup lspconfig
     local lspconfig = require 'lspconfig'
@@ -146,13 +152,6 @@ return {
             client.server_capabilities[key] = value
           end
         end
-
-        --[[ TODO: Disable `ts_ls`
-        if client.name == 'ts_ls' then
-          local ns_id = vim.lsp.diagnostic.get_namespace(client.id)
-
-          vim.diagnostic.enable(false, { bufnr = bufnr, ns_id = ns_id })
-        end ]]
       end,
     })
   end,
