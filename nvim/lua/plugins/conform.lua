@@ -13,7 +13,6 @@ return {
     },
   },
   init = function()
-    require('utils.helpers').lazy_load 'conform.nvim'
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
   end,
   opts = {

@@ -1,9 +1,6 @@
 return {
   'mfussenegger/nvim-lint',
   event = { 'BufReadPre', 'BufNewFile' },
-  init = function()
-    require('utils.helpers').lazy_load 'nvim-lint'
-  end,
   config = function()
     local set = vim.keymap.set
     local lint = require 'lint'

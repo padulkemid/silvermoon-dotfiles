@@ -1,0 +1,19 @@
+--[[ return {
+  'mfussenegger/nvim-jdtls',
+  ft = 'java',
+  config = function()
+    local conf = {
+      cmd = {
+        vim.fn.expand '$HOME/.local/share/nvim/mason/bin/jdtls',
+        ('--jvm-arg=-javaagent:%s'):format(vim.fn.expand '$HOME/.local/share/nvim/mason/packages/jdtls/lombok.jar'),
+      },
+      init_options = {
+        bundles = {},
+      },
+    }
+
+    vim.list_extend(conf.init_options.bundles, require('spring_boot').java_extensions())
+
+    require('jdtls').start_or_attach(conf)
+  end,
+} ]]

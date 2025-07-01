@@ -1,9 +1,6 @@
 return {
   'echasnovski/mini.nvim',
   cmd = { 'Pick' },
-  init = function()
-    require('utils.helpers').lazy_load 'mini.nvim'
-  end,
   config = function()
     local files = require 'mini.files'
     local icons = require 'mini.icons'
@@ -59,12 +56,17 @@ return {
     set('n', '<leader>sg', ':Pick grep_live<CR>', { desc = '[S]earch [G]rep' })
     set('n', '<leader>sb', ':Pick buffers<CR>', { desc = '[S]earch [B]uffers' })
     set('n', '<leader>sw', ':Pick grep pattern="<cword>"<CR>', { desc = '[S]earch [L]ive' })
-    set('n', '<leader>sd', function() extra.pickers.diagnostic({ scope = "current" }) end,
-      { desc = '[S]earch [D]iagnostics' })
-    set('n', 'gr', function() extra.pickers.lsp({ scope = "references" }) end, { desc = '[G]oto [R]eferences' })
-    set('n', '<leader>ds', function() extra.pickers.lsp({ scope = "document_symbol" }) end,
-      { desc = '[D]ocument [S]ymbols' })
-    set('n', '<leader>ws', function() extra.pickers.lsp({ scope = "workspace_symbol" }) end,
-      { desc = '[W]orkspace [S]ymbols' })
-  end
+    set('n', '<leader>sd', function()
+      extra.pickers.diagnostic { scope = 'current' }
+    end, { desc = '[S]earch [D]iagnostics' })
+    set('n', 'gr', function()
+      extra.pickers.lsp { scope = 'references' }
+    end, { desc = '[G]oto [R]eferences' })
+    set('n', '<leader>ds', function()
+      extra.pickers.lsp { scope = 'document_symbol' }
+    end, { desc = '[D]ocument [S]ymbols' })
+    set('n', '<leader>ws', function()
+      extra.pickers.lsp { scope = 'workspace_symbol' }
+    end, { desc = '[W]orkspace [S]ymbols' })
+  end,
 }

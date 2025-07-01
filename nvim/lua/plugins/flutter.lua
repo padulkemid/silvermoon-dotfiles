@@ -7,7 +7,7 @@ return {
   },
   config = function()
     local set = vim.keymap.set
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr, desc = 'Flutter [C]ode [A]ction' })
       set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr, desc = 'Flutter [G]oto [D]efinition' })
       set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'Flutter Hover Documentation' })

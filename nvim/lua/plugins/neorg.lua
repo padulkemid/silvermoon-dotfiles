@@ -3,9 +3,7 @@ return {
   version = '*',
   ft = 'norg',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  init = function()
-    require('utils.helpers').lazy_load 'neorg'
-  end,
+  
   config = function()
     require('neorg').setup {
       load = {

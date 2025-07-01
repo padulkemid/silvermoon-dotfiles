@@ -2,9 +2,6 @@ return {
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
-    init = function()
-      require('utils.helpers').lazy_load 'nvim-cmp'
-    end,
     dependencies = {
       {
         'L3MON4D3/LuaSnip',
@@ -12,8 +9,8 @@ return {
         build = 'make install_jsregexp',
         opts = {
           history = true,
-          updateevents = 'TextChanged,TextChangedI'
-        }
+          updateevents = 'TextChanged,TextChangedI',
+        },
       },
       {
         'onsails/lspkind.nvim',
@@ -23,7 +20,7 @@ return {
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-cmdline',
         'hrsh7th/cmp-path',
-      }
+      },
     },
     config = function()
       -- call the warriors
@@ -37,13 +34,13 @@ return {
 
       -- setup lspkind
       local lspkind_formatter = lspkind.cmp_format {
-        mode = "symbol_text",
+        mode = 'symbol_text',
         menu = {
-          nvim_lsp = "[LSP]",
-          nvim_lua = "[api]",
-          buffer = "[buf]",
-          path = "[path]",
-          luasnip = "[snip]",
+          nvim_lsp = '[LSP]',
+          nvim_lua = '[api]',
+          buffer = '[buf]',
+          path = '[path]',
+          luasnip = '[snip]',
         },
       }
 
@@ -85,7 +82,7 @@ return {
           {
             name = 'lazydev',
             -- set group index to 0 to skip luals loading
-            group_index = 0
+            group_index = 0,
           },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
@@ -93,7 +90,7 @@ return {
           { name = 'buffer' },
         },
         formatting = {
-          fields = { "abbr", "kind", "menu" },
+          fields = { 'abbr', 'kind', 'menu' },
           expandable_indicator = true,
           format = function(entry, item)
             -- Lspkind setup for icons
@@ -141,6 +138,6 @@ return {
           { name = 'buffer' },
         },
       })
-    end
+    end,
   },
 }

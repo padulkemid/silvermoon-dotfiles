@@ -1,12 +1,10 @@
 return {
   'theprimeagen/harpoon',
+  event = {'VeryLazy'},
   branch = 'harpoon2',
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  init = function()
-    require('utils.helpers').lazy_load 'harpoon'
-  end,
   config = function()
     local set = vim.keymap.set
     local harpoon = require 'harpoon'

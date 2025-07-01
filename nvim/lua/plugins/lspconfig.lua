@@ -1,8 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  init = function()
-    require('utils.helpers').lazy_load 'nvim-lspconfig'
-  end,
+  event = { 'BufReadPre' },
   dependencies = {
     {
       'Bilal2453/luvit-meta',
@@ -14,8 +12,6 @@ return {
     },
     {
       'folke/lazydev.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     },
   },
   config = function()
@@ -23,8 +19,6 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-    -- setup mason
-    local mason_lspconfig = require 'mason-lspconfig'
     -- volar compatibility for ts_ls
     local mason_registry = require 'mason-registry'
     local mason_install_location = require 'mason-core.installer.InstallLocation'
@@ -35,8 +29,23 @@ return {
     -- lsp servers
     local servers = {
       jsonls = true,
+      -- jdtls = true,
       emmet_language_server = true,
-      kotlin_language_server = true,
+      kotlin_language_server = {
+        settings = {
+          kotlin = {
+            linting = {
+              debounceTime = 50,
+            },
+            diagnostics = {
+              debounceTime = 50,
+            },
+            inlayHints = {
+              parameterHints = true,
+            },
+          },
+        },
+      },
       cucumber_language_server = {
         settings = {
           cucumber = {
@@ -101,12 +110,6 @@ return {
         },
       },
     }
-
-    --[[ -- setup the servers
-    mason_lspconfig.setup {
-      automatic_installation = true,
-      ensure_installed = vim.tbl_keys(servers)
-    } ]]
 
     -- setup lspconfig
     local lspconfig = require 'lspconfig'
