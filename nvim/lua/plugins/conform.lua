@@ -29,6 +29,7 @@ return {
       dart = { 'dart_format' },
       kotlin = { 'ktlint' },
       cucumber = { 'reformat-gherkin' },
+      java = { 'google-java-format' },
     },
     log_level = vim.log.levels.ERROR,
     notify_on_error = true,
