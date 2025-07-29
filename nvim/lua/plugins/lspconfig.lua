@@ -19,18 +19,24 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-    -- volar compatibility for ts_ls
-    local mason_registry = require 'mason-registry'
-    local mason_install_location = require 'mason-core.installer.InstallLocation'
-
-    local vue_plugin_path = mason_registry.get_package 'vue-language-server'
-    local vue_ls = mason_install_location.global():package(vue_plugin_path.name) .. '/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
+    -- vue_ls hell for vtsls (fuck ts_ls!) mason location
+    local vue_language_server_path = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server'
 
     -- lsp servers
     local servers = {
       jsonls = true,
-      -- jdtls = true,
       emmet_language_server = true,
+      lua_ls = true,
+      cssls = true,
+      clangd = {
+        settings = {
+          clangd = {
+            arguments = {
+              '--clang-tidy',
+            },
+          },
+        },
+      },
       kotlin_language_server = {
         settings = {
           kotlin = {
@@ -54,15 +60,18 @@ return {
           },
         },
       },
-      volar = true,
-      lexical = true,
-      ts_ls = {
-        init_options = {
-          plugins = {
-            {
-              name = '@vue/typescript-plugin',
-              location = vue_ls,
-              languages = { 'vue' },
+      vtsls = {
+        settings = {
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                {
+                  name = '@vue/typescript-plugin',
+                  location = vue_language_server_path,
+                  languages = { 'vue' },
+                  configNamespace = 'typescript',
+                },
+              },
             },
           },
         },
@@ -98,8 +107,6 @@ return {
           },
         },
       },
-      lua_ls = true,
-      cssls = true,
       html = {
         settings = {
           html = {

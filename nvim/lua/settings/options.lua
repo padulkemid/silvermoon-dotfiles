@@ -15,6 +15,9 @@ vim.o.termguicolors = true
 -- Add textwidth maximum limit
 vim.o.textwidth = 80
 
+-- Make border rounded
+vim.o.winborder = 'single'
+
 -- Make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true
