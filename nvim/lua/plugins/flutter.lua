@@ -3,7 +3,7 @@ return {
   ft = 'dart',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'stevearc/dressing.nvim', -- optional for vim.ui.select
+    'stevearc/dressing.nvim',
   },
   config = function()
     local set = vim.keymap.set

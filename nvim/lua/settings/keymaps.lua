@@ -1,5 +1,9 @@
 local set = vim.keymap.set
 
+-- Leader binds
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
+
 -- Map leader to do nothing
 set({ 'n', 'v' }, ',', '<Nop>', { silent = true })
 
@@ -12,7 +16,7 @@ set('n', '<leader>tn', 'gt')
 set('n', '<leader>tp', 'gT')
 
 -- Destroy buffer
-set('n', '<leader>;', ':bw<CR>')
+set('n', '<leader>;', ':bd<CR>')
 
 -- Remap for dealing with word wrap
 set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

@@ -2,10 +2,12 @@
 go = "latest"
 kotlin = "1.9.22"
 ruby = "2.7.5"
-flutter = "3.19.6"
-python = "3.10.15"
+flutter = "3.22.3"
 bun = "latest"
-node = "20.12"
-erlang = "26"
-elixir = "1.17.3-otp-26"
 java = "21"
+node = "20"
+python = "3.10"
+cmake = "4.0.2"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]

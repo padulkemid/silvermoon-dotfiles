@@ -1,62 +1,56 @@
--- Leader
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+-- Basic
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.wrap = false
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 8
 
--- Respect .editorconfig
-vim.g.editorconfig = true
-
--- Show statusbar
-vim.o.laststatus = 2
-
--- Colors
-vim.o.background = 'dark'
-vim.o.termguicolors = true
-
--- Add textwidth maximum limit
-vim.o.textwidth = 80
-
--- Make border rounded
-vim.o.winborder = 'single'
-
--- Make line numbers default
-vim.wo.number = true
-vim.wo.relativenumber = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Enable break indent
+-- Indentation
+vim.o.smartindent = true
+vim.o.autoindent = true
 vim.o.breakindent = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
 
--- Save undo history
-vim.o.undofile = true
-
--- Case insensitive searching with highlights
+-- Search
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.incsearch = true
 vim.o.hlsearch = true
 vim.o.infercase = true
 
--- Keep signcolumn on by default
-vim.wo.signcolumn = 'no'
+-- Visual
+vim.o.background = 'dark'
+vim.o.winborder = 'single'
+vim.o.termguicolors = true
+vim.o.signcolumn = 'no'
+vim.o.showmatch = true
+vim.o.matchtime = 2
+vim.o.cmdheight = 1
+vim.o.completeopt = 'menuone,noinsert,noselect'
+vim.o.pumheight = 10
+vim.o.synmaxcol = 500
 
--- Decrease update time
+-- File handling
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
+vim.o.undofile = true
 vim.o.updatetime = 250
-vim.o.timeout = true
 vim.o.timeoutlen = 300
+vim.o.ttimeoutlen = 0
+vim.o.timeout = true
+vim.o.autoread = true
+vim.o.autowrite = false
 
--- Splits right and below when opening a new file
+-- Behavior
+vim.o.mouse = 'a'
+vim.o.laststatus = 2
 vim.o.splitright = true
 vim.o.splitbelow = true
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- Indentation
-vim.o.smartindent = true
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.o.expandtab = true
-vim.o.wrap = false
+-- Performance
+vim.o.redrawtime = 10000
+vim.o.maxmempattern = 20000

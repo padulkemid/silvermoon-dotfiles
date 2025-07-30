@@ -25,19 +25,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 
-# locations
-export ZSHRC_LOCATION="$ALL_DOTFILES_DIR/zsh/.zshrc"
-export ZPROFILE_LOCATION="$ALL_DOTFILES_DIR/zsh/.zprofile"
-export INITLUA_LOCATION="$ALL_DOTFILES_DIR/nvim/init.lua"
-export TMUX_CONF_LOCATION="$ALL_DOTFILES_DIR/tmux/tmux.conf"
-export SKHDRC_LOCATION="$ALL_DOTFILES_DIR/skhd/skhdrc"
-export YABAIRC_LOCATION="$ALL_DOTFILES_DIR/yabai/yabairc"
-export JUMP_HOME="$ALL_CONFIG_DIR/jump"
-export GITCONFIG_LOCATION="$ALL_DOTFILES_DIR/git/config"
-export MISE_CONFIG_LOCATION="$ALL_DOTFILES_DIR/mise/config.toml"
-export GHOSTTY_CONFIG_LOCATION="$ALL_DOTFILES_DIR/ghostty/config"
-export ALACRITTY_CONFIG_LOCATION="$ALL_DOTFILES_DIR/alacritty/alacritty.toml"
-
 # aliases
 ## commands override
 alias c="clear"
@@ -66,10 +53,6 @@ alias skc="nvim $SKHDRC_LOCATION"
 alias ybc="nvim $YABAIRC_LOCATION"
 alias gtc="nvim $GITCONFIG_LOCATION"
 alias mc="nvim $MISE_CONFIG_LOCATION"
-
-# apps
-export CLOUDSDK_PYTHON="$(brew --prefix)/bin/python3"
-export GOPATH="$ALL_SHARE_DIR/go"
 
 # shells
 eval "$(jump shell)"

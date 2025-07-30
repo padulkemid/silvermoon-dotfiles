@@ -12,6 +12,7 @@ return {
     },
     {
       'folke/lazydev.nvim',
+      'stevearc/dressing.nvim',
     },
   },
   config = function()
