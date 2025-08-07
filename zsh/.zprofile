@@ -41,5 +41,5 @@ export ALACRITTY_CONFIG_LOCATION="$ALL_DOTFILES_DIR/alacritty/alacritty.toml"
 
 # apps
 export CLOUDSDK_PYTHON="python3"
-export GOOGLE_CLOUD_PROJECT="prj-dev-app5720ba"
+# export GOOGLE_CLOUD_PROJECT="prj-dev-app5720ba"
 export GOPATH="$ALL_SHARE_DIR/go"
