@@ -11,10 +11,12 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   callback = function()
     vim.opt_local.statusline = table.concat {
       '%#StatusLine#',
-      '[%f] %h%w%m%r',
       branch_status(),
+      '%y',
       '%=',
-      '[%l:%c] [%P] %y',
+      '[%f] %h%w%m%r',
+      '%=',
+      '[%l:%c][%P]',
     }
   end,
 })
