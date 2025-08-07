@@ -11,8 +11,13 @@ return {
       opts = {},
     },
     {
+      'mluders/comfy-line-numbers.nvim',
+      opts = {},
+    },
+    {
       'folke/lazydev.nvim',
       'stevearc/dressing.nvim',
+      'williamboman/mason.nvim',
     },
   },
   config = function()
