@@ -1,6 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  event = { 'BufReadPre' },
+  event = { 'BufReadPost' },
   dependencies = {
     {
       'Bilal2453/luvit-meta',
@@ -10,13 +10,13 @@ return {
       'j-hui/fidget.nvim',
       opts = {},
     },
-    {
+    --[[ {
       'mluders/comfy-line-numbers.nvim',
       opts = {},
-    },
+    }, ]]
     {
       'folke/lazydev.nvim',
-      'stevearc/dressing.nvim',
+      -- 'stevearc/dressing.nvim',
       'williamboman/mason.nvim',
     },
   },
@@ -28,6 +28,7 @@ return {
     -- vue_ls hell for vtsls (fuck ts_ls!) mason location
     local vue_language_server_path = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server'
 
+    -- TODO(v3: move this to ramp up nightly)
     -- lsp servers
     local servers = {
       jsonls = true,
@@ -43,7 +44,7 @@ return {
           },
         },
       },
-      kotlin_language_server = {
+      --[[ kotlin_language_server = {
         settings = {
           kotlin = {
             linting = {
@@ -57,7 +58,7 @@ return {
             },
           },
         },
-      },
+      }, ]]
       cucumber_language_server = {
         settings = {
           cucumber = {
@@ -124,6 +125,7 @@ return {
       },
     }
 
+    -- TODO(v3: deprecated)
     -- setup lspconfig
     local lspconfig = require 'lspconfig'
     for name, config in pairs(servers) do

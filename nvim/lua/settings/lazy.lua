@@ -11,6 +11,7 @@ require('lazy').setup({
     rtp = {
       disabled_plugins = {
         '2html_plugin',
+        '2html',
         'tohtml',
         'getscript',
         'getscriptPlugin',
@@ -21,9 +22,11 @@ require('lazy').setup({
         'netrwSettings',
         'netrwFileHandlers',
         'matchit',
+        'matchparen',
         'tar',
         'tarPlugin',
         'rrhelper',
+        'spellfile',
         'spellfile_plugin',
         'vimball',
         'vimballPlugin',

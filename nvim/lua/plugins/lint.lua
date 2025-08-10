@@ -1,6 +1,6 @@
 return {
   'mfussenegger/nvim-lint',
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = { 'BufReadPost' },
   config = function()
     local set = vim.keymap.set
     local lint = require 'lint'
@@ -12,7 +12,7 @@ return {
       typescriptreact = { 'eslint_d' },
       vue = { 'eslint_d' },
       go = { 'golangcilint' },
-      kotlin = { 'ktlint' },
+      -- kotlin = { 'ktlint' },
     }
 
     vim.env.ESLINT_D_MISS = 'ignore'

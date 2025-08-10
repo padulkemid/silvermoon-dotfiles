@@ -1,12 +1,8 @@
 return {
   'windwp/nvim-autopairs',
-  event = { 'BufReadPre' },
-  opts = {
-    fast_wrap = {},
-    disable_filetype = { 'TelescopePrompt', 'vim' },
-  },
+  event = { 'InsertEnter' },
   config = function()
-    require('nvim-autopairs').setup()
+    require('nvim-autopairs').setup {}
 
     -- setup cmp for autopairs
     local cmp = require 'cmp'

@@ -14,9 +14,9 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
       branch_status(),
       '%y',
       '%=',
-      '[%f] %h%w%m%r',
+      '[%f]',
       '%=',
-      '[%l:%c][%P]',
+      '%h%w%m%r[%l:%c][%P]',
     }
   end,
 })

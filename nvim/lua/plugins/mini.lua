@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.nvim',
-  cmd = { 'Pick' },
+  event = { 'VeryLazy' },
   config = function()
     local files = require 'mini.files'
     local icons = require 'mini.icons'
@@ -40,6 +40,9 @@ return {
     git.setup()
     ai.setup()
     extra.setup()
+
+    -- settings
+    vim.ui.select = MiniPick.ui_select
 
     -- setup keymaps
     local set = vim.keymap.set

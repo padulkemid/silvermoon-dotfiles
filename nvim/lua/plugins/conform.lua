@@ -1,6 +1,6 @@
 return {
   'stevearc/conform.nvim',
-  event = 'BufWritePre',
+  event = { 'BufWritePre' },
   cmd = 'ConformInfo',
   keys = {
     {
@@ -27,7 +27,7 @@ return {
       go = { 'gofumpt', 'golines', 'goimports' },
       json = { 'jq' },
       dart = { 'dart_format' },
-      kotlin = { 'ktlint' },
+      -- kotlin = { 'ktlint' },
       cucumber = { 'reformat-gherkin' },
       java = { 'google-java-format' },
       c = { 'clang-format' },

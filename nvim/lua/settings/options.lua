@@ -32,7 +32,7 @@ vim.o.matchtime = 2
 vim.o.cmdheight = 1
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.pumheight = 10
-vim.o.synmaxcol = 500
+vim.o.synmaxcol = 300
 
 -- File handling
 vim.o.backup = false

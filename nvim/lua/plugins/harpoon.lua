@@ -1,6 +1,6 @@
 return {
   'theprimeagen/harpoon',
-  event = {'VeryLazy'},
+  event = { 'VeryLazy' },
   branch = 'harpoon2',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -11,8 +11,14 @@ return {
 
     harpoon:setup()
 
-    set('n', '<leader>ha', function() harpoon:list():add() end, { desc = '[H]arpoon [A]dd' })
-    set('n', '<leader>hc', function() harpoon:list():clear() end, { desc = '[H]arpoon [C]lear' })
-    set('n', '<leader><space>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = '[H]arpoon [F]iles' })
+    set('n', '<leader>ha', function()
+      harpoon:list():add()
+    end, { desc = '[H]arpoon [A]dd' })
+    set('n', '<leader>hc', function()
+      harpoon:list():clear()
+    end, { desc = '[H]arpoon [C]lear' })
+    set('n', '<leader><space>', function()
+      harpoon.ui:toggle_quick_menu(harpoon:list())
+    end, { desc = '[H]arpoon [F]iles' })
   end,
 }
