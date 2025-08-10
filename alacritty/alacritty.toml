@@ -91,6 +91,7 @@ bindings = [
 [window]
 decorations = "none"
 dynamic_title = false
+option_as_alt = "OnlyLeft"
 # title = "padulcritty"
 
 [window.padding]
