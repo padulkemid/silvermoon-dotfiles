@@ -49,3 +49,6 @@ flycheck_*.el
 
 # undo-tree
 *.~undo-tree~
+
+# eln
+eln-cache
