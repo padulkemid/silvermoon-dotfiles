@@ -26,6 +26,7 @@ padulkemid@silvermoon: ~/.dotfiles $ ./install.sh
 
 # 🗒 Progress
 
-- [ ] doesnt work in M chip, need to reconfigure (to cater this, please run down all the plugins and review it 1-by-1)
+- [ ] update install script
+- [x] doesnt work in M chip, need to reconfigure (to cater this, please run down all the plugins and review it 1-by-1)
 - [x] `yabai` doesn't do excellent stuff with `csrutil` enabled (its ok though)
 - [x] minimal install works
