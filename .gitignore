@@ -1,2 +1,3 @@
 git/
 *.cbor
+.DS_Store
