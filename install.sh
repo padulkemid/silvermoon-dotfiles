@@ -1,89 +1,109 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # my default dotfiles config dir
-DEFAULT_DOTFILES_CONFIG_DIR = "$HOME/.config"
+DEFAULT_DOTFILES_CONFIG_DIR="$HOME/.config"
 
 createDirs() {
-  declare -a dirs=(
-    "$DEFAULT_DOTFILES_CONFIG_DIR"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/alacritty"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/karabiner"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/nvim"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/skhd"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/tmux"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/yabai"
-    "$DEFAULT_DOTFILES_CONFIG_DIR/zsh"
-  )
-
-  for i in "${dirs[@]}"; do
-    mkdir "$i"
-  done
+  mkdir -p "$DEFAULT_DOTFILES_CONFIG_DIR"
 }
 
 installBrew() {
-  if ! command -v "brew" &> /dev/null; then
-    printf "You cannot brew, as the package is not found! let us pour the joy!
-    🍻"
+  if ! command -v "brew" &> /dev/null;
+  then
+    printf "you cannot brew, as the package is not found! let us pour the joy! 🍻"
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   fi
 
-  printf "Lets install all the packages!"
+  printf "lets install all the packages!"
   brew bundle
 }
 
 installXcode() {
-  if ! xcode-select --print-path &> /dev/null; then
-    xcode-select --install &> /dev/null
+  if ! xcode-select --print-path &> /dev/null;
+  then
+    xcode-select --install
 
-    until xcode-select --print-path &> /dev/null; do
+    until xcode-select --print-path &> /dev/null;
+    do
       sleep 5
     done
 
     sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
-
     sudo xcodebuild -license
   fi
 }
 
 symlinkDotfiles() {
-  declare -a FILES_TO_SYMLINK=$(find .  -type f -not -path "./.git*" -not -path "./git*" -not -path "./zsh*" -not -path "./Brew*" -not -path "./starship*"  -not -path "*.md" -not -path "*.sh" | sed 's/.//')
+  declare -a DIRS_TO_SYMLINK=(
+    "alacritty"
+    "emacs"
+    "mise"
+    "nvim"
+    "skhd"
+    "yabai"
+    "tmux"
+    "zsh"
+    "karabiner"
+  )
 
-  # same location
-  for i in "${FILES_TO_SYMLINK[@]}"; do
-    SOURCE_FILE="$(pwd)/$i"
-    TARGET_FILE="$DEFAULT_DOTFILES_CONFIG_DIR/$i"
+  for dir in "${DIRS_TO_SYMLINK[@]}"; do
+    SOURCE_DIR="$(pwd)/$dir"
+    TARGET_DIR="$DEFAULT_DOTFILES_CONFIG_DIR/$dir"
 
-    ln -sv "$SOURCE_FILE" "$TARGET_FILE"
+    if [ -e "$TARGET_DIR" ]; then
+        echo "Backing up existing $TARGET_DIR to $TARGET_DIR.bak"
+        mv "$TARGET_DIR" "$TARGET_DIR.bak"
+    fi
+    ln -sv "$SOURCE_DIR" "$TARGET_DIR"
   done
-
-  # defaults
-  ln -sv "$(pwd)/zsh/.zprofile" "$HOME/.zprofile"
-  ln -sv "$(pwd)/zsh/.zprofile" "$HOME/.profile"
-  ln -sv "$(pwd)/zsh/.zshrc" "$DEFAULT_DOTFILES_CONFIG_DIR/zsh/.zshrc"
 }
 
 
 main() {
-  read -p "Get ready to install, are you sure want to install padulkemid's dotfiles ? (y/n)" -n 1 -r
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    printf "📂 Creating directories\n"
-    createDirs
+  echo "--- running the dry-run script first to show planned actions ---"
+  chmod +x ./install_dry_run.sh
 
-    printf "🛠 Installing Xcode Command Line Tools\n"
-    installXcode
+  ./install_dry_run.sh
 
-    printf "🔗 Symlinking dotfiles\n"
-    symlinkDotfiles
+  ASK_COUNT=0
+  while [[ ASK_COUNT -lt 3 ]]; do
+    read -p "are you absolutely sure you want to proceed with the installation? (yes/no) " -r
+    echo
 
-    printf "🍺 Installing Homebrew and its packages\n"
-    installBrew
+    if [[ $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
+      ASK_COUNT=$((ASK_COUNT + 1))
+      printf "confirmation %s of 3! \n" "$ASK_COUNT"
+    elif [[ $REPLY =~ ^[Nn][Oo]$ ]]; then
+      printf "installation aborted by user.\n"
+      exit 1
+    else
+      printf "invalid input. Please enter 'yes' or 'no'.\n"
+    fi
+  done
+  
+  printf "confirmation received. starting installation...\n"
+  printf "📂 creating directories\n"
+  createDirs
 
-    printf "After this you should configure your git config, mise config, and yabai ( extra steps on macOS Big Sur+ )\n"
-    printf "Thank you! \n"
-  fi
-    printf "Okay then, take your time!\n"
-    exit 1
+  printf "🛠 installing Xcode Command Line Tools\n"
+  installXcode
+
+  printf "🔗 symlinking dotfiles\n"
+  symlinkDotfiles
+
+  printf "🍺 installing Homebrew and its packages\n"
+  installBrew
+
+  printf "after this you should configure your git config, mise config, and yabai ( extra steps on macOS Big Sur+ )\n"
+  printf "also don't forget to install tmp (tmux), oh-my-zsh, and several stuff...\n"
+  printf "Again, check 1-by-1 for breaking change!\n"
+  printf "Thank you! \n"
+
+  exit 0
 }
+
+main

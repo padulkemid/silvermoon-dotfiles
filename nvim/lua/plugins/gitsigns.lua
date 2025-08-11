@@ -1,25 +1,6 @@
 return {
   'lewis6991/gitsigns.nvim',
-  ft = 'gitcommit',
-  init = function()
-    -- this will load gitsigns only on git files
-    vim.api.nvim_create_autocmd({ 'BufRead' }, {
-      group = vim.api.nvim_create_augroup('GitSignsLazyLoad', { clear = true }),
-      callback = function()
-        vim.fn.system("git -C " .. '"' .. vim.fn.expand "%:p:h" .. '"' .. " rev-parse")
-
-        if vim.v.shell_error == 0 then
-          vim.api.nvim_del_augroup_by_name 'GitSignsLazyLoad'
-
-          vim.schedule(
-            function()
-              require('lazy').load { plugins = { 'gitsigns.nvim' } }
-            end
-          )
-        end
-      end
-    })
-  end,
+  event = { 'BufReadPost' },
   opts = {
     signs = {
       add = { text = '+' },
@@ -39,7 +20,8 @@ return {
         if vim.wo.diff then
           vim.cmd.normal { ']g', bang = true }
         else
-          gitsigns.nav_hunk 'next'
+          --- @diagnostic disable-next-line: param-type-mismatch
+          gitsigns.nav_hunk('next', { target = 'all' })
         end
       end, { buffer = bufnr, desc = 'Next [G]it Hunk' })
 
@@ -47,13 +29,14 @@ return {
         if vim.wo.diff then
           vim.cmd.normal { '[g', bang = true }
         else
-          gitsigns.nav_hunk 'prev'
+          --- @diagnostic disable-next-line: param-type-mismatch
+          gitsigns.nav_hunk('prev', { target = 'all' })
         end
       end, { buffer = bufnr, desc = 'Previous [G]it Hunk' })
 
       -- setup normal keymaps
       set('n', '<leader>gba', gitsigns.blame, { buffer = bufnr, desc = '[G]it [B]lame [A]ll' })
       set('n', '<leader>gbl', gitsigns.blame_line, { buffer = bufnr, desc = '[G]it [B]lame [L]ine' })
-    end
+    end,
   },
 }

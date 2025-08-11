@@ -1,6 +1,5 @@
 {
     "profiles": [
-        { "name": "Default profile" },
         {
             "complex_modifications": {
                 "rules": [
@@ -13,7 +12,9 @@
                                         "bundle_identifiers": [
                                             "^org\\.alacritty$",
                                             "^com\\.jetbrains\\.intellij$",
-                                            "^com\\.microsoft\\.VSCode$"
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.mitchellh\\.ghostty$",
+                                            "^org\\.gnu\\.Emacs$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -69,6 +70,25 @@
                     }
                 ]
             },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 33398,
+                        "vendor_id": 9306
+                    },
+                    "ignore": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 6220,
+                        "vendor_id": 4152
+                    },
+                    "ignore": true
+                }
+            ],
             "name": "padulkemid",
             "selected": true,
             "simple_modifications": [
@@ -76,8 +96,8 @@
                     "from": { "key_code": "right_option" },
                     "to": [{ "key_code": "right_command" }]
                 }
-            ]
+            ],
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }
     ]
 }
-
