@@ -5,13 +5,13 @@ alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
 # swap window
-shift + alt - h : yabai -m window --swap west
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - l : yabai -m window --swap east
+lshift + lalt - h : yabai -m window --swap west
+lshift + lalt - j : yabai -m window --swap south
+lshift + lalt - k : yabai -m window --swap north
+lshift + lalt - l : yabai -m window --swap east
 
 # balance size of windows
-shift + alt - 0 : yabai -m space --balance
+rshift + rcmd - 0 : yabai -m space --balance
 
 # move window
 # shift + cmd - h : yabai -m window --warp west
@@ -64,10 +64,10 @@ cmd + alt - 3 : yabai -m space --focus 3
 cmd + alt - 4 : yabai -m space --focus 4
 
 # send window to desktop and follow focus
-shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
-shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
-shift + cmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
-shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
+rshift + rcmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
+rshift + rcmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
+rshift + rcmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
+rshift + rcmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
 # shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
 
 # move window
@@ -88,32 +88,32 @@ shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
 # shift + cmd - w : yabai -m window --resize top:0:20
 # shift + cmd - d : yabai -m window --resize right:-20:0
 
-# toggle desktop offset
-alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
+# toggle desktop offset (rcmd + lalt - [)
+rcmd + lalt - 0x21 : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # toggle window parent zoom
 # alt - d : yabai -m window --toggle zoom-parent
 
-# toggle window fullscreen zoom
-alt - f : yabai -m window --toggle zoom-fullscreen
+# toggle window fullscreen zoom (rmcd + lalt - ])
+rcmd + lalt - 0x1E : yabai -m window --toggle zoom-fullscreen
 
 # toggle window native fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
+# shift + alt - f : yabai -m window --toggle native-fullscreen
 
-# toggle window split type
-alt - e : yabai -m window --toggle split
+# toggle window split type (rcmd + lalt - _)
+rcmd + lalt - 0x1B : yabai -m window --toggle split
 
 # rotate tree
-alt - r : yabai -m space --rotate 90
+rcmd + lalt - r : yabai -m space --rotate 90
 
 # float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float;\
+rcmd + lalt - t : yabai -m window --toggle float;\
 	  yabai -m window --grid 4:4:1:1:2:2
 
 # toggle sticky, float and resize to picture-in-picture size
-alt - p : yabai -m window --toggle sticky;\
+rcmd + lalt - p : yabai -m window --toggle sticky;\
           yabai -m window --grid 5:5:4:0:1:1
 
 # change layout of desktop
-ctrl + alt - a : yabai -m space --layout bsp
-ctrl + alt - d : yabai -m space --layout float
+# ctrl + alt - a : yabai -m space --layout bsp
+# ctrl + alt - d : yabai -m space --layout float
