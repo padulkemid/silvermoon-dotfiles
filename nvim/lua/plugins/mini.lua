@@ -32,7 +32,16 @@ return {
         move_down = '<C-j>',
         move_up = '<C-k>',
         choose_in_split = '<C-x>',
-        mark = '',
+
+        mark = '<M-r>',
+        mark_all = '<M-a>',
+        refine_marked = '<C-Space>',
+        refine = '',
+      },
+      window = {
+        config = {
+          width = math.floor(0.336 * vim.o.columns),
+        },
       },
     }
 
@@ -47,13 +56,14 @@ return {
     -- setup keymaps
     local set = vim.keymap.set
 
-    -- files
+    -- filer
     set('n', '<Bslash>', files.open, { desc = 'Open Files' })
 
     -- git
     set('v', 'gl', git.show_range_history, { desc = '[G]it [L]og' })
 
     -- pick
+    set('n', '<leader>ff', ':Pick files<CR>', { desc = '[F]ind [F]iles' })
     set('n', '<leader>fr', ':Pick resume<CR>', { desc = '[F]ind Files [R]esume' })
     set('n', '<leader>sh', ':Pick help<CR>', { desc = '[S]earch [H]elp' })
     set('n', '<leader>sg', ':Pick grep_live<CR>', { desc = '[S]earch [G]rep' })

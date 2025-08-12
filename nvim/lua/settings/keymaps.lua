@@ -64,6 +64,3 @@ set('t', '<C-\\><C-\\>', '<C-\\><C-n>', { remap = true })
 
 -- Copy filepath
 set('n', '<leader>cfp', ':let @+=expand("%:p")<CR>', { desc = '[C]opy [F]ull [P]ath' })
-
--- Open Picker
-set('n', '<leader>ff', ':Pick files<CR>', { desc = '[F]ind [F]iles' })
