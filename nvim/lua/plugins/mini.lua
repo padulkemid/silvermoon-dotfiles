@@ -38,11 +38,6 @@ return {
         refine_marked = '<C-Space>',
         refine = '',
       },
-      window = {
-        config = {
-          width = math.floor(0.336 * vim.o.columns),
-        },
-      },
     }
 
     surround.setup()
