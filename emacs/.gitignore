@@ -15,6 +15,11 @@ tramp
 # flymake-mode
 *_flymake.*
 
+# projects
+projects
+transient
+var
+
 # eshell files
 /eshell/history
 /eshell/lastdir

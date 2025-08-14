@@ -22,9 +22,6 @@
 
 ;;; Code:
 
-;;; Emacs-plus no border
-(add-to-list 'default-frame-alist '(undecorated . t))
-
 ;;; Internal variables
 
 (defvar minimal-emacs--backup-gc-cons-threshold gc-cons-threshold
