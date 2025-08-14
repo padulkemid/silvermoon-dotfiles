@@ -110,12 +110,16 @@
 (use-package corfu
   :ensure t
   :commands (corfu-mode global-corfu-mode)
-
+  :bind ("M-o" . corfu-info-documentation)
   :hook ((prog-mode . corfu-mode)
          (shell-mode . corfu-mode)
          (eshell-mode . corfu-mode))
 
   :custom
+  ;; Enable automatic popup
+  ;; (corfu-auto t)
+  ;; (corfu-auto-delay 0.1)
+  ;; (corfu-auto-prefix 0.1)
   ;; Hide commands in M-x which do not apply to the current mode.
   (read-extended-command-predicate #'command-completion-default-include-p)
   ;; Disable Ispell completion function. As an alternative try `cape-dict'.
@@ -154,7 +158,7 @@
 (use-package orderless
   :ensure t
   :custom
-  (completion-styles '(orderless basic))
+  (completion-styles '(orderless flex basic))
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion)))))
 
@@ -295,12 +299,42 @@
    :preview-key '(:debounce 0.4 any))
   (setq consult-narrow-key "<"))
 
+;; Use mason from neovim
+(let ((mason-bin-path (expand-file-name "~/.local/share/nvim/mason/bin/")))
+  (when (file-directory-p mason-bin-path)
+    (add-to-list 'exec-path mason-bin-path)))
+
 ;; Set up the Language Server Protocol (LSP) servers using Eglot.
 (use-package eglot
   :ensure nil
+  :hook ((typescript-ts-mode . eglot-ensure))
   :commands (eglot-ensure
              eglot-rename
-             eglot-format-buffer))
+             eglot-format-buffer)
+  :config
+  (add-to-list 'eglot-server-programs '(typescript-ts-mode . ("vtsls" "--stdio"))))
+
+;; The markdown-mode package provides a major mode for Emacs for syntax
+;; highlighting, editing commands, and preview support for Markdown documents.
+;; It supports core Markdown syntax as well as extensions like GitHub Flavored
+;; Markdown (GFM).
+
+;;; Code:
+
+(use-package markdown-mode
+  :commands (gfm-mode
+             gfm-view-mode
+             markdown-mode
+             markdown-view-mode)
+
+  :mode (("\\.markdown\\'" . markdown-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.md\\.asc\\'" . markdown-mode)
+         ("README\\.md\\'" . gfm-mode))
+
+  :bind
+  (:map markdown-mode-map
+        ("C-c C-e" . markdown-do)))
 
 ;; Org mode is a major mode designed for organizing notes, planning, task
 ;; management, and authoring documents using plain text with a simple and
@@ -335,44 +369,6 @@
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
-
-;; Apheleia is an Emacs package designed to run code formatters (e.g., Shfmt,
-;; Black and Prettier) asynchronously without disrupting the cursor position.
-(use-package apheleia
-  :ensure t
-  :commands (apheleia-mode
-             apheleia-global-mode)
-  :hook ((prog-mode . apheleia-mode)))
-
-;; The official collection of snippets for yasnippet.
-(use-package yasnippet-snippets
-  :ensure t
-  :after yasnippet)
-
-;; YASnippet is a template system designed that enhances text editing by
-;; enabling users to define and use snippets. When a user types a short
-;; abbreviation, YASnippet automatically expands it into a full template, which
-;; can include placeholders, fields, and dynamic content.
-(use-package yasnippet
-  :ensure t
-  :commands (yas-minor-mode
-             yas-global-mode)
-
-  :hook
-  (after-init . yas-global-mode)
-
-  :custom
-  (yas-also-auto-indent-first-line t)  ; Indent first line of snippet
-  (yas-also-indent-empty-lines t)
-  (yas-snippet-revival nil)  ; Setting this to t causes issues with undo
-  (yas-wrap-around-region nil) ; Do not wrap region when expanding snippets
-  ;; (yas-triggers-in-field nil)  ; Disable nested snippet expansion
-  ;; (yas-indent-line 'fixed) ; Do not auto-indent snippet content
-  ;; (yas-prompt-functions '(yas-no-prompt))  ; No prompt for snippet choices
-
-  :init
-  ;; Suppress verbose messages
-  (setq yas-verbosity 0))
 
 ;; Helpful is an alternative to the built-in Emacs help that provides much more
 ;; contextual information.
@@ -429,14 +425,13 @@
 ;; Provides functions to find references to functions, macros, variables,
 ;; special forms, and symbols in Emacs Lisp
 (use-package elisp-refs
+
   :ensure t
   :commands (elisp-refs-function
              elisp-refs-macro
              elisp-refs-variable
              elisp-refs-special
              elisp-refs-symbol))
-
-
 
 ;;; SETTINGS
 (setq read-file-name-completion-ignore-case t)           ;; vertico+orderless ignorecase                 
