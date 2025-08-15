@@ -22,8 +22,8 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
       '%=',
       '[%f]',
       '%=',
-      get_time(),
       '%h%w%m%r[%l:%c][%P]',
+      get_time(),
     }
   end,
 })
