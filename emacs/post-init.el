@@ -125,7 +125,6 @@
          ("M-y" . consult-yank-pop)
          ;; M-g bindings in `goto-map'
          ("M-g e" . consult-compile-error)
-         ("M-g f" . consult-flymake)
          ("M-g g" . consult-goto-line)
          ("M-g M-g" . consult-goto-line)
          ("M-g o" . consult-outline)
@@ -186,6 +185,12 @@
    :preview-key '(:debounce 0.4 any))
   (setq consult-narrow-key "<"))
 
+;; Use flycheck not flymake
+(use-package consult-flycheck
+  :ensure t
+  :after (consult flycheck)
+  :bind (("C-c e g" . consult-flycheck)))
+
 ;; Use mason from neovim
 (let ((mason-bin-path (expand-file-name "~/.local/share/nvim/mason/bin/")))
   (when (file-directory-p mason-bin-path)
@@ -194,12 +199,37 @@
 ;; Set up the Language Server Protocol (LSP) servers using Eglot.
 (use-package eglot
   :ensure nil
-  :hook ((typescript-ts-mode . eglot-ensure))
+  :hook (
+         (typescript-ts-mode . eglot-ensure)
+         (tsx-ts-mode . eglot-ensure)
+         (js-ts-mode . eglot-ensure)
+         (js-jsx-mode . eglot-ensure))
   :commands (eglot-ensure
              eglot-rename
              eglot-format-buffer)
+
+  :bind ("C-c C-a" . eglot-code-actions)
   :config
-  (add-to-list 'eglot-server-programs '(typescript-ts-mode . ("vtsls" "--stdio"))))
+  (add-to-list 'eglot-server-programs
+               '((tsx-ts-mode typescript-ts-mode js-jsx-mode javascript-mode) . ("vtsls" "--stdio"))))
+
+;; Flycheck is a package that "should" replace flymake of its async checker
+;; and linter for major programming modes. it will ran with some of the
+;; installed linter.
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  :config
+  (setq flycheck-javascript-eslint-executable "eslint_d"))
+
+;; To integrate with Eglot, we need to disable Flymake because that is the
+;; default code-type-lint checking from Emacs
+(use-package flycheck-eglot
+  :ensure t
+  :after (flycheck eglot)
+  :custom (flycheck-eglot-exclusive nil)
+  :config
+  (global-flycheck-eglot-mode 1))
 
 ;; The markdown-mode package provides a major mode for Emacs for syntax
 ;; highlighting, editing commands, and preview support for Markdown documents.
@@ -325,7 +355,21 @@
   :commands (magit-status)
   :bind (("C-x g" . magit-status)))
 
-;; To use it (because I use gpg, i need this
+;; Apheleia is an Emacs package designed to run code formatters (e.g., Shfmt,
+;; Black and Prettier) asynchronously without disrupting the cursor position.
+(use-package apheleia
+  :ensure t
+  :config
+  (setf (alist-get 'prettierd apheleia-formatters)
+        '("prettierd" "--stdin-filepath" filepath))
+  (setf (alist-get 'jq apheleia-formatters)
+        '("jq" "."))
+  (add-to-list 'apheleia-mode-alist '(tsx-ts-mode . prettierd))
+  (add-to-list 'apheleia-mode-alist '(typescript-ts-mode . prettierd))
+  (add-to-list 'apheleia-mode-alist '(js-ts-mode . prettierd))
+  (add-to-list 'apheleia-mode-alist '(js-jsx-mode . prettierd))
+  (add-to-list 'apheleia-mode-alist '(json-ts-mode . jq))
+  (apheleia-global-mode +1))
 
 
 ;;; BUILT-INS
