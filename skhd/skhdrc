@@ -94,8 +94,9 @@ rcmd + lalt - 0x21 : yabai -m space --toggle padding; yabai -m space --toggle ga
 # toggle window parent zoom
 # alt - d : yabai -m window --toggle zoom-parent
 
-# toggle window fullscreen zoom (rmcd + lalt - ])
-rcmd + lalt - 0x1E : yabai -m window --toggle zoom-fullscreen
+# toggle window fullscreen zoom (lalt - ])
+# lalt - 0x1E : yabai -m window --toggle zoom-fullscreen
+lalt - 0x32 : yabai -m window --toggle zoom-fullscreen
 
 # toggle window native fullscreen
 # shift + alt - f : yabai -m window --toggle native-fullscreen
