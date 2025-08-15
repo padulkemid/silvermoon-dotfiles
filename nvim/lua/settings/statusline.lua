@@ -7,6 +7,12 @@ local branch_status = function()
   return ''
 end
 
+local get_time = function()
+  local get_time_string = os.date '%H:%M'
+
+  return '[' .. get_time_string .. ']'
+end
+
 vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
   callback = function()
     vim.opt_local.statusline = table.concat {
@@ -16,6 +22,7 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter' }, {
       '%=',
       '[%f]',
       '%=',
+      get_time(),
       '%h%w%m%r[%l:%c][%P]',
     }
   end,
