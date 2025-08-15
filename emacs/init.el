@@ -326,8 +326,8 @@
 ;; deletion, disrupting the flow of editing.
 (setq delete-pair-blink-delay 0.03)
 
-(setq-default left-fringe-width  8)
-(setq-default right-fringe-width 8)
+(setq-default left-fringe-width  0)
+(setq-default right-fringe-width 0)
 
 ;; Disable visual indicators in the fringe for buffer boundaries and empty lines
 (setq-default indicate-buffer-boundaries nil)

@@ -10,10 +10,10 @@
 (use-package compile-angel
   :ensure t
   :demand t
-  :custom
+  :init
   ;; Set `compile-angel-verbose` to nil to suppress output from compile-angel.
   ;; Drawback: The minibuffer will not display compile-angel's actions.
-  (compile-angel-verbose t)
+  (setq compile-angel-verbose t)
 
   :config
   ;; The following directive prevents compile-angel from compiling your init
@@ -35,75 +35,6 @@
   ;; A global mode that compiles .el files before they are loaded.
   (compile-angel-on-load-mode))
 
-;; Auto-revert in Emacs is a feature that automatically updates the
-;; contents of a buffer to reflect changes made to the underlying file
-;; on disk.
-(use-package autorevert
-  :ensure nil
-  :commands (auto-revert-mode global-auto-revert-mode)
-  :hook
-  (after-init . global-auto-revert-mode)
-  :custom
-  (auto-revert-interval 3)
-  (auto-revert-remote-files nil)
-  (auto-revert-use-notify t)
-  (auto-revert-avoid-polling nil)
-  (auto-revert-verbose t))
-
-;; Recentf is an Emacs package that maintains a list of recently
-;; accessed files, making it easier to reopen files you have worked on
-;; recently.
-(use-package recentf
-  :ensure nil
-  :commands (recentf-mode recentf-cleanup)
-  :hook
-  (after-init . recentf-mode)
-
-  :custom
-  (recentf-auto-cleanup (if (daemonp) 300 'never))
-  (recentf-exclude
-   (list "\\.tar$" "\\.tbz2$" "\\.tbz$" "\\.tgz$" "\\.bz2$"
-         "\\.bz$" "\\.gz$" "\\.gzip$" "\\.xz$" "\\.zip$"
-         "\\.7z$" "\\.rar$"
-         "COMMIT_EDITMSG\\'"
-         "\\.\\(?:gz\\|gif\\|svg\\|png\\|jpe?g\\|bmp\\|xpm\\)$"
-         "-autoloads\\.el$" "autoload\\.el$"))
-
-  :config
-  ;; A cleanup depth of -90 ensures that `recentf-cleanup' runs before
-  ;; `recentf-save-list', allowing stale entries to be removed before the list
-  ;; is saved by `recentf-save-list', which is automatically added to
-  ;; `kill-emacs-hook' by `recentf-mode'.
-  (add-hook 'kill-emacs-hook #'recentf-cleanup -90))
-
-;; savehist is an Emacs feature that preserves the minibuffer history between
-;; sessions. It saves the history of inputs in the minibuffer, such as commands,
-;; search strings, and other prompts, to a file. This allows users to retain
-;; their minibuffer history across Emacs restarts.
-(use-package savehist
-  :ensure nil
-  :commands (savehist-mode savehist-save)
-  :hook
-  (after-init . savehist-mode)
-  :custom
-  (savehist-autosave-interval 600)
-  (savehist-additional-variables
-   '(kill-ring                        ; clipboard
-     register-alist                   ; macros
-     mark-ring global-mark-ring       ; marks
-     search-ring regexp-search-ring)))
-
-;; save-place-mode enables Emacs to remember the last location within a file
-;; upon reopening. This feature is particularly beneficial for resuming work at
-;; the precise point where you previously left off.
-(use-package saveplace
-  :ensure nil
-  :commands (save-place-mode save-place-local-mode)
-  :hook
-  (after-init . save-place-mode)
-  :custom
-  (save-place-limit 400))
-
 ;; Corfu enhances in-buffer completion by displaying a compact popup with
 ;; current candidates, positioned either below or above the point. Candidates
 ;; can be selected by navigating up or down.
@@ -115,16 +46,16 @@
          (shell-mode . corfu-mode)
          (eshell-mode . corfu-mode))
 
-  :custom
+  :init
   ;; Enable automatic popup
   ;; (corfu-auto t)
   ;; (corfu-auto-delay 0.1)
   ;; (corfu-auto-prefix 0.1)
   ;; Hide commands in M-x which do not apply to the current mode.
-  (read-extended-command-predicate #'command-completion-default-include-p)
+  (setq read-extended-command-predicate #'command-completion-default-include-p)
   ;; Disable Ispell completion function. As an alternative try `cape-dict'.
-  (text-mode-ispell-word-completion nil)
-  (tab-always-indent 'complete)
+  (setq text-mode-ispell-word-completion nil)
+  (setq tab-always-indent 'complete)
 
   ;; Enable Corfu
   :config
@@ -157,10 +88,10 @@
 ;; matches in any order against the candidates.
 (use-package orderless
   :ensure t
-  :custom
-  (completion-styles '(orderless flex basic))
-  (completion-category-defaults nil)
-  (completion-category-overrides '((file (styles partial-completion)))))
+  :init
+  (setq completion-styles '(orderless flex basic))
+  (setq completion-category-defaults nil)
+  (setq completion-category-overrides '((file (styles partial-completion)))))
 
 ;; Marginalia allows Embark to offer you preconfigured actions in more contexts.
 ;; In addition to that, Marginalia also enhances Vertico by adding rich
@@ -170,51 +101,13 @@
   :commands (marginalia-mode marginalia-cycle)
   :hook (after-init . marginalia-mode))
 
-;; Embark integrates with Consult and Vertico to provide context-sensitive
-;; actions and quick access to commands based on the current selection, further
-;; improving user efficiency and workflow within Emacs. Together, they create a
-;; cohesive and powerful environment for managing completions and interactions.
-(use-package embark
-  ;; Embark is an Emacs package that acts like a context menu, allowing
-  ;; users to perform context-sensitive actions on selected items
-  ;; directly from the completion interface.
-  :ensure t
-  :commands (embark-act
-             embark-dwim
-             embark-export
-             embark-collect
-             embark-bindings
-             embark-prefix-help-command)
-  :bind
-  (("C-." . embark-act)         ;; pick some comfortable binding
-   ("C-;" . embark-dwim)        ;; good alternative: M-.
-   ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
-
-  :init;
-  (setq prefix-help-command #'embark-prefix-help-command)
-
-  :config
-  ;; Hide the mode line of the Embark live/completions buffers
-  (add-to-list 'display-buffer-alist
-               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
-                 nil
-                 (window-parameters (mode-line-format . none)))))
-
-(use-package embark-consult
-  :ensure t
-  :hook
-  (embark-collect-mode . consult-preview-at-point-mode))
-
 ;; Consult offers a suite of commands for efficient searching, previewing, and
 ;; interacting with buffers, file contents, and more, improving various tasks.
 (use-package consult
   :ensure t
   :bind (;; C-c bindings in `mode-specific-map'
-         ("C-c M-x" . consult-mode-command)
          ("C-c h" . consult-history)
          ("C-c k" . consult-kmacro)
-         ("C-c m" . consult-man)
-         ("C-c i" . consult-info)
          ([remap Info-search] . consult-info)
          ;; C-x bindings in `ctl-x-map'
          ("C-x M-:" . consult-complex-command)
@@ -241,13 +134,7 @@
          ("M-g i" . consult-imenu)
          ("M-g I" . consult-imenu-multi)
          ;; M-s bindings in `search-map'
-         ("M-s d" . consult-find)
-         ("M-s c" . consult-locate)
-         ("M-s g" . consult-grep)
-         ("M-s G" . consult-git-grep)
          ("M-s r" . consult-ripgrep)
-         ("M-s l" . consult-line)
-         ("M-s L" . consult-line-multi)
          ("M-s k" . consult-keep-lines)
          ("M-s u" . consult-focus-lines)
          ;; Isearch integration
@@ -346,16 +233,16 @@
   :commands (org-mode org-version)
   :mode
   ("\\.org\\'" . org-mode)
-  :custom
-  (org-hide-leading-stars t)
-  (org-startup-indented t)
-  (org-adapt-indentation nil)
-  (org-edit-src-content-indentation 0)
+  :init
+  (setq org-hide-leading-stars t)
+  (setq org-startup-indented t)
+  (setq org-adapt-indentation nil)
+  (setq org-edit-src-content-indentation 0)
   ;; (org-fontify-done-headline t)
   ;; (org-fontify-todo-headline t)
   ;; (org-fontify-whole-heading-line t)
   ;; (org-fontify-quote-and-verse-blocks t)
-  (org-startup-truncated t))
+  (setq org-startup-truncated t))
 
 ;; Tree-sitter in Emacs is an incremental parsing system introduced in Emacs 29
 ;; that provides precise, high-performance syntax highlighting. It supports a
@@ -364,8 +251,8 @@
 ;; Elisp, Lua, Markdown, and many others.
 (use-package treesit-auto
   :ensure t
-  :custom
-  (treesit-auto-install 'prompt)
+  :init
+  (setq treesit-auto-install 'prompt)
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
@@ -386,8 +273,8 @@
   ([remap describe-key] . helpful-key)
   ([remap describe-symbol] . helpful-symbol)
   ([remap describe-variable] . helpful-variable)
-  :custom
-  (helpful-max-buffers 7))
+  :init
+  (setq helpful-max-buffers 7))
 
 ;; Enables automatic indentation of code while typing
 (use-package aggressive-indent
@@ -425,7 +312,6 @@
 ;; Provides functions to find references to functions, macros, variables,
 ;; special forms, and symbols in Emacs Lisp
 (use-package elisp-refs
-
   :ensure t
   :commands (elisp-refs-function
              elisp-refs-macro
@@ -433,9 +319,73 @@
              elisp-refs-special
              elisp-refs-symbol))
 
+;; Killer git porcelain
+(use-package magit
+  :ensure t
+  :commands (magit-status)
+  :bind (("C-x g" . magit-status)))
+
+;; To use it (because I use gpg, i need this
+
+
+;;; BUILT-INS
+;; Auto-revert
+(setq auto-revert-interval 3)
+(setq auto-revert-remote-files nil)
+(setq auto-revert-use-notify t)
+(setq auto-revert-avoid-polling nil)
+(setq auto-revert-verbose t)
+(global-auto-revert-mode 1)
+
+;; recentf
+(setq recentf-max-saved-items 300)
+(setq recentf-max-menu-items 15)
+(setq recentf-auto-cleanup (if (daemonp) 300 'never))
+(setq recentf-exclude
+      (list "\\.tar$" "\\.tbz2$" "\\.tbz$" "\\.tgz$" "\\.bz2$"
+            "\\.bz$" "\\.gz$" "\\.gzip$" "\\.xz$" "\\.zip$"
+            "\\.7z$" "\\.rar$"
+            "COMMIT_EDITMSG\\'"
+            "\\.\\(?:gz\\|gif\\|svg\\|png\\|jpe?g\\|bmp\\|xpm\\)$"
+            "-autoloads\\.el$" "autoload\\.el$"))
+(recentf-mode 1)
+(add-hook 'kill-emacs-hook #'recentf-cleanup -90)
+
+;; savehist
+(setq history-length 300)
+(setq savehist-autosave-interval 600)
+(setq savehist-additional-variables
+      '(kill-ring                        ; clipboard
+        register-alist                   ; macros
+        mark-ring global-mark-ring       ; marks
+        search-ring regexp-search-ring))
+(savehist-mode 1)
+
+;; saveplace
+(setq save-place-limit 400)
+(save-place-mode 1)
+
+;; epg
+(with-eval-after-load 'epg
+  (setq epg-pinentry-mode 'loopback))
+
+
 ;;; SETTINGS
+(setq set-fringe-style "no-fringes")
 (setq read-file-name-completion-ignore-case t)           ;; vertico+orderless ignorecase                 
 (setq display-line-numbers-type 'relative)               ;; relative-line-number
+(setq display-time-format "%H:%M")                       ;; time format
 (global-display-line-numbers-mode 1)                     ;; line-number
-(load-theme 'modus-vivendi' t)                           ;; theme
-(electric-pair-mode 1)                                   ;; autopairs
+(electric-pair-mode 1)                                   ;; autopairs other than paredit
+(display-time)                                           ;; display time
+
+;;; COLORS
+(set-face-attribute 'fringe nil :background "#000000")
+(set-face-attribute 'line-number nil :background "#000000" :foreground "#9EA7B3")
+(set-face-attribute 'line-number-current-line nil
+                    :background "#000000"
+                    :foreground "#FFFFFF"
+                    :weight 'bold)
+
+;;; KEYBINDINGS
+(windmove-default-keybindings)

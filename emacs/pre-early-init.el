@@ -6,8 +6,11 @@
 ;; Font
 (add-to-list 'default-frame-alist '(font . "BerkeleyMono Nerd Font Mono-14"))
 
+;; Theme
+(load-theme 'modus-vivendi t)
+
 ;; Debug mode
-(setq debug-on-error t)
+;;(setq debug-on-error t)
 
 ;; Reducing clutter
 (setq user-emacs-directory (expand-file-name "var/" minimal-emacs-user-directory))
