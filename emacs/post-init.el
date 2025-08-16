@@ -1,5 +1,8 @@
 ;;; post-init.el --- POST INIT -*- lexical-binding: t; -*-
 
+;;; AUTHOR's note: this is pretty much insane config, I threw it all out at
+;; once, very bad.
+
 ;;; PLUGINS
 ;; Native compilation enhances Emacs performance by converting Elisp code into
 ;; native machine code, resulting in faster execution and improved
@@ -236,8 +239,6 @@
 ;; It supports core Markdown syntax as well as extensions like GitHub Flavored
 ;; Markdown (GFM).
 
-;;; Code:
-
 (use-package markdown-mode
   :commands (gfm-mode
              gfm-view-mode
@@ -253,6 +254,16 @@
   (:map markdown-mode-map
         ("C-c C-e" . markdown-do)))
 
+;; This will initialize your PATH variable from shell into your emacs
+;; system so that it won't get out again like 'pdflatex' are not
+;; recognizable command from.
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
 ;; Org mode is a major mode designed for organizing notes, planning, task
 ;; management, and authoring documents using plain text with a simple and
 ;; expressive markup syntax. It supports hierarchical outlines, TODO lists,
@@ -263,13 +274,45 @@
   :commands (org-mode org-version)
   :mode
   ("\\.org\\'" . org-mode)
+  
+  :bind (:map org-mode-map
+              ("C-c a" . org-agenda)
+              ("C-c c" . org-capture)
+              ("C-c l" . org-store-link))
+  
   :init
   (setq org-hide-leading-stars t
         org-startup-indented t
         org-adapt-indentation nil
         org-edit-src-content-indentation 0
         org-startup-truncated t
-        org-directory "~/Work/notes/emacs-journal/"))
+        org-return-follows-link t
+        org-directory "~/Work/personal-journal/"
+        org-agenda-files '("~/Work/personal-journal/agenda/")
+        org-latex-compiler "xelatex"))
+
+;; Org-roam is an extension for org-mode as a dispose of zettelkasten method
+;; to build your own brain for journaling and stuff.
+(use-package org-roam
+  :ensure t
+  :mode ("\\.org\\'" . org-mode)
+  :init
+  (setq org-roam-directory (file-truename "~/Work/personal-journal/roam/")
+        org-roam-dailies-capture-templates
+        '(("d" "default" entry "\n %?"
+           :if-new (file+head "%<%Y/%m/%d>.org" "#+title: Journal - %<%Y-%m-%d %A>\n\n")
+           :unnarrowed t)))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  ;; If you're using a vertical completion framework, you might want a more informative completion interface
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode))
 
 ;; Tree-sitter in Emacs is an incremental parsing system introduced in Emacs 29
 ;; that provides precise, high-performance syntax highlighting. It supports a
@@ -416,7 +459,7 @@
 (setq read-file-name-completion-ignore-case t)           ;; vertico+orderless ignorecase                 
 (setq display-line-numbers-type 'relative)               ;; relative-line-number
 (setq display-time-format "%H:%M")                       ;; time format
-(setq vc-handled-backends ())                            ;; disable vc (version control) I already have magit
+(setq vc-handled-backends nil)                            ;; disable vc (version control) I already have magit
 (global-display-line-numbers-mode 1)                     ;; line-number
 (electric-pair-mode 1)                                   ;; autopairs other than paredit
 (display-time)                                           ;; display time
