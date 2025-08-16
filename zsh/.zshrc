@@ -57,6 +57,7 @@ alias mc="nvim $MISE_CONFIG_LOCATION"
 # shells
 eval "$(jump shell)"
 eval "$(mise activate zsh)"
+eval "$(/usr/libexec/path_helper)"
 
 # options
 export IGNOREEOF=2
