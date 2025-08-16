@@ -264,15 +264,12 @@
   :mode
   ("\\.org\\'" . org-mode)
   :init
-  (setq org-hide-leading-stars t)
-  (setq org-startup-indented t)
-  (setq org-adapt-indentation nil)
-  (setq org-edit-src-content-indentation 0)
-  ;; (org-fontify-done-headline t)
-  ;; (org-fontify-todo-headline t)
-  ;; (org-fontify-whole-heading-line t)
-  ;; (org-fontify-quote-and-verse-blocks t)
-  (setq org-startup-truncated t))
+  (setq org-hide-leading-stars t
+        org-startup-indented t
+        org-adapt-indentation nil
+        org-edit-src-content-indentation 0
+        org-startup-truncated t
+        org-directory "~/Work/notes/emacs-journal/"))
 
 ;; Tree-sitter in Emacs is an incremental parsing system introduced in Emacs 29
 ;; that provides precise, high-performance syntax highlighting. It supports a
@@ -419,6 +416,7 @@
 (setq read-file-name-completion-ignore-case t)           ;; vertico+orderless ignorecase                 
 (setq display-line-numbers-type 'relative)               ;; relative-line-number
 (setq display-time-format "%H:%M")                       ;; time format
+(setq vc-handled-backends ())                            ;; disable vc (version control) I already have magit
 (global-display-line-numbers-mode 1)                     ;; line-number
 (electric-pair-mode 1)                                   ;; autopairs other than paredit
 (display-time)                                           ;; display time
@@ -432,4 +430,5 @@
                     :weight 'bold)
 
 ;;; KEYBINDINGS
-(windmove-default-keybindings)
+;; (windmove-default-keybindings)
+
