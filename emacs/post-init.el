@@ -44,14 +44,21 @@
 (use-package corfu
   :ensure t
   :commands (corfu-mode global-corfu-mode)
-  :bind ("M-o" . corfu-info-documentation)
+  :bind (:map corfu-map
+              ("M-o" . corfu-info-documentation)
+              ("TAB" . corfu-next)
+              ([tab] . corfu-next)
+              ("S-TAB" . corfu-previous)
+              ([backtab] . corfu-previous))
+  
   :hook ((prog-mode . corfu-mode)
-         (shell-mode . corfu-mode)
-         (eshell-mode . corfu-mode))
+         (org-mode . corfu-mode))
 
   :init
   ;; Enable automatic popup
-  ;; (corfu-auto t)
+  (setq corfu-auto t
+        corfu-cycle t
+        corfu-preselect 'prompt)
   ;; (corfu-auto-delay 0.1)
   ;; (corfu-auto-prefix 0.1)
   ;; Hide commands in M-x which do not apply to the current mode.
@@ -279,8 +286,13 @@
               ("C-c a" . org-agenda)
               ("C-c c" . org-capture)
               ("C-c l" . org-store-link))
-  
-  :init
+  :hook
+  (org-mode . (lambda ()
+                "Set column and auto-fill."
+                (setq fill-column 75)
+                (auto-fill-mode t)))
+
+  :config
   (setq org-hide-leading-stars t
         org-startup-indented t
         org-adapt-indentation nil
@@ -288,8 +300,14 @@
         org-startup-truncated t
         org-return-follows-link t
         org-directory "~/Work/personal-journal/"
-        org-agenda-files '("~/Work/personal-journal/agenda/")
-        org-latex-compiler "xelatex"))
+        org-agenda-files '("~/Work/personal-journal/dailies.org")
+        org-latex-compiler "xelatex"
+        org-log-done 'time)
+  (setq org-todo-keyword-faces
+        '(("TODO" . "red")
+          ("IN_PROGRESS" . "magenta")
+          ("DONE" . "spring green")
+          ("CANCELLED" . "dark olive green"))))
 
 ;; Org-roam is an extension for org-mode as a dispose of zettelkasten method
 ;; to build your own brain for journaling and stuff.
@@ -299,9 +317,11 @@
   :init
   (setq org-roam-directory (file-truename "~/Work/personal-journal/roam/")
         org-roam-dailies-capture-templates
-        '(("d" "default" entry "\n %?"
-           :if-new (file+head "%<%Y/%m/%d>.org" "#+title: Journal - %<%Y-%m-%d %A>\n\n")
-           :unnarrowed t)))
+        '(("d" "default" entry "* %?"
+           :if-new (file+head "%<%Y/%m/%d>.org" "#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags: :coding:")
+           :unnarrowed t
+           :empty-lines-before 1
+           )))
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
          ("C-c n g" . org-roam-graph)
@@ -361,14 +381,22 @@
   (emacs-lisp-mode . highlight-defined-mode))
 
 ;; Prevent parenthesis imbalance
-(use-package paredit
+;; (use-package paredit
+;;   :ensure t
+;;   :commands paredit-mode
+;;   :hook
+;;   (emacs-lisp-mode . paredit-mode)
+;;   :config
+;;   (define-key paredit-mode-map (kbd "RET") nil)
+;;   (define-key paredit-mode-map (kbd "M-s") nil))
+
+;; Prevent parenthesis imbalance (improved) using 'smartparens'
+(use-package smartparens
   :ensure t
-  :commands paredit-mode
-  :hook
-  (emacs-lisp-mode . paredit-mode)
+  :hook (prog-mode text-mode markdown-mode)
   :config
-  (define-key paredit-mode-map (kbd "RET") nil)
-  (define-key paredit-mode-map (kbd "M-s") nil))
+  (require 'smartparens-config)
+  (add-hook 'prog-mode-hook #'smartparens-strict-mode))
 
 
 ;; Displays visible indicators for page breaks
@@ -461,7 +489,7 @@
 (setq display-time-format "%H:%M")                       ;; time format
 (setq vc-handled-backends nil)                            ;; disable vc (version control) I already have magit
 (global-display-line-numbers-mode 1)                     ;; line-number
-(electric-pair-mode 1)                                   ;; autopairs other than paredit
+;;(electric-pair-mode 1)                                   ;; autopairs other than paredit
 (display-time)                                           ;; display time
 
 ;;; COLORS
