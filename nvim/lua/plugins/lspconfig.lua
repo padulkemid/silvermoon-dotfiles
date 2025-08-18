@@ -34,6 +34,7 @@ return {
       jsonls = true,
       emmet_language_server = true,
       lua_ls = true,
+      tailwindcss = true,
       cssls = true,
       clangd = {
         settings = {
