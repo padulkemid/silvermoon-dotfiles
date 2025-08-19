@@ -23,7 +23,7 @@
   ;; files. If you choose to remove this push to `compile-angel-excluded-files'
   ;; and compile your pre/post-init files, ensure you understand the
   ;; implications and thoroughly test your code. For example, if you're using
-  ;; `use-package', you'll need to explicitly add `(require 'use-package)` at
+  ;; `use-package', you'll need to explicitly add `(require 'use-package)' at
   ;; the top of your init file.
   (push "/init.el" compile-angel-excluded-files)
   (push "/early-init.el" compile-angel-excluded-files)
@@ -120,7 +120,7 @@
          ("C-c k" . consult-kmacro)
          ([remap Info-search] . consult-info)
          ;; C-x bindings in `ctl-x-map'
-         ("C-x M-:" . consult-complex-command)
+         ("C-x M-:". consult-complex-command)
          ("C-x b" . consult-buffer)
          ("C-x 4 b" . consult-buffer-other-window)
          ("C-x 5 b" . consult-buffer-other-frame)
@@ -252,10 +252,10 @@
              markdown-mode
              markdown-view-mode)
 
-  :mode (("\\.markdown\\'" . markdown-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.md\\.asc\\'" . markdown-mode)
-         ("README\\.md\\'" . gfm-mode))
+  :mode (("\.markdown\'" . markdown-mode)
+         ("\.md\'" . markdown-mode)
+         ("\.md\.asc\'" . markdown-mode)
+         ("README\.md\'" . gfm-mode))
 
   :bind
   (:map markdown-mode-map
@@ -280,7 +280,7 @@
   :ensure t
   :commands (org-mode org-version)
   :mode
-  ("\\.org\\'" . org-mode)
+  ("\.org\'" . org-mode)
   
   :bind (:map org-mode-map
               ("C-c a" . org-agenda)
@@ -300,7 +300,8 @@
         org-startup-truncated t
         org-return-follows-link t
         org-directory "~/Work/personal-journal/"
-        org-agenda-files '("~/Work/personal-journal/dailies.org")
+        org-agenda-files '("~/Work/personal-journal/work.org"
+                           "~/Work/personal-journal/home.org")
         org-latex-compiler "xelatex"
         org-log-done 'time)
   (setq org-todo-keyword-faces
@@ -313,12 +314,12 @@
 ;; to build your own brain for journaling and stuff.
 (use-package org-roam
   :ensure t
-  :mode ("\\.org\\'" . org-mode)
+  :mode ("\.org\'" . org-mode)
   :init
   (setq org-roam-directory (file-truename "~/Work/personal-journal/roam/")
         org-roam-dailies-capture-templates
         '(("d" "default" entry "* %?"
-           :if-new (file+head "%<%Y/%m/%d>.org" "#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags: :coding:")
+           :if-new (file+head "%<%Y/%m/%d>.org" "#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags::coding:")
            :unnarrowed t
            :empty-lines-before 1
            )))
@@ -331,7 +332,7 @@
          ("C-c n j" . org-roam-dailies-capture-today))
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
-  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (setq org-roam-node-display-template (concat "${title:*}" " " (propertize "${tags:10}" 'face 'org-tag)))
   (org-roam-db-autosync-mode))
 
 ;; Tree-sitter in Emacs is an incremental parsing system introduced in Emacs 29
@@ -454,12 +455,12 @@
 (setq recentf-max-menu-items 15)
 (setq recentf-auto-cleanup (if (daemonp) 300 'never))
 (setq recentf-exclude
-      (list "\\.tar$" "\\.tbz2$" "\\.tbz$" "\\.tgz$" "\\.bz2$"
-            "\\.bz$" "\\.gz$" "\\.gzip$" "\\.xz$" "\\.zip$"
-            "\\.7z$" "\\.rar$"
-            "COMMIT_EDITMSG\\'"
-            "\\.\\(?:gz\\|gif\\|svg\\|png\\|jpe?g\\|bmp\\|xpm\\)$"
-            "-autoloads\\.el$" "autoload\\.el$"))
+      (list "\.tar$" "\.tbz2$" "\.tbz$" "\.tgz$" "\.bz2$"
+            "\.bz$" "\.gz$" "\.gzip$" "\.xz$" "\.zip$"
+            "\.7z$" "\.rar$"
+            "COMMIT_EDITMSG'"
+            "\.\(?:gz\|gif\|svg\|png\|jpe?g\|bmp\|xpm\)$"
+            "-autoloads\.el$" "autoload\.el$"))
 (recentf-mode 1)
 (add-hook 'kill-emacs-hook #'recentf-cleanup -90)
 
@@ -482,24 +483,93 @@
   (setq epg-pinentry-mode 'loopback))
 
 
+
+
+
+
+
 ;;; SETTINGS
 (setq set-fringe-style "no-fringes")
 (setq read-file-name-completion-ignore-case t)           ;; vertico+orderless ignorecase                 
 (setq display-line-numbers-type 'relative)               ;; relative-line-number
 (setq display-time-format "%H:%M")                       ;; time format
-(setq vc-handled-backends nil)                            ;; disable vc (version control) I already have magit
+(setq vc-display-status t)                               ;; display status for version control
+(setq vc-handled-backends '(Git))                        ;; disable vc (version control) I already have magit
 (global-display-line-numbers-mode 1)                     ;; line-number
-;;(electric-pair-mode 1)                                   ;; autopairs other than paredit
 (display-time)                                           ;; display time
 
 ;;; COLORS
-(set-face-attribute 'fringe nil :background "#000000")
-(set-face-attribute 'line-number nil :background "#000000" :foreground "#9EA7B3")
+(set-face-attribute 'fringe nil :background "black")
+(set-face-attribute 'line-number nil
+                    :background "black"
+                    :foreground "dark gray")
 (set-face-attribute 'line-number-current-line nil
-                    :background "#000000"
-                    :foreground "#FFFFFF"
+                    :background "black"
+                    :foreground "white"
                     :weight 'bold)
+(set-face-attribute 'mode-line-active nil
+                    :background "white"
+                    :foreground "black"
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :background "dark gray"
+                    :foreground "black"
+                    :box nil)
 
-;;; KEYBINDINGS
-;; (windmove-default-keybindings)
 
+
+;;; MODELINE
+;; (defun my/mode-line-time ()
+;;   "Get current time in [HH:MM] format for mode-line."
+;;   (concat "[" (format-time-string "%H:%M") "]"))
+;; 
+;; (defun my/mode-line-vc ()
+;;   "Format vc-mode to show [branch] instead of Git:branch."
+;;   (when vc-mode
+;;     (let ((branch (substring-no-properties vc-mode)))
+;;       ;; Remove the "Git:" or "Git-" prefix and add brackets
+;;       (if (string-match "^ Git[:-]\\(.+\\)" branch)
+;;           (concat "[" (match-string 1 branch) "]")
+;;         (concat "[" (string-trim branch) "]")))))
+;; 
+;; (defun my/mode-line-major-mode ()
+;;   "Get major mode in brackets."
+;;   (concat "[" (symbol-name major-mode) "]"))
+;; 
+;; (defun my/mode-line-position ()
+;;   "Get position info in Neovim style."
+;;   (let* ((line (line-number-at-pos))
+;;          (col (current-column)))
+;;     (format "[%d:%d]" line col)))
+;; 
+;; (setq-default mode-line-format
+;;               '(""
+;;                 (eldoc-mode-line-string (" " eldoc-mode-line-string " ")) 
+;;                 "%e"
+;;                 mode-line-front-space
+;;                 (:propertize
+;;                  ("" mode-line-mule-info mode-line-client mode-line-modified mode-line-remote
+;;                   mode-line-window-dedicated)
+;;                  display (min-width (6.0)))
+;;                 mode-line-frame-identification 
+;;                 (:eval (my/mode-line-vc))
+;;                 (:eval (my/mode-line-major-mode))
+;;                 (:eval (propertize " " 'display '(space :align-to (- center 15))))
+;;                 "[" mode-line-buffer-identification "]"
+;;                 (:eval (propertize " " 'display '(space :align-to (- right 15))))
+;;                 (:eval (my/mode-line-position))
+;;                 (:eval (my/mode-line-time))
+;;                 (:eval (if mode-line-misc-info (concat " " mode-line-misc-info) ""))
+;;                 mode-line-end-spaces))
+
+;;; DEFAULT MODELINE
+;; (setq-default mode-line-format 
+;;   '("" (eldoc-mode-line-string (" " eldoc-mode-line-string " ")) "%e"
+;;     mode-line-front-space
+;;     (:propertize
+;;      ("" mode-line-mule-info mode-line-client mode-line-modified mode-line-remote
+;;       mode-line-window-dedicated)
+;;      display (min-width (6.0)))
+;;     mode-line-frame-identification mode-line-buffer-identification "   "
+;;     mode-line-position (project-mode-line project-mode-line-format)
+;;     (vc-mode vc-mode) "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
