@@ -1,3 +1,4 @@
 git/
+emacs/
 *.cbor
 .DS_Store
