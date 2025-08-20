@@ -40,11 +40,6 @@
           ("CANCELLED" . "dark olive green"))))
 
 
-(map! :map org-mode-map
-      ("C-c a" #'org-agenda)
-      ("C-c c" #'org-capture)
-      ("C-c l" #'org-store-link))
-
 ;; Org Roam settings
 (setq org-roam-directory (file-truename "~/Work/personal-journal/roam/"))
 
@@ -55,12 +50,12 @@
          :empty-lines-before 1
          )))
 
-(map! :map org-mode-map
-      ("C-c n j" #'org-roam-dailies-capture-today)
-      ("C-c n f" #'org-roam-node-find))
-
 ;; Consult settings
-(map! ("C-c e g" #'consult-flycheck))
+(after! flycheck
+  (map! :leader
+        :prefix "s"
+        "g" #'consult-flycheck))
+
 
 ;;; COLORS
 (custom-set-faces!
