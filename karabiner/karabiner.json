@@ -87,6 +87,24 @@
                         "vendor_id": 4152
                     },
                     "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 64160,
+                        "vendor_id": 9639
+                    },
+                    "ignore": false,
+                    "simple_modifications": [
+                        {
+                            "from": { "pointing_button": "button1" },
+                            "to": [{ "pointing_button": "button2" }]
+                        },
+                        {
+                            "from": { "pointing_button": "button2" },
+                            "to": [{ "pointing_button": "button1" }]
+                        }
+                    ]
                 }
             ],
             "name": "padulkemid",
