@@ -10,7 +10,7 @@
       doom-font (font-spec :family "BerkeleyMono Nerd Font Mono" :size 14))
 
 ;; Emacs settings
-(setq frame-title-format 'padulemacs
+(setq frame-title-format '("%b - @padulemacs")
       display-line-numbers-type 'relative
       display-time-format '%H:%M)
 
@@ -32,12 +32,13 @@
                                  (typescript . t)
                                  (js . t)))
 ;; TODO: (setq org-capture-templates)
+(after! org
+  (setq org-todo-keyword-faces
+        '(("TODO" . "red")
+          ("IN_PROGRESS" . "magenta")
+          ("DONE" . "spring green")
+          ("CANCELLED" . "dark olive green"))))
 
-(setq org-todo-keyword-faces
-      '(("TODO" . "red")
-        ("IN_PROGRESS" . "magenta")
-        ("DONE" . "spring green")
-        ("CANCELLED" . "dark olive green")))
 
 (map! :map org-mode-map
       ("C-c a" #'org-agenda)
