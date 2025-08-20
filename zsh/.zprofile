@@ -11,6 +11,7 @@ export ALL_DOTFILES_DIR="$HOME/.dotfiles"
 export ALL_CONFIG_DIR="$HOME/.config"
 export ALL_SHARE_DIR="$HOME/.local/share"
 export TMUX_PLUGIN_MANAGER_PATH="${ALL_CONFIG_DIR}/tmux/plugins/tpm"
+export DOOMDIR="${ALL_CONFIG_DIR}/doom"
 
 # config cleanups
 export LESSHISTFILE="-"
