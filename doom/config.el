@@ -18,14 +18,16 @@
 
 
 ;; Org settings
-(setq org-hide-leading-stars t
+(setq org-latex-compiler "lualatex"
+      org-hide-leading-stars t
       org-startup-indented t
       org-adapt-indentation nil
       org-edit-src-content-indentation 0
       org-startup-truncated t
       org-return-follows-link t
       org-hide-emphasis-markers t
-      org-latex-compiler "lualatex"
+      org-log-into-drawer t
+      org-log-state-notes-insert-after-drawers t
       org-log-done 'time
       org-directory "~/Work/personal-journal/"
       org-agenda-files '("~/Work/personal-journal/work.org"
@@ -34,6 +36,7 @@
                                  (kotlin .t)
                                  (typescript . t)
                                  (js . t)))
+
 ;; TODO: (setq org-capture-templates)
 (after! org
   (setq org-todo-keyword-faces
