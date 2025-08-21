@@ -9,9 +9,8 @@
        hl-todo
        ophints
        (popup +defaults)
-       unicode
        (vc-gutter +pretty)
-       vi-tilde-fringe
+       zen
 
        :editor
        fold

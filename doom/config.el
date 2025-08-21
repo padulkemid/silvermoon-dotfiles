@@ -7,12 +7,15 @@
 
 ;; Doom settings
 (setq doom-theme 'modus-vivendi
-      doom-font (font-spec :family "BerkeleyMono Nerd Font Mono" :size 14))
+      doom-font (font-spec :family "BerkeleyMono Nerd Font Mono" :size 14)
+      doom-variable-pitch-font (font-spec :family "Inter" :size 14)
+      doom-serif-font (font-spec :family "IBM Plex Serif"))
 
 ;; Emacs settings
 (setq frame-title-format '("%b - @padulemacs")
-      display-line-numbers-type 'relative
+      display-line-numbers-type nil
       display-time-format '%H:%M)
+
 
 ;; Org settings
 (setq org-hide-leading-stars t
@@ -22,7 +25,7 @@
       org-startup-truncated t
       org-return-follows-link t
       org-hide-emphasis-markers t
-      org-latex-compiler "xelatex"
+      org-latex-compiler "lualatex"
       org-log-done 'time
       org-directory "~/Work/personal-journal/"
       org-agenda-files '("~/Work/personal-journal/work.org"
@@ -35,7 +38,7 @@
 (after! org
   (setq org-todo-keyword-faces
         '(("TODO" . "red")
-          ("IN_PROGRESS" . "magenta")
+          ("IN PROGRESS" . "magenta")
           ("DONE" . "spring green")
           ("CANCELLED" . "dark olive green"))))
 
