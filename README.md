@@ -8,6 +8,7 @@ symlinks all already done.
 # 📷 Pics
 
 ![prompt screen](https://i.imgur.com/H7EJkwn.png)
+![emacs config](https://i.imgur.com/1iPsVPM.png)
 
 # 🏃🏻‍♂️ 💨 Running the Script
 
