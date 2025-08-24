@@ -3,7 +3,8 @@
 ;;; SETTINGS
 ;; User settings
 (setq user-full-name "Fadhil Muhammad"
-      user-mail-address "fadhil2903@gmail.com")
+      user-mail-address "fadhil2903@gmail.com"
+      load-prefer-newer t)
 
 ;; Doom settings
 (setq doom-theme 'modus-vivendi
@@ -45,7 +46,8 @@
           ("IN PROGRESS" . "magenta")
           ("DONE" . "spring green")
           ("CANCELLED" . "dark olive green"))
-        org-tags-column 65))
+        org-tags-column 65
+        org-attach-dir-relative t))
 
 (after! org-latex
   (setq org-latex-pdf-process (list "latexmk -f xelatex %f")))
