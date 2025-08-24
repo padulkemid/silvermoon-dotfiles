@@ -18,7 +18,8 @@
 
 
 ;; Org settings
-(setq org-latex-compiler "lualatex"
+(setq org-src-window-setup 'current-window
+      org-preview-latex-image-directory "/tmp/ltximg/"
       org-hide-leading-stars t
       org-startup-indented t
       org-adapt-indentation nil
@@ -43,12 +44,30 @@
         '(("TODO" . "red")
           ("IN PROGRESS" . "magenta")
           ("DONE" . "spring green")
-          ("CANCELLED" . "dark olive green"))))
+          ("CANCELLED" . "dark olive green"))
+        org-tags-column 65))
 
+(after! org-latex
+  (setq org-latex-pdf-process (list "latexmk -f xelatex %f")))
+
+(add-hook! 'org-mode-hook
+  (setq-local fill-column 65
+              visual-line-mode nil
+              auto-fill-mode t))
+
+;; Consult settings
+(after! flycheck
+  (map! :leader
+        :prefix "s"
+        :desc "Flycheck diagnostics" "g" #'consult-flycheck))
+
+(defun padul/org-roam-rg-search ()
+  "Search org-roam directory using consult-ripgrep with live preview."
+  (interactive)
+  (consult-ripgrep org-roam-directory ""))
 
 ;; Org Roam settings
 (setq org-roam-directory (file-truename "~/Work/personal-journal/roam/"))
-
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry "* %?"
          :if-new (file+head "%<%Y/%m/%d>.org" "#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags::coding:")
@@ -56,12 +75,12 @@
          :empty-lines-before 1
          )))
 
-;; Consult settings
-(after! flycheck
-  (map! :leader
-        :prefix "s"
-        "g" #'consult-flycheck))
-
+(after! org-roam
+  (map! :map org-roam-mode-map
+        :leader
+        :prefix "n r"
+        :desc "Sync database" "S" #'org-roam-db-sync
+        :desc "Search org-roam notes" "s" #'padul/org-roam-rg-search))
 
 ;;; COLORS
 (custom-set-faces!
