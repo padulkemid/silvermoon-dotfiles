@@ -54,8 +54,9 @@
 
 (add-hook! 'org-mode-hook
   (setq-local fill-column 65
-              visual-line-mode nil
-              auto-fill-mode t))
+              visual-line-mode nil))
+
+(add-hook! 'org-mode-hook 'turn-on-auto-fill)
 
 ;; Consult settings
 (after! flycheck

@@ -1,0 +1,13 @@
+#+TITLE: my old emacs config
+#+DESCRIPTION: this is my old emacs config that is based on minimal-emacs.d
+#+AUTHOR: Fadhil Muhammad
+#+EMAIL: fadhil2903@gmail.com
+#+OPTIONS: toc:nil
+#+DATE: <2025-08-25 Mon 05:36>
+
+** Welcome to my initial emacs config!
+
+This is based on james cherti's [[https://github.com/jamescherti/minimal-emacs.d][minimal-emacs.d]] so please get the
+~early-init.el~ and ~init.el~ from there. for your information this
+is most of the best performance configuration but i still love
+the sense defaults that doom emacs brought.
