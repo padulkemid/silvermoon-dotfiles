@@ -5,8 +5,6 @@
 #+OPTIONS: toc:nil
 #+DATE: <2025-08-25 Mon 05:36>
 
-** Welcome to my initial emacs config!
-
 This is based on james cherti's [[https://github.com/jamescherti/minimal-emacs.d][minimal-emacs.d]] so please get the
 ~early-init.el~ and ~init.el~ from there. for your information this
 is most of the best performance configuration but i still love
