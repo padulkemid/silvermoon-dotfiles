@@ -62,5 +62,5 @@ map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map grn <Action>(RenameElement)
 map gca <Action>(GotoAction)
-map gfp <Action>(FileStructurePopup)
+map gfp <Action>(SelectInProjectView)
 

@@ -33,7 +33,8 @@
       org-log-done 'time
       org-directory "~/Work/personal-journal/"
       org-agenda-files '("~/Work/personal-journal/work.org"
-                         "~/Work/personal-journal/home.org")
+                         "~/Work/personal-journal/habits.org"
+                         "~/Work/personal-journal/meetings.org")
       org-babel-load-languages '((emacs-lisp . t)
                                  (kotlin .t)
                                  (typescript . t)
@@ -41,13 +42,17 @@
 
 ;; TODO: (setq org-capture-templates)
 (after! org
+  (require 'org-habit)
   (setq org-todo-keyword-faces
         '(("TODO" . "red")
-          ("IN PROGRESS" . "magenta")
+          ("ONGOING" . "magenta")
           ("DONE" . "spring green")
-          ("CANCELLED" . "dark olive green"))
+          ("CANCELLED" . "dark olive green")
+          ("RUNNING" . "cyan")
+          ("FINISHED" . "slate blue"))
         org-tags-column 65
-        org-attach-dir-relative t))
+        org-attach-dir-relative t)
+  (setq org-habit-show-habits-only-for-today nil))
 
 (after! org-latex
   (setq org-latex-pdf-process (list "latexmk -f xelatex %f")))
