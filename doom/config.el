@@ -146,7 +146,7 @@
                                             '(vc-mode vc-mode)
                                             " "
                                             mode-line-misc-info
-                                            " %l:%c  "))))
+                                            " L%l:C%c "))))
 
 (setq padul/mode-line-left-side '(" "
                                   (:eval (format-time-string "%H:%M"))
