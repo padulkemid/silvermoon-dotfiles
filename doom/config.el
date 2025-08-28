@@ -59,11 +59,11 @@
           ("w" "Work: MSG"
            entry (file+headline "~/Work/personal-journal/work.org" "MSG")
            "** TODO [#%^{Priority|A|B|C}] %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
-           :empty-lines-before 1)
+           :empty-lines-after 1)
           ("b" "Work: Other"
            entry (file+headline "~/Work/personal-journal/work.org" "Other")
            "** TODO [#%^{Priority|A|B|C}] %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
-           :empty-lines-before 1)
+           :empty-lines-after 1)
           ("m" "Meetings"
            entry (file "~/Work/personal-journal/meetings.org")
            "* SETUP [#%^{Priority|A|B|C}] %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
