@@ -40,7 +40,6 @@
                                  (typescript . t)
                                  (js . t)))
 
-;; TODO: (setq org-capture-templates)
 (after! org
   (require 'org-habit)
   (setq org-todo-keyword-faces
@@ -50,10 +49,26 @@
           ("CANCELLED" . "dark olive green")
           ("RUNNING" . "cyan")
           ("FINISHED" . "slate blue")
+          ("SETUP" . "aquamarine")
           ("NEXT" . "deep sky blue"))
         org-tags-column 65
         org-attach-dir-relative t)
-  (setq org-habit-show-habits-only-for-today nil))
+  (setq org-habit-show-habits-only-for-today nil)
+  (setq org-capture-templates
+        '(
+          ("w" "Work: MSG"
+           entry (file+headline "~/Work/personal-journal/work.org" "MSG")
+           "** TODO [#%^{Priority|A|B|C}] %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
+           :empty-lines-before 1)
+          ("b" "Work: Other"
+           entry (file+headline "~/Work/personal-journal/work.org" "Other")
+           "** TODO [#%^{Priority|A|B|C}] %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
+           :empty-lines-before 1)
+          ("m" "Meetings"
+           entry (file "~/Work/personal-journal/meetings.org")
+           "* SETUP [#%^{Priority|A|B|C}] %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
+           :empty-lines-before 1))))
+
 
 (after! org-latex
   (setq org-latex-pdf-process (list "latexmk -f xelatex %f")))
