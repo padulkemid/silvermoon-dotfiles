@@ -49,7 +49,8 @@
           ("DONE" . "spring green")
           ("CANCELLED" . "dark olive green")
           ("RUNNING" . "cyan")
-          ("FINISHED" . "slate blue"))
+          ("FINISHED" . "slate blue")
+          ("NEXT" . "deep sky blue"))
         org-tags-column 65
         org-attach-dir-relative t)
   (setq org-habit-show-habits-only-for-today nil))
@@ -109,3 +110,47 @@
                (string-match-p (car a-l-element) abs-file))
       (mapc #'funcall (cdr a-l-element))))
   (run-hook-with-args 'after-load-functions abs-file))
+
+;;; MODELINE
+(defvar padul-check-selected-window (frame-selected-window))
+(defun padul-set-selected-window (&rest _args)
+  (when (not (minibuffer-window-active-p (frame-selected-window)))
+    (setq padul-check-selected-window (frame-selected-window))
+    (force-mode-line-update)))
+(defun padul-unset-selected-window ()
+  (setq padul-check-selected-window nil)
+  (force-mode-line-update))
+(defun padul-line-selected-window-active-p ()
+  (eq padul-check-selected-window (selected-window)))
+
+(add-hook! 'window-configuration-change-hook #'padul-set-selected-window)
+(add-hook! 'window-selection-change-functions #'padul-set-selected-window)
+
+(setq padul/mode-line-right-side '(:eval (when (mode-line-window-selected-p)
+                                           (list
+                                            '(vc-mode vc-mode)
+                                            " "
+                                            mode-line-misc-info
+                                            " %l:%c  "))))
+
+(setq padul/mode-line-left-side '(" "
+                                  (:eval (format-time-string "%H:%M"))
+                                  "  "
+                                  (:propertize
+                                   (""
+                                    mode-line-mule-info
+                                    mode-line-client
+                                    mode-line-modified
+                                    mode-line-remote
+                                    mode-line-window-dedicated)
+                                   display (min-width (6.0)))
+                                  " "
+                                  mode-line-buffer-identification
+                                  mode-line-process))
+
+(setq-default mode-line-format
+              `(
+                ,@padul/mode-line-left-side
+                mode-line-format-right-align
+                ,padul/mode-line-right-side))
+
