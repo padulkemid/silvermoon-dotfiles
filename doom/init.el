@@ -43,7 +43,8 @@
        (javascript +tree-sitter)
        kotlin
        markdown
-       (org +pandoc +roam2 +dragndrop)
+       (org +pandoc +roam2 +dragndrop +present +gnuplot)
+       (latex +latexmk)
        web
        (yaml +tree-sitter)
 
