@@ -71,7 +71,49 @@
 
 
 (after! org-latex
-  (setq org-latex-pdf-process (list "latexmk -f xelatex %f")))
+  (setq org-latex-pdf-process '("LC_ALL=en_US.UTF-8 latexmk -f -pdf -xelatex -shell-escape -interaction=nonstopmode")))
+
+(after! ox-latex
+  (let* ((article-sections '(("\\section{%s}" . "\\section*{%s}")
+                             ("\\subsection{%s}" . "\\subsection*{%s}")
+                             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                             ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+         (book-sections (append '(("\\chapter{%s}" . "\\chapter*{%s}"))
+                                article-sections))
+         (hanging-secnum-preamble "\\renewcommand\\sectionformat{\\llap{\\thesection\\autodot\\enskip}}
+\\renewcommand\\subsectionformat{\\llap{\\thesubsection\\autodot\\enskip}}
+\\renewcommand\\subsubsectionformat{\\llap{\\thesubsubsection\\autodot\\enskip}}")
+         (big-chap-preamble "\\RedeclareSectionCommand[afterindent=false, beforeskip=0pt, afterskip=0pt, innerskip=0pt]{chapter}
+\\setkomafont{chapter}{\\normalfont\\Huge}
+\\renewcommand*{\\chapterheadstartvskip}{\\vspace*{0\\baselineskip}}
+\\renewcommand*{\\chapterheadendvskip}{\\vspace*{0\\baselineskip}}
+\\renewcommand*{\\chapterformat}{%
+  \\fontsize{60}{30}\\selectfont\\rlap{\\hspace{6pt}\\thechapter}}
+\\renewcommand*\\chapterlinesformat[3]{%
+  \\parbox[b]{\\dimexpr\\textwidth-0.5em\\relax}{%
+    \\raggedleft{{\\large\\scshape\\bfseries\\chapapp}\\vspace{-0.5ex}\\par\\Huge#3}}%
+    \\hfill\\makebox[0pt][l]{#2}}"))
+    (setcdr (assoc "article" org-latex-classes)
+            `(,(concat "\\documentclass{scrartcl}" hanging-secnum-preamble)
+              ,@article-sections))
+    (add-to-list 'org-latex-classes
+                 `("report" ,(concat "\\documentclass{scrartcl}" hanging-secnum-preamble)
+                   ,@article-sections))
+    (add-to-list 'org-latex-classes
+                 `("book" ,(concat "\\documentclass[twoside=false]{scrbook}"
+                                   big-chap-preamble hanging-secnum-preamble)
+                   ,@book-sections))
+    (add-to-list 'org-latex-classes
+                 `("blank" "[NO-DEFAULT-PACKAGES]\n[NO-PACKAGES]\n[EXTRA]"
+                   ,@article-sections))
+    (add-to-list 'org-latex-classes
+                 `("bmc-article" "\\documentclass[article,code,maths]{bmc}\n[NO-DEFAULT-PACKAGES]\n[NO-PACKAGES]\n[EXTRA]"
+                   ,@article-sections))
+    (add-to-list 'org-latex-classes
+                 `("bmc" "\\documentclass[code,maths]{bmc}\n[NO-DEFAULT-PACKAGES]\n[NO-PACKAGES]\n[EXTRA]"
+                   ,@book-sections))))
+
 
 (add-hook! 'org-mode-hook
   (setq-local fill-column 65
