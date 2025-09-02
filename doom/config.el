@@ -185,10 +185,10 @@
 
 (setq padul/mode-line-right-side '(:eval (when (mode-line-window-selected-p)
                                            (list
-                                            '(vc-mode vc-mode)
                                             " "
                                             mode-line-misc-info
-                                            " L%l:C%c  "))))
+                                            mode-line-position
+                                            "C%c "))))
 
 (setq padul/mode-line-left-side '(" "
                                   (:eval (format-time-string "%H:%M"))
@@ -203,6 +203,7 @@
                                    display (min-width (6.0)))
                                   " "
                                   mode-line-buffer-identification
+                                  (vc-mode vc-mode)
                                   mode-line-process))
 
 (setq-default mode-line-format
