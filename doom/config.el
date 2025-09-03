@@ -148,6 +148,9 @@
         :desc "Sync database" "S" #'org-roam-db-sync
         :desc "Search org-roam notes" "s" #'padul/org-roam-rg-search))
 
+;; Magit settings
+(setq magit-git-executable "/opt/homebrew/bin/git")
+
 ;;; COLORS
 (custom-set-faces!
   '(fringe :background "black")
