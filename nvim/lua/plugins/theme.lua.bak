@@ -32,3 +32,6 @@ return {
     vim.cmd 'colorscheme github_dark_high_contrast'
   end,
 }
+
+-- the reason I disable this again because I want to go back to the default
+-- colorscheme again and if can disable the syntax hl except for comments!
