@@ -67,7 +67,12 @@
           ("m" "Meetings"
            entry (file "~/Work/personal-journal/meetings.org")
            "* SETUP [#%^{Priority|A|B|C}] %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
-           :empty-lines-before 1))))
+           :empty-lines-before 1)
+          ("r" "Reminders"
+           entry (file+headline "~/Work/personal-journal/habits.org" "Reminders")
+           "** NEXT %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
+           :empty-lines-after 1)
+          )))
 
 
 (after! org-latex
