@@ -1,7 +1,6 @@
 # core paths
 GPG_TTY=$(tty)
 export GPG_TTY
-export PATH="$(brew --prefix)/bin:$PATH"
 export ZSH="$ALL_CONFIG_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 

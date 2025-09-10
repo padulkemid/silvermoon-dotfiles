@@ -12,6 +12,10 @@ return {
       typescriptreact = { 'eslint_d' },
       vue = { 'eslint_d' },
       go = { 'golangcilint' },
+      bash = { 'shellcheck' },
+      zsh = { 'shellcheck' },
+      make = { 'shellcheck' },
+      sh = { 'shellcheck' },
       -- kotlin = { 'ktlint' },
     }
 

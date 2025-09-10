@@ -33,6 +33,7 @@ return {
     local servers = {
       jsonls = true,
       emmet_language_server = true,
+      bashls = true,
       lua_ls = true,
       tailwindcss = true,
       cssls = true,
