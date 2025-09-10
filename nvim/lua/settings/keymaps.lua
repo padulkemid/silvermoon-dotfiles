@@ -35,6 +35,13 @@ set('', '<C-k>', '<C-W>k')
 set('', '<C-h>', '<C-W>h')
 set('', '<C-l>', '<C-W>l')
 
+-- Emacs mapping (that I like!)
+set('i', '<M-BS>', '<C-w>', { remap = true })
+set('i', '<C-f>', '<Right>', { remap = true })
+set('i', '<C-b>', '<Left>', { remap = true })
+set('i', '<M-f>', '<C-o>w', { remap = true })
+set('i', '<M-b>', '<C-o>b', { remap = true })
+
 -- Search next word and centers the buffer
 set('n', 'n', 'nzzzv', { remap = true })
 set('n', 'N', 'Nzzzv', { remap = true })
