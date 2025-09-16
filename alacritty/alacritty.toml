@@ -57,7 +57,7 @@ white   = "#ffffff"
 TERM = "alacritty"
 
 [font]
-size = 14
+size = 16
 
 [font.normal]
 family = "BerkeleyMono Nerd Font Mono"
