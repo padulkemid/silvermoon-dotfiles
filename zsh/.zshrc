@@ -58,6 +58,7 @@ alias mc="nvim $MISE_CONFIG_LOCATION"
 eval "$(jump shell)"
 eval "$(mise activate zsh)"
 eval "$(/usr/libexec/path_helper)"
+export PATH="$PATH:$HOME/.pub-cache/bin"
 
 # options
 export IGNOREEOF=2
