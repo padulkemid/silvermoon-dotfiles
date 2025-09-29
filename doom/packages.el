@@ -4,3 +4,4 @@
 ;; org-babel
 (package! ob-kotlin)
 (package! ob-typescript)
+(package! plantuml-mode)

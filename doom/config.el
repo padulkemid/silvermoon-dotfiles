@@ -17,10 +17,18 @@
       display-line-numbers-type nil
       display-time-format '%H:%M)
 
+;; Plantuml settings
+(setq plantuml-jar-path "~/.local/share/jars/plantuml.jar"
+      plantuml-default-exec-mode 'jar
+      plantuml-svg-background "white")
+
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
 
 ;; Org settings
 (setq org-src-window-setup 'current-window
       org-preview-latex-image-directory "/tmp/ltximg/"
+      org-plantuml-jar-path "~/.local/share/jars/plantuml.jar"
       org-hide-leading-stars t
       org-startup-indented t
       org-adapt-indentation nil
@@ -38,7 +46,8 @@
       org-babel-load-languages '((emacs-lisp . t)
                                  (kotlin .t)
                                  (typescript . t)
-                                 (js . t)))
+                                 (js . t)
+                                 (plantuml . t)))
 
 (after! org
   (require 'org-habit)
@@ -50,6 +59,7 @@
           ("RUNNING" . "cyan")
           ("FINISHED" . "slate blue")
           ("SETUP" . "aquamarine")
+          ("OFF" . "tomato")
           ("NEXT" . "deep sky blue"))
         org-tags-column 65
         org-attach-dir-relative t)
