@@ -55,12 +55,3 @@ vim.o.splitbelow = true
 -- Performance
 vim.o.redrawtime = 10000
 vim.o.maxmempattern = 20000
-
--- Color
-vim.cmd 'colorscheme default'
-vim.api.nvim_set_hl(0, 'Normal', { fg = 'white', bg = 'black' })
-vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'black' })
-vim.api.nvim_set_hl(0, 'StatusLine', { fg = 'black', bg = 'white' })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = 'black', bg = 'darkgray' })
-vim.api.nvim_set_hl(0, 'WinSeparator', { fg = 'white', bg = 'black' })
-vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = 'black' })
