@@ -26,54 +26,36 @@ magenta = "#ff00ff"
 cyan    = "#00ffff"
 white   = "#ffffff"
 
-# github dark high contrast
-# [colors.primary]
-# background = "#000000"
-# foreground = "#ffffff"
-#
-#
-# [colors.normal]
-# black = "#000000"
-# red = "#ff9492"
-# green = "#26cd4d"
-# yellow = "#f0b72f"
-# blue = "#71b7ff"
-# magenta = "#cb9eff"
-# cyan = "#76e3ea"
-# white = "#e5e5e5"
-#
-# [colors.bright]
-# black = "#7f7f7f"
-# red = "#ffb1af"
-# green = "#4ae168"
-# yellow = "#f7c843"
-# blue = "#91cbff"
-# magenta = "#dbb7ff"
-# cyan = "#b3f0ff"
-# white = "#ffffff"
-
-
 [env]
 TERM = "alacritty"
 
 [font]
-size = 16
+size = 18
 
 [font.normal]
-family = "BerkeleyMono Nerd Font Mono"
+family = "DinaRemasterII Nerd Font Mono"
 style = "Regular"
 
-[font.italic]
-family = "BerkeleyMono Nerd Font Mono"
-style = "Oblique"
+# [font.normal]
+# family = "BerkeleyMono Nerd Font Mono"
+# style = "Regular"
+
+
+# [font.italic]
+# family = "BerkeleyMono Nerd Font Mono"
+# style = "Oblique"
+#
+# [font.bold]
+# family = "BerkeleyMono Nerd Font Mono"
+# style = "Bold"
 
 [font.bold]
-family = "BerkeleyMono Nerd Font Mono"
+family = "DinaRemasterII Nerd Font Mono"
 style = "Bold"
 
-[font.bold_italic]
-family = "BerkeleyMono Nerd Font Mono"
-style = "Bold Oblique"
+# [font.bold_italic]
+# family = "BerkeleyMono Nerd Font Mono"
+# style = "Bold Oblique"
 
 [font.offset]
 x = 0
