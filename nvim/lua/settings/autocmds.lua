@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd('BufReadPre', {
       severity_sort = true,
     }
 
-    set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+    set('n', '<leader>de', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
     set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
   end,
 })
