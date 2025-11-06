@@ -15,6 +15,7 @@ local servers = {
   emmet_language_server = true,
   lua_ls = true,
   cssls = true,
+  biome = true,
 
   -- TODO: enable when I need it, no need it for now (I will learn
   -- C later to continue learning about linux kernal, its in my roadmap!)

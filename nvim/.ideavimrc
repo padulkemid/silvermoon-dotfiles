@@ -40,6 +40,13 @@ nnoremap L $
 vnoremap H ^
 vnoremap L g_
 
+"--- emacs
+inoremap <M-BS> <C-w>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+inoremap <M-f> <C-o>w
+inoremap <M-b> <C-o>b
+
 "--- tabs
 nmap <leader>tp gT<CR>
 nmap <leader>tn gt<CR>
