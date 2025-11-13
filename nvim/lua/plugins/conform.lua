@@ -35,7 +35,7 @@ return {
         -- zsh = { 'shfmt' },
         -- make = { 'shfmt' },
         -- sh = { 'shfmt' },
-        -- c = { 'clang-format' },
+        c = { 'clang-format' },
       },
       formatters = {
         biome = {

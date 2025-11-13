@@ -19,7 +19,7 @@ local servers = {
 
   -- TODO: enable when I need it, no need it for now (I will learn
   -- C later to continue learning about linux kernal, its in my roadmap!)
-  --[[ clangd = { 
+  clangd = {
     settings = {
       clangd = {
         arguments = {
@@ -27,7 +27,7 @@ local servers = {
         },
       },
     },
-  }, ]]
+  },
 
   -- every react or js stuff or ts, rescript, or what the fuck we are now
   html = {
