@@ -34,6 +34,11 @@ return {
         move_up = '<C-k>',
         choose_in_split = '<C-x>',
 
+        --[[
+        -- ACHTUNG!
+        -- if you were looking for adding the refined list to
+        -- quickfix list, press <M-RET> after refining.
+        --]]
         mark = '<M-r>',
         mark_all = '<M-a>',
         refine_marked = '<C-Space>',

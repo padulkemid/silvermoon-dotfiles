@@ -4,6 +4,47 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "gw2 whisky swap",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.isaacmarovitz\\.Whisky$",
+                                            "^org\\.winehq\\.wine$"
+                                        ],
+                                        "file_paths": [".*wine64-preloader", ".*Whisky"],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_control" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.isaacmarovitz\\.Whisky$",
+                                            "^org\\.winehq\\.wine$"
+                                        ],
+                                        "file_paths": [".*wine64-preloader", ".*Whisky"],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_option",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "swap left control/command keys for alc and intellij",
                         "manipulators": [
                             {
