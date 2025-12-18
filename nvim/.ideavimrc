@@ -71,4 +71,4 @@ map grn <Action>(RenameElement)
 map gca <Action>(GotoAction)
 map gfp <Action>(SelectInProjectView)
 map <leader>cfp <Action>(CopyAbsolutePath)
-
+map <leader>ofp <Action>($LRU)
