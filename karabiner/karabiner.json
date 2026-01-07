@@ -146,6 +146,14 @@
                             "to": [{ "pointing_button": "button1" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 6220,
+                        "vendor_id": 4152
+                    },
+                    "ignore": false
                 }
             ],
             "name": "padulkemid",
