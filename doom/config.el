@@ -66,8 +66,8 @@
   (setq org-habit-show-habits-only-for-today nil)
   (setq org-capture-templates
         '(
-          ("w" "Work: MSG"
-           entry (file+headline "~/Work/personal-journal/work.org" "MSG")
+          ("w" "Work: Oxygen"
+           entry (file+headline "~/Work/personal-journal/work.org" "Oxygen")
            "** TODO [#%^{Priority|A|B|C}] %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
            :empty-lines-after 1)
           ("b" "Work: Other"
