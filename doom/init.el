@@ -41,6 +41,7 @@
        emacs-lisp
        (json +tree-sitter)
        (javascript +tree-sitter)
+       (dart +flutter)
        kotlin
        markdown
        (org +pandoc +roam2 +dragndrop +present +gnuplot)

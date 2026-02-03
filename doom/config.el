@@ -6,6 +6,8 @@
       user-mail-address "fadhil2903@gmail.com"
       load-prefer-newer t)
 
+(add-to-list 'default-frame-alist '(undecorated-round . t))
+
 ;; Doom settings
 (setq doom-theme 'modus-vivendi
       doom-font (font-spec :family "BerkeleyMono Nerd Font Mono" :size 14)

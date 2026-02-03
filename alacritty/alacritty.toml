@@ -71,7 +71,7 @@ bindings = [
 ]
 
 [window]
-decorations = "none"
+decorations = "buttonless"
 dynamic_title = false
 option_as_alt = "OnlyLeft"
 # title = "padulcritty"
