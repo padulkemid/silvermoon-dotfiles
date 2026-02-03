@@ -54,6 +54,7 @@ nmap <leader>tn gt<CR>
 "--- actions
 map <leader>ef <Action>(ReformatCode)
 map <leader>f <Action>(SearchEverywhere)
+map <leader>rf <Action>(RecentFiles)
 map <leader>; <Action>(CloseContent)
 map K <Action>(ShowHoverInfo)
 map <leader>ca <Action>(ShowIntentionActions)
@@ -76,4 +77,3 @@ map gfp <Action>(SelectInProjectView)
 map <leader>cfp <Action>(CopyAbsolutePath)
 map <leader>ofp <Action>($LRU)
 map <leader>cpw <Action>(CloseProject)
-map <leader>fr <Action>(RecentFiles)
