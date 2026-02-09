@@ -2,6 +2,8 @@
 let mapleader=","
 set scrolloff=5
 set ideajoin
+set ideamarks
+set number
 set relativenumber
 
 " Searching
