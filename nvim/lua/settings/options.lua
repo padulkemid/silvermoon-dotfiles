@@ -55,3 +55,6 @@ vim.o.splitbelow = true
 -- Performance
 vim.o.redrawtime = 10000
 vim.o.maxmempattern = 20000
+
+-- C style for H
+vim.g.c_syntax_for_h = 1

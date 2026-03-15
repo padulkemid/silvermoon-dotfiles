@@ -13,10 +13,23 @@ local servers = {
   -- no need configs
   jsonls = true,
   emmet_language_server = true,
-  lua_ls = true,
   cssls = true,
-  biome = true,
+  -- got rid of this for a while, still the fastest toolchain ever
+  -- biome = true,
   kotlin_lsp = true,
+
+  -- diagnostic redemption
+  lua_ls = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = {
+            'vim',
+          },
+        },
+      },
+    },
+  },
 
   -- TODO: enable when I need it, no need it for now (I will learn
   -- C later to continue learning about linux kernal, its in my roadmap!)
