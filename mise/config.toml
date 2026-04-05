@@ -8,6 +8,7 @@ java = "21"
 node = "20"
 python = "3.10"
 cmake = "4.0.2"
+rust = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
