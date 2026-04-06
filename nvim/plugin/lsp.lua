@@ -4,7 +4,6 @@ vim.pack.add {
 
 local blink = require 'blink.cmp'
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local set = vim.keymap.set
 
 local servers = {
   lua_ls = {},
@@ -26,11 +25,3 @@ for name, config in pairs(servers) do
 end
 
 vim.lsp.enable(lsp_list)
-
-set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
-set('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' })
-set('n', 'gI', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplementation' })
-set('n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'Type [D]efinition' })
-set('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
-set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
-set('n', '<leader>K', vim.lsp.buf.signature_help, { desc = 'Signature Help' })

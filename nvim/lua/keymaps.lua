@@ -83,3 +83,13 @@ set('n', '<leader>cfn', ':let @+=expand("%:t")<CR>', { desc = '[C]opy [F]ile [N]
 -- Diagnostic
 set('n', '<leader>de', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- LSP
+set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
+set('n', 'gd', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' })
+set('n', 'gI', vim.lsp.buf.implementation, { desc = '[G]oto [I]mplementation' })
+set('n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'Type [D]efinition' })
+set('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
+set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
+set('n', '<leader>K', vim.lsp.buf.signature_help, { desc = 'Signature Help' })
+
