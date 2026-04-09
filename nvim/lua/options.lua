@@ -74,7 +74,8 @@ vim.diagnostic.config {
 -- Filetypes
 vim.filetype.add {
   extension = {
-    env = 'dotenv',
+    ['env'] = 'dotenv',
+    ['http'] = 'http',
   },
   filename = {
     ['.env'] = 'dotenv',

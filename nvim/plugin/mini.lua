@@ -31,8 +31,9 @@ pick.setup {
     use_cache = true,
   },
   mappings = {
-    move_down = '<C-j>',
-    move_up = '<C-k>',
+    -- emacs do <C-n> / <C-p>, default vim also use this
+    --[[ move_down = '<C-j>',
+    move_up = '<C-k>', ]]
     choose_in_split = '<C-x>',
 
     --[[
@@ -90,6 +91,7 @@ extra.setup()
 pairs.setup()
 
 -- settings
+---@diagnostic disable-next-line: undefined-global
 vim.ui.select = MiniPick.ui_select
 
 -- setup keymaps
