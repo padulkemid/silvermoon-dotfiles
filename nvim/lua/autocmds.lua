@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
 
 
 -- LSP fidget.esque ui2
-vim.api.nvim_create_autocmd("LspProgress", {
+--[[ vim.api.nvim_create_autocmd("LspProgress", {
   callback = function(ev)
     local value = ev.data.params.value
     vim.api.nvim_echo({ { value.message or "done" } }, false, {
@@ -44,4 +44,4 @@ vim.api.nvim_create_autocmd("LspProgress", {
       percent = value.percentage,
     })
   end,
-})
+}) ]]

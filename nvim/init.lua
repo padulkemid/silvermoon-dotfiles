@@ -1,6 +1,7 @@
 require 'options'
 require 'keymaps'
 require 'autocmds'
+require 'cmds'
 require 'statusline'
 require 'ui2'
 require 'disabled'
