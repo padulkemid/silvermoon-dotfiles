@@ -3,3 +3,4 @@ vim.pack.add {
 }
 
 vim.cmd.colorscheme('256noir')
+vim.cmd.colorscheme('delek')
