@@ -16,6 +16,7 @@ local servers = {
   'dartls',
   'cucumber_language_server',
   'emmet_languange_server',
+  'sourcekit',
 }
 
 vim.lsp.config('*', {
