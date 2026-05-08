@@ -26,7 +26,7 @@ vim.o.infercase = true
 -- Visual
 vim.o.background = 'dark'
 vim.o.winborder = 'single'
-vim.o.termguicolors = false
+vim.o.termguicolors = true
 vim.o.signcolumn = 'no'
 vim.o.showmatch = true
 vim.o.matchtime = 2
