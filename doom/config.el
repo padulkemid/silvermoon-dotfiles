@@ -10,7 +10,7 @@
 
 ;; Doom settings
 (setq doom-theme 'modus-vivendi
-      doom-font (font-spec :family "BerkeleyMono Nerd Font Mono" :size 14)
+      doom-font (font-spec :family "BerkeleyMono Nerd Font Mono" :size 22)
       doom-variable-pitch-font (font-spec :family "Inter" :size 14)
       doom-serif-font (font-spec :family "IBM Plex Serif"))
 

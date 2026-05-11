@@ -30,32 +30,31 @@ white   = "#ffffff"
 TERM = "alacritty"
 
 [font]
-size = 25
-
-[font.normal]
-family = "DinaRemasterII Nerd Font Mono"
-style = "Regular"
+size = 22
 
 # [font.normal]
-# family = "BerkeleyMono Nerd Font Mono"
+# family = "DinaRemasterII Nerd Font Mono"
 # style = "Regular"
 
+[font.normal]
+family = "BerkeleyMono Nerd Font Mono"
+style = "Regular"
 
-# [font.italic]
-# family = "BerkeleyMono Nerd Font Mono"
-# style = "Oblique"
-#
-# [font.bold]
-# family = "BerkeleyMono Nerd Font Mono"
-# style = "Bold"
+[font.italic]
+family = "BerkeleyMono Nerd Font Mono"
+style = "Oblique"
 
 [font.bold]
-family = "DinaRemasterII Nerd Font Mono"
+family = "BerkeleyMono Nerd Font Mono"
 style = "Bold"
 
-# [font.bold_italic]
-# family = "BerkeleyMono Nerd Font Mono"
-# style = "Bold Oblique"
+# [font.bold]
+# family = "DinaRemasterII Nerd Font Mono"
+# style = "Bold"
+
+[font.bold_italic]
+family = "BerkeleyMono Nerd Font Mono"
+style = "Bold Oblique"
 
 [font.offset]
 x = 0
