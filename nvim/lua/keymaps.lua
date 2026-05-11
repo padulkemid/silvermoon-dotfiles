@@ -73,6 +73,10 @@ set('', 'q:', ':q')
 set('', ':Q', ':q')
 set('', ':W', ':w')
 
+-- Remap spawning terminal commands
+set('', ':vt', ':Vt')
+set('', ':ht', ':Ht')
+
 -- Terminal exit
 set('t', '<C-\\><C-\\>', '<C-\\><C-n>', { remap = true })
 
