@@ -4,14 +4,16 @@ background = 000000
 foreground = ffffff
 
 # fonts
-font-family = GohuFont uni14 Nerd Font
-font-size = 14 
-font-synthetic-style = false
+font-family = Berkeley Mono
+font-size = 22
+font-synthetic-style = true
 
 # cursor
 shell-integration-features = no-cursor
 cursor-style = block
-cursor-style-blink = false
+cursor-style-blink = true
+cursor-color = cell-foreground
+cursor-text = cell-background
 
 # mouse
 mouse-scroll-multiplier = 2
@@ -20,13 +22,16 @@ mouse-scroll-multiplier = 2
 keybind = super+backspace=text:\x15
 
 # window
-window-padding-x = 2
-window-padding-y = 2
+window-padding-x = 8
+window-padding-y = 8
 window-padding-balance = false
 window-padding-color = background
-window-decoration = false
-window-theme = ghostty
-macos-window-shadow = false
+window-theme = system
+
+# macos
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+macos-icon = xray
 
 # updates
 auto-update = off

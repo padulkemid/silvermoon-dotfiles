@@ -61,6 +61,9 @@ vim.o.jumpoptions = 'view'
 vim.o.redrawtime = 10000
 vim.o.maxmempattern = 20000
 
+-- Cursor blink
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
+
 -- C style for H
 vim.g.c_syntax_for_h = 1
 

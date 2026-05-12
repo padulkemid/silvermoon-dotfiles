@@ -3,8 +3,4 @@ vim.pack.add {
 }
 
 local ibl = require 'ibl'
-ibl.setup {
-  indent = {
-    char = '╎',
-  },
-}
+ibl.setup {}

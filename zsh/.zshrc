@@ -82,3 +82,9 @@ function bash-ctrl-d() {
 }
 zle -N bash-ctrl-d
 bindkey "^d" bash-ctrl-d
+
+# fix cursor blink
+function _fix_cursor_blink() {
+  printf '\033[1 q'
+}
+zle -N zle-line-init _fix_cursor_blink

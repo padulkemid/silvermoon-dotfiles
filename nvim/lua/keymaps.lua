@@ -77,6 +77,9 @@ set('', ':W', ':w')
 set('', ':vt', ':Vt')
 set('', ':ht', ':Ht')
 
+-- Command mode shenanigans
+set('c', '<M-BS>', '<C-w>')
+
 -- Terminal exit
 set('t', '<C-\\><C-\\>', '<C-\\><C-n>', { remap = true })
 
@@ -96,4 +99,3 @@ set('n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'Type [D]efinition' 
 set('n', 'gD', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' })
 set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
 set('n', '<leader>K', vim.lsp.buf.signature_help, { desc = 'Signature Help' })
-

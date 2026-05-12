@@ -30,7 +30,6 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
-
 -- LSP fidget.esque ui2
 --[[ vim.api.nvim_create_autocmd("LspProgress", {
   callback = function(ev)
