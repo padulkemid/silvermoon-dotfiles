@@ -10,7 +10,7 @@
 
 ;; Doom settings
 (setq doom-theme 'modus-vivendi
-      doom-font (font-spec :family "BerkeleyMono Nerd Font Mono" :size 22)
+      doom-font (font-spec :family "Berkeley Mono" :size 22)
       doom-variable-pitch-font (font-spec :family "Inter" :size 14)
       doom-serif-font (font-spec :family "IBM Plex Serif"))
 
@@ -18,6 +18,8 @@
 (setq frame-title-format '("%b - @padulemacs")
       display-line-numbers-type nil
       display-time-format '%H:%M)
+
+(blink-cursor-mode 1)
 
 ;; Plantuml settings
 (setq plantuml-jar-path "~/.local/share/jars/plantuml.jar"
