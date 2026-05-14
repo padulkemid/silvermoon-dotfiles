@@ -9,7 +9,7 @@
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 
 ;; Doom settings
-(setq doom-theme 'modus-vivendi
+(setq doom-theme 'doom-homage-black
       doom-font (font-spec :family "Berkeley Mono" :size 22)
       doom-variable-pitch-font (font-spec :family "Inter" :size 14)
       doom-serif-font (font-spec :family "IBM Plex Serif"))
