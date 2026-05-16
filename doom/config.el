@@ -176,9 +176,11 @@
   '(line-number :background "black" :foreground "dark gray")
   '(line-number-current-line :background "black" :foreground "white" :weight bold)
   '(mode-line-active :background "white" :foreground "black" :box nil)
-  '(mode-line-inactive :background "dark gray" :foreground "black" :box nil))
+  '(mode-line-inactive :background "dark gray" :foreground "black" :box nil)
 
-
+  ;; corfu + doom-homage-black isn't good that is why I added this
+  '(corfu-default :background "black" :foreground "white")
+  '(corfu-current :background "white" :foreground "black"))
 
 ;;; UTILITIES
 ;; Disable 'cl warning
