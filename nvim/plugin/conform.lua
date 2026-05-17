@@ -18,7 +18,7 @@ conform.setup {
     -- go = { 'gofumpt', 'golines', 'goimports' },
     json = { 'jq' },
     dart = { 'dart_format' },
-    -- kotlin = { 'ktlint' },
+    kotlin = { 'ktlint' },
     cucumber = { 'reformat-gherkin' },
     -- java = { 'google-java-format' },
     -- bash = { 'shfmt' },

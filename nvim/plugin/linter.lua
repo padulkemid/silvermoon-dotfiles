@@ -16,7 +16,7 @@ lint.linters_by_ft = {
   -- zsh = { 'shellcheck' },
   -- make = { 'shellcheck' },
   -- sh = { 'shellcheck' },
-  -- kotlin = { 'ktlint' },
+  kotlin = { 'ktlint' },
 }
 
 vim.env.ESLINT_D_MISS = 'ignore'
