@@ -68,7 +68,6 @@ _G.stl_active = function()
     '%y',
     '%=',
     get_filename(),
-    '%=',
     '%h%w%m%r[%l:%c][%P]',
     get_time(),
   }
