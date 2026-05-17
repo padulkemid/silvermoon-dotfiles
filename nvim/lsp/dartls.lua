@@ -42,6 +42,12 @@ return {
     dart = {
       completeFunctionCalls = true,
       showTodos = true,
+      analysisExcludedFolders = {
+        vim.fn.expand '$HOME/.pub-cache',
+        vim.fn.expand '$HOME/flutter/bin/cache',
+        vim.fn.getcwd() .. '/build/',
+        vim.fn.getcwd() .. '/.dart_tool/',
+      },
     },
   },
   handlers = {
