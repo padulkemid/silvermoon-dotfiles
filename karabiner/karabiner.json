@@ -55,7 +55,8 @@
                                             "^com\\.jetbrains\\.intellij$",
                                             "^com\\.microsoft\\.VSCode$",
                                             "^com\\.mitchellh\\.ghostty$",
-                                            "^org\\.gnu\\.Emacs$"
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.p0deje\\.Maccy$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }

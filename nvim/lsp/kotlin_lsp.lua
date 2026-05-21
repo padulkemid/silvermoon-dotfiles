@@ -1,4 +1,4 @@
-local function get_mise_java(version)
+--[[ local function get_mise_java(version)
   local cmd = version and ('mise where java@' .. version) or 'mise where java'
   local handle = io.popen(cmd .. ' 2>/dev/null')
   if not handle then
@@ -9,7 +9,7 @@ local function get_mise_java(version)
   return path
 end
 
-local java_21 = get_mise_java '21'
+local java_21 = get_mise_java '21' ]]
 
 -- sometimes using custom gradle wouldn't work because it matches to JBR 25
 -- just use intellij for kotlin, for now.
@@ -17,11 +17,11 @@ local java_21 = get_mise_java '21'
 return {
   filetypes = { 'kotlin' },
   cmd = { 'intellij-server', '--stdio' },
-  settings = {
+  --[[ settings = {
     intellij = {
       jdkForSymbolResolution = java_21,
     },
-  },
+  }, ]]
   root_markers = {
     'settings.gradle',
     'settings.gradle.kts',

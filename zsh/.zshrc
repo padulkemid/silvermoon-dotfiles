@@ -3,6 +3,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 export ZSH="$ALL_CONFIG_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
+export PATH="$PATH:$HOME/.pub-cache/bin"
 
 # zsh config
 # this is my own personal theme based on "imajes"
@@ -57,12 +58,6 @@ alias ybc="nvim $YABAIRC_LOCATION"
 alias gtc="nvim $GITCONFIG_LOCATION"
 alias mc="nvim $MISE_CONFIG_LOCATION"
 
-# shells
-eval "$(jump shell)"
-eval "$(mise activate zsh)"
-eval "$(/usr/libexec/path_helper)"
-export PATH="$PATH:$HOME/.pub-cache/bin"
-
 # options
 export IGNOREEOF=2
 
@@ -88,3 +83,8 @@ function _fix_cursor_blink() {
   printf '\033[1 q'
 }
 zle -N zle-line-init _fix_cursor_blink
+
+# shells
+eval "$(/usr/libexec/path_helper)"
+eval "$(jump shell)"
+eval "$(mise activate zsh)"

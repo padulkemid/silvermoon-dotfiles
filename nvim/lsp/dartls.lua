@@ -1,4 +1,4 @@
-local ns = vim.api.nvim_create_namespace 'dartls.closing_labels'
+--[[ local ns = vim.api.nvim_create_namespace 'dartls.closing_labels'
 
 local function on_closing_labels(_, result)
   if not result or not result.uri or not result.labels then
@@ -19,13 +19,13 @@ local function on_closing_labels(_, result)
       virt_text_pos = 'eol',
     })
   end
-end
+end ]]
 
-vim.api.nvim_create_autocmd('LspDetach', {
+--[[ vim.api.nvim_create_autocmd('LspDetach', {
   callback = function(ev)
     vim.api.nvim_buf_clear_namespace(ev.buf, ns, 0, -1)
   end,
-})
+}) ]]
 
 return {
   cmd = { 'dart', 'language-server', '--protocol=lsp' },
@@ -34,7 +34,7 @@ return {
   init_options = {
     onlyAnalyzeProjectsWithOpenFiles = true,
     suggestFromUnimportedLibraries = true,
-    closingLabels = true,
+    -- closingLabels = true,
     outline = true,
     flutterOutline = true,
   },
@@ -42,15 +42,15 @@ return {
     dart = {
       completeFunctionCalls = true,
       showTodos = true,
-      analysisExcludedFolders = {
+      --[[ analysisExcludedFolders = {
         vim.fn.expand '$HOME/.pub-cache',
         vim.fn.expand '$HOME/flutter/bin/cache',
         vim.fn.getcwd() .. '/build/',
         vim.fn.getcwd() .. '/.dart_tool/',
-      },
+      }, ]]
     },
   },
-  handlers = {
+  --[[ handlers = {
     ['dart/textDocument/publishClosingLabels'] = on_closing_labels,
-  },
+  }, ]]
 }
