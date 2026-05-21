@@ -36,12 +36,6 @@ local get_filename = function()
 end
 
 local lsp_status = function()
-  local prog = vim.lsp.status()
-
-  if prog ~= '' then
-    return '[initializing]'
-  end
-
   local clients = vim.lsp.get_clients { bufnr = 0 }
 
   if #clients == 0 then
