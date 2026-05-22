@@ -72,7 +72,7 @@
         '(
           ("w" "Work: Oxygen"
            entry (file+headline "~/Work/personal-journal/work.org" "Oxygen")
-           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n\n%?"
+           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n%?"
            :empty-lines 1)
           ("s" "Work: Production Support"
            entry (file+headline "~/Work/personal-journal/work.org" "Production Support")
@@ -80,15 +80,15 @@
            :empty-lines 1)
           ("b" "Work: Side Quest"
            entry (file+headline "~/Work/personal-journal/work.org" "Side Quest")
-           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n\n%?"
+           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n%?"
            :empty-lines 1)
           ("m" "Meetings"
            entry (file "~/Work/personal-journal/meetings.org")
-           "* SETUP [#%^{Priority|A|B|C}] %^{Title} \nSCHEDULED: %^T\n\n%?"
+           "* SETUP [#%^{Priority|A|B|C}] %^{Title} \nSCHEDULED: %^T\n%?"
            :empty-lines-before 1)
           ("r" "Reminders"
            entry (file+headline "~/Work/personal-journal/habits.org" "Reminders")
-           "** NEXT %^{Title} %^g \nSCHEDULED: %^T\n\n%?"
+           "** NEXT %^{Title} %^g \nSCHEDULED: %^T\n%?"
            :empty-lines 1)
           )))
 

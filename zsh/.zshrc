@@ -1,5 +1,6 @@
 # core paths
 GPG_TTY=$(tty)
+BREW_PREFIX="/opt/homebrew"
 export GPG_TTY
 export ZSH="$ALL_CONFIG_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
@@ -10,20 +11,17 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 ZSH_THEME="padulkemid"
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
-FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+FPATH="$BREW_PREFIX/share/zsh-completions:$FPATH"
 
-plugins=(git brew)
+plugins=(git)
 
-autoload -Uz compinit && compinit
-
-source $ZSH/oh-my-zsh.sh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$ZSH/oh-my-zsh.sh"
+source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-
 # gnu stuffs
-export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
+export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
 
 # aliases
 ## commands override
@@ -37,13 +35,12 @@ alias tmux="tmux -f $ALL_CONFIG_DIR/tmux/tmux.conf new -s padul"
 alias tctl="docker exec temporal-admin-tools tctl"
 alias man="\man"
 alias pdsh="$ALL_SHARE_DIR/scripts/pdsh"
-alias cnn="$ALL_SHARE_DIR/scripts/create_norg_note"
-alias csn="$ALL_SHARE_DIR/scripts/create_sena_note"
 alias csp="$ALL_SHARE_DIR/scripts/cloud-sql-proxy"
 alias gai="git add --interactive"
 alias melon="melos"
 alias ftest="flutter test --no-test-assets --reporter=expanded"
-# alias update_yabai=`echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai`
+alias update_yabai='echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai'
+alias bubu="brew update && brew outdated && brew upgrade && brew cleanup"
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
@@ -60,6 +57,12 @@ alias mc="nvim $MISE_CONFIG_LOCATION"
 
 # options
 export IGNOREEOF=2
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt nobeep
+setopt histignorealldups
+setopt histfindnodups
+setopt histreduceblanks
 
 # bash like ctrl-d wrapper for IGNOREEOF
 setopt ignore_eof
@@ -85,6 +88,5 @@ function _fix_cursor_blink() {
 zle -N zle-line-init _fix_cursor_blink
 
 # shells
-eval "$(/usr/libexec/path_helper)"
 eval "$(jump shell)"
 eval "$(mise activate zsh)"

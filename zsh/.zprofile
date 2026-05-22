@@ -1,3 +1,6 @@
+# macOS path setup (login shell)
+eval "$(/usr/libexec/path_helper)"
+
 # homebrew (arm)
 export PATH="/opt/homebrew/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -5,7 +8,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # defaults
 export LC_ALL="en_US.UTF-8"
 export EDITOR="nvim"
-export SHELL="zsh"
 
 # config store dirs
 export ALL_DOTFILES_DIR="$HOME/.dotfiles"
@@ -19,7 +21,7 @@ export LESSHISTFILE="-"
 export REDISCLI_HISTFILE="-"
 export ZDOTDIR="$ALL_CONFIG_DIR/zsh"
 export HISTFILE="$ALL_SHARE_DIR/history"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix)/opt/openssl@1.1"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 
 # android path
 export ANDROID_HOME=$HOME/Library/Android/sdk
