@@ -1,6 +1,6 @@
 [tools]
 go = "latest"
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 ruby = "2.7.5"
 flutter = "3.38"
 java = "21"

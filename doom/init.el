@@ -13,7 +13,7 @@
        zen
 
        :editor
-       fold
+       (evil +everywhere)
        (format +onsave)
        
        :emacs
@@ -21,33 +21,26 @@
        electric
        ibuffer
        undo
-       vc
 
        :checkers
        syntax
 
        :tools
        (eval +overlay)
-       (lookup +dictionary +docsets)
-       lsp
        magit
-       tree-sitter
 
        :os
        (:if (featurep :system 'macos) macos)
-       ;;tty
 
        :lang
-       emacs-lisp
-       (json +tree-sitter)
-       (javascript +tree-sitter)
+       (org +roam2 +present)
        (dart +flutter)
        kotlin
-       markdown
-       (org +pandoc +roam2 +dragndrop +present +gnuplot)
-       (latex +latexmk)
        web
-       (yaml +tree-sitter)
+       emacs-lisp
+       json
+       yaml
+       javascript
 
        :config
        (default +bindings +smartparens))

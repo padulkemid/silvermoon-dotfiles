@@ -4,4 +4,5 @@
 ;; org-babel
 (package! ob-kotlin)
 (package! ob-typescript)
+(package! ob-dart)
 (package! plantuml-mode)
