@@ -5,10 +5,12 @@ and my Artix. all of this dotfiles are linked and not intended to place them
 straight into their respected config folder ( e.g : `~/.config` ) because the
 symlinks all already done.  
 
+always put everything CLI first. I use `nvim` to code and `emacs` to journal
+and document my work, etc. (org mode is greater than markdown)
+
 # 📷 Pics
 
-![prompt screen](https://i.imgur.com/H7EJkwn.png)
-![emacs config](https://i.imgur.com/1iPsVPM.png)
+![nvim_screen](https://i.imgur.com/nRuWr9I.png)
 
 # 🏃🏻‍♂️ 💨 Running the Script
 

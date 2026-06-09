@@ -1,5 +1,11 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+;;; MAPS
+;; OG keymaps
+(map! :nv "H" #'evil-first-non-blank
+      :n "L" #'evil-end-of-line
+      :v "L" #'evil-last-non-blank)
+
 ;;; SETTINGS
 ;; User settings
 (setq user-full-name "Fadhil Muhammad"
@@ -10,7 +16,7 @@
 
 ;; Doom settings
 (setq doom-theme 'doom-homage-black
-      doom-font (font-spec :family "BerkeleyMono Nerd Font Mono" :size 22)
+      doom-font (font-spec :family "Berkeley Mono" :size 22)
       doom-variable-pitch-font (font-spec :family "Inter" :size 14)
       doom-serif-font (font-spec :family "IBM Plex Serif"))
 
@@ -94,7 +100,7 @@
 
 
 (add-hook! 'org-mode-hook
-  (setq-local fill-column 50
+  (setq-local fill-column 45
               visual-line-mode nil))
 
 (add-hook! 'org-mode-hook 'turn-on-auto-fill)
