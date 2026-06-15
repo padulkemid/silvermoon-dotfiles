@@ -6,6 +6,7 @@ flutter = "3.38"
 java = "21"
 node = "20"
 python = "3.10"
+odin = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

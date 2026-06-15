@@ -4,8 +4,8 @@ background = 000000
 foreground = ffffff
 
 # fonts
-font-family = Berkeley Mono
-font-size = 22
+font-family = Comic Code Ligatures
+font-size = 20
 font-synthetic-style = true
 
 # cursor

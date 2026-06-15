@@ -26,6 +26,7 @@ conform.setup {
     -- make = { 'shfmt' },
     -- sh = { 'shfmt' },
     c = { 'clang-format' },
+    odin = { 'odinfmt' },
   },
   formatters = {
     biome = {

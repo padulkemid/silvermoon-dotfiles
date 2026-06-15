@@ -15,6 +15,7 @@ local servers = {
   'sourcekit',
   'kotlin_lsp',
   'vue_ls',
+  'ols'
 }
 
 vim.lsp.config('*', {
