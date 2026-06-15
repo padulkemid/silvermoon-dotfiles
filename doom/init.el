@@ -10,6 +10,7 @@
        ophints
        (popup +defaults)
        (vc-gutter +pretty)
+       ligatures
        zen
 
        :editor

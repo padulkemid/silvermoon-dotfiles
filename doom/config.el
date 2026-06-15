@@ -1,7 +1,10 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;;; MAPS
+;;; EVIL
 ;; OG keymaps
+(setq evil-kill-on-visual-paste nil)
+(evil-ex-define-cmd "W" "w")
+(evil-ex-define-cmd "Q" "q")
 (map! :nv "H" #'evil-first-non-blank
       :n "L" #'evil-end-of-line
       :v "L" #'evil-last-non-blank)
@@ -16,7 +19,7 @@
 
 ;; Doom settings
 (setq doom-theme 'doom-homage-black
-      doom-font (font-spec :family "Berkeley Mono" :size 22)
+      doom-font (font-spec :family "Comic Code Ligatures" :size 20)
       doom-variable-pitch-font (font-spec :family "Inter" :size 14)
       doom-serif-font (font-spec :family "IBM Plex Serif"))
 
@@ -61,9 +64,18 @@
 
 (after! org
   (require 'org-habit)
+  (set-font-ligatures! 'org-mode
+    "|||+" "<===" "===>" "===" "==" "!==" "!=" "--" "---" "->" "=>"
+    ">>" "<<" "<=" ">=" "=>" "||" "&&" "::" "->" "<-" "<->" "-->"
+    "<--" "<-->" "-<" ">-" ">>-" "-<<" "<<-" "<-<" ">->" "<-|" "|->"
+    "-|" "|-" "||-" "<!--" "<#--" "<=" "=>" "==>" "<==" "<=>" "<==>"
+    "=<<" ">>=" "=+=" "!==" "!!" "||=" "|=" "::=" ":=" ":-" ":+"
+    "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++"
+    "+++" "<!--" "<!---")
   (setq org-todo-keyword-faces
         '(("TODO" . "red")
           ("ONGOING" . "magenta")
+          ("REVIEW" . "orange")
           ("DONE" . "spring green")
           ("CANCELLED" . "dark olive green")
           ("RUNNING" . "cyan")
@@ -100,7 +112,7 @@
 
 
 (add-hook! 'org-mode-hook
-  (setq-local fill-column 45
+  (setq-local fill-column 40
               visual-line-mode nil))
 
 (add-hook! 'org-mode-hook 'turn-on-auto-fill)
@@ -203,6 +215,6 @@
 (setq-default mode-line-format
               `(
                 ,@padul/mode-line-left-side
-                mode-line-format-right-align
-                ,padul/mode-line-right-side))
+                mode-line-format-right-align))
 
+;; ,padul/mode-line-right-side))
