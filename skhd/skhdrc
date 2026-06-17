@@ -14,10 +14,10 @@ lshift + lalt - l : yabai -m window --swap east
 rshift + rcmd - 0 : yabai -m space --balance
 
 # move window
-# shift + cmd - h : yabai -m window --warp west
-# shift + cmd - j : yabai -m window --warp south
-# shift + cmd - k : yabai -m window --warp north
-# shift + cmd - l : yabai -m window --warp east
+rshift + rcmd - h : yabai -m window --warp west
+rshift + rcmd - j : yabai -m window --warp south
+rshift + rcmd - k : yabai -m window --warp north
+rshift + rcmd - l : yabai -m window --warp east
 
 # # make floating window fill screen
 # shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
