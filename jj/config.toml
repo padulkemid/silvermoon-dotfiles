@@ -1,0 +1,12 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = 'Fadhil Muhammad'
+email = 'bringitdown0@gmail.com'
+username = 'padulkemid'
+
+[ui]
+pager = ['delta', '--pager', 'less -FRX']
+diff-formatter = ':git'
+diff-editor = ":builtin"
+default-command = "log"

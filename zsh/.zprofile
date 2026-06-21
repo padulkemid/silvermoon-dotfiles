@@ -42,6 +42,7 @@ export GITCONFIG_LOCATION="$ALL_CONFIG_DIR/git/config"
 export MISE_CONFIG_LOCATION="$ALL_DOTFILES_DIR/mise/config.toml"
 export GHOSTTY_CONFIG_LOCATION="$ALL_DOTFILES_DIR/ghostty/config"
 export ALACRITTY_CONFIG_LOCATION="$ALL_DOTFILES_DIR/alacritty/alacritty.toml"
+export JJ_CONFIG_LOCATION="$ALL_DOTFILES_DIR/jj/config.toml"
 
 # apps
 export CLOUDSDK_PYTHON="python3"

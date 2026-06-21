@@ -13,6 +13,7 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 FPATH="$BREW_PREFIX/share/zsh-completions:$FPATH"
 
+# after I comfortable with `jj` I might remove this and move everything to `jj`
 plugins=(git)
 
 source "$ZSH/oh-my-zsh.sh"
@@ -54,6 +55,7 @@ alias skc="nvim $SKHDRC_LOCATION"
 alias ybc="nvim $YABAIRC_LOCATION"
 alias gtc="nvim $GITCONFIG_LOCATION"
 alias mc="nvim $MISE_CONFIG_LOCATION"
+alias jtc="nvim $JJ_CONFIG_LOCATION"
 
 # options
 export IGNOREEOF=2
