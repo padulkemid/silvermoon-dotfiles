@@ -13,6 +13,7 @@ conform.setup {
     javascriptreact = { 'prettierd' },
     typescript = { 'prettierd', 'biome' },
     typescriptreact = { 'prettierd', 'biome' },
+    html = { 'prettierd' },
     css = { 'prettierd' },
     vue = { 'prettierd' },
     -- go = { 'gofumpt', 'golines', 'goimports' },

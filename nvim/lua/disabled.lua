@@ -10,7 +10,6 @@ local plugins = {
   'netrwPlugin',
   'netrwSettings',
   'netrwFileHandlers',
-  'matchit',
   'matchparen',
   'tar',
   'tarPlugin',

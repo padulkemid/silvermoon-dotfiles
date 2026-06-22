@@ -90,7 +90,7 @@
         '(
           ("w" "Work: Oxygen"
            entry (file+headline "~/Work/personal-journal/work.org" "Oxygen")
-           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n%?"
+           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\nLINK: [[%^{URL}][%\\2]]\n%?"
            :empty-lines 1)
           ("s" "Work: Production Support"
            entry (file+headline "~/Work/personal-journal/work.org" "Production Support")
@@ -175,6 +175,11 @@
   (run-hook-with-args 'after-load-functions abs-file))
 
 ;;; MODELINE
+(setq display-time-interval 60)
+(setq display-time-format "%H:%M")
+(setq display-time-default-load-average nil)
+(display-time-mode 1)
+
 (defvar padul-check-selected-window (frame-selected-window))
 (defun padul-set-selected-window (&rest _args)
   (when (not (minibuffer-window-active-p (frame-selected-window)))
@@ -197,8 +202,8 @@
                                             "C%c "))))
 
 (setq padul/mode-line-left-side '(" "
-                                  (:eval (format-time-string "%H:%M"))
-                                  "  "
+                                  ;;(:eval (format-time-string "%H:%M"))
+                                  display-time-string
                                   (:propertize
                                    (""
                                     mode-line-mule-info

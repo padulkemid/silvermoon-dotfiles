@@ -7,8 +7,11 @@ username = 'padulkemid'
 # key = input your key here
 
 
+# split in jj
+key = '48CDE0B0DFD8AE5C'
+
 [ui]
-pager = ['delta', '--pager', 'less -FRX']
+pager = ['delta', 'delta', '--pager', 'less -FRX']
 diff-formatter = ':git'
 diff-editor = ":builtin"
 default-command = "log"
