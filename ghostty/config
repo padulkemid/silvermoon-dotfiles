@@ -20,6 +20,7 @@ mouse-scroll-multiplier = 2
 
 # keybinds
 keybind = super+backspace=text:\x15
+keybind = cmd+,=unbind
 
 # window
 window-padding-x = 8
