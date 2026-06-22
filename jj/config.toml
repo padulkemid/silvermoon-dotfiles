@@ -4,6 +4,8 @@
 name = 'Fadhil Muhammad'
 email = 'bringitdown0@gmail.com'
 username = 'padulkemid'
+# key = input your key here
+
 
 [ui]
 pager = ['delta', '--pager', 'less -FRX']
