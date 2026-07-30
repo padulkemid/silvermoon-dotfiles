@@ -14,8 +14,9 @@ local servers = {
   'emmet_languange_server',
   'sourcekit',
   'kotlin_lsp',
+  -- 'kmp_lsp',
   'vue_ls',
-  'ols'
+  'ols',
 }
 
 vim.lsp.config('*', {
