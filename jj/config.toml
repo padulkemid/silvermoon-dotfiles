@@ -11,7 +11,11 @@ username = 'padulkemid'
 [signing]
 behavior = 'own'
 backend = 'gpg'
-key = '48CDE0B0DFD8AE5C'
+# machine-local, set in the untracked ~/.config/jj/conf.d/local.toml
+# key = '<key>'
+
+[git]
+executable-path = '/opt/homebrew/bin/git'
 
 [ui]
 pager = ['delta', 'delta', '--pager', 'less -FRX']
