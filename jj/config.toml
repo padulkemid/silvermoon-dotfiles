@@ -8,6 +8,9 @@ username = 'padulkemid'
 
 
 # split in jj
+[signing]
+behavior = 'own'
+backend = 'gpg'
 key = '48CDE0B0DFD8AE5C'
 
 [ui]
