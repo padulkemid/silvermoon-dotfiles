@@ -1,6 +1,6 @@
 leader = ','
 comment_types = [
-  {  id = 'question', label = 'question(non-blocking)', definition = 'ask for clarification', color = 'yellow' },
-  {  id = 'suggestion', label = 'suggestion(non-blocking)', definition = 'possible non-blocking improvements, resolve if needed', color = 'magenta' },
-  {  id = 'blocker', label = 'suggestion(blocking)', definition = 'possible blocking issue', color = 'red' },
+  {  id = 'question(non-blocking)', label = 'question(non-blocking)', definition = 'ask for clarification', color = 'yellow' },
+  {  id = 'suggestion(non-blocking)', label = 'suggestion(non-blocking)', definition = 'possible non-blocking improvements, resolve if needed', color = 'magenta' },
+  {  id = 'suggestion(blocking)', label = 'suggestion(blocking)', definition = 'possible blocking issue', color = 'red' },
 ]

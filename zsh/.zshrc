@@ -5,6 +5,7 @@ export GPG_TTY
 export ZSH="$ALL_CONFIG_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # zsh config
 # this is my own personal theme based on "imajes"
