@@ -35,6 +35,7 @@ vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.pumheight = 10
 vim.o.synmaxcol = 300
 vim.o.virtualedit = 'block'
+vim.opt.shortmess:append 'I'
 
 -- File handling
 vim.o.backup = false
