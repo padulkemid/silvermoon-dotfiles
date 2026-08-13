@@ -12,12 +12,6 @@ local branch_status = function()
   return ''
 end
 
-local get_time = function()
-  local get_time_string = os.date '%H:%M'
-
-  return '[' .. get_time_string .. ']'
-end
-
 local get_filename = function()
   local bt = vim.bo.buftype
   local name = vim.api.nvim_buf_get_name(0)
@@ -63,7 +57,6 @@ _G.stl_active = function()
     '%=',
     get_filename(),
     '%h%w%m%r[%l:%c][%P]',
-    get_time(),
   }
 end
 

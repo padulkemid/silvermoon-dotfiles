@@ -1,49 +1,50 @@
-tap "d12frosted/emacs-plus"
-tap "koekeishiya/formulae"
-tap "koraysels/personal"
-tap "mat2cc/tap"
-tap "remotemobprogramming/brew"
-tap "sst/tap"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
+tap "chrisedwards/tap", "https://github.com/ChrisEdwards/homebrew-tap", trusted: true
+tap "d12frosted/emacs-plus", trusted: true
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# CLI of the open-source IDE For exploring and testing APIs
+brew "bruno-cli"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
+# TIFF library and utilities
+brew "libtiff"
 # Command-line outline and bitmap font editor/converter
 brew "fontforge"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU compiler collection
 brew "gcc"
-# GNU database manager
-brew "gdbm"
-# Interact with Google Gemini AI models from the command-line
-brew "gemini-cli"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Open-source GitLab command-line tool
+brew "glab"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
-# GNU troff text-formatting system
-brew "groff"
+# Tool for glamorous shell scripts
+brew "gum"
 # Kubernetes package manager
 brew "helm"
 # Convert JSON to HJSON and vice versa
 brew "hjson"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c@76"
+# Git-compatible distributed version control system
+brew "jj"
+# Image manipulation library
+brew "jpeg"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Helps you navigate your file system faster by learning your habits
-brew "jump"
 # Modern load testing tool, using Go and JavaScript
 brew "k6"
 # Kubernetes CLI To Manage Your Clusters In Style!
@@ -52,8 +53,12 @@ brew "k9s"
 brew "kubernetes-cli"
 # Graphical front-end for GCC's coverage testing tool (gcov)
 brew "lcov"
+# JIT library for the GNU compiler collection
+brew "libgccjit"
 # Postgres C API library
 brew "libpq", link: true
+# Library to render SVG files using Cairo
+brew "librsvg"
 # Utility for directing compilation
 brew "make"
 # Polyglot runtime manager (asdf rust clone)
@@ -62,30 +67,20 @@ brew "mise"
 brew "mole"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
-# Collection of tools that nobody wrote when UNIX was young
-brew "moreutils"
-# Open source relational database management system
-brew "mysql-client", link: true
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
-# Generic machine emulator and virtualizer
-brew "qemu"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Display and control your Android device
-brew "scrcpy"
-# Terminal multiplexer with VT100/ANSI terminal emulation
-brew "screen"
-# User interface to the TELNET protocol
-brew "telnet"
+# CLI proxy to minimize LLM token consumption
+brew "rtk"
 # Terminal multiplexer
 brew "tmux"
 # Command-line interface to the freedesktop.org trashcan
@@ -96,24 +91,30 @@ brew "tree"
 brew "tree-sitter-cli"
 # Incremental parsing library
 brew "tree-sitter@0.25"
+# Code review TUI with vim keybindings
+brew "tuicr"
 # Command-line unarchiving tools supporting multiple formats
 brew "unar"
-# Convert HTML to PDF
-brew "weasyprint"
 # Internet file retriever
 brew "wget"
-# Why is this running?
-brew "witr"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Additional completion definitions for zsh
 brew "zsh-completions"
+# Simple hotkey-daemon for macOS.
+brew "asmvik/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "asmvik/formulae/yabai"
+# TUI viewer for Beads issue tracking
+brew "chrisedwards/tap/abacus"
+# GNU Emacs text editor
+brew "d12frosted/emacs-plus/emacs-plus@30"
 # Application launcher and productivity software
 cask "alfred"
-# GUI inspector for mobile apps
-cask "appium-inspector"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # Command-line agent for Cursor
@@ -148,24 +149,12 @@ cask "openvpn-connect"
 cask "orbstack"
 # Remote pair programming
 cask "pop-app"
-# Peer to peer Bitorrent client
-cask "qbittorrent"
-# Quick Look plugin for plaintext files without an extension
-cask "qlstephen"
-# Quick Look plugin for CSV files
-cask "quicklook-csv"
-# Quick Look plugin for JSON files
-cask "quicklook-json"
-# Thumbnails, static previews, cover art and metadata for video files
-cask "quicklook-video"
 # Email client
 cask "readdle-spark"
 # Screenshot measurement and annotation tool
 cask "shottr"
 # Software fix for double key presses on Apple's butterfly keyboard
 cask "unshaky"
-# Web browser with built-in email client focusing on customization and control
-cask "vivaldi"
 # Multimedia player
 cask "vlc"
 go "cmd/go"
