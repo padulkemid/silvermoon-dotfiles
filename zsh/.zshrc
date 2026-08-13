@@ -25,6 +25,9 @@ source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
 
+# fzf
+export FZF_DEFAULT_OPTS='--color=16'
+
 # aliases
 ## commands override
 alias c="clear"
