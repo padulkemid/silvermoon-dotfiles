@@ -94,5 +94,5 @@ function _fix_cursor_blink() {
 zle -N zle-line-init _fix_cursor_blink
 
 # shells
-eval "$(jump shell)"
+eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
