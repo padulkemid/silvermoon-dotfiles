@@ -10,11 +10,9 @@ local servers = {
   'html',
   'jsonls',
   'dartls',
-  'cucumber_language_server',
   'emmet_languange_server',
   'sourcekit',
   'kotlin_lsp',
-  -- 'kmp_lsp',
   'vue_ls',
   'ols',
 }
