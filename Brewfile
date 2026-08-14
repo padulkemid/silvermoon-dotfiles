@@ -33,12 +33,8 @@ brew "glab"
 brew "gnu-sed"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
-# Tool for glamorous shell scripts
-brew "gum"
 # Kubernetes package manager
 brew "helm"
-# Convert JSON to HJSON and vice versa
-brew "hjson"
 # Git-compatible distributed version control system
 brew "jj"
 # Image manipulation library
@@ -83,8 +79,8 @@ brew "ripgrep"
 brew "rtk"
 # Terminal multiplexer
 brew "tmux"
-# Command-line interface to the freedesktop.org trashcan
-brew "trash-cli", link: true
+# CLI tool that moves files or folder to the trash
+brew "trash", link: true
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Parser generator tool
