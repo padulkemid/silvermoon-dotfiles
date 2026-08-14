@@ -1,11 +1,11 @@
 [tools]
 go = "latest"
 kotlin = "1.9.23"
-ruby = "2.7.5"
+ruby = "3.3.12"
 flutter = "3.38"
 java = "21"
 node = "20"
-python = "3.10"
+python = "3.13"
 odin = "latest"
 
 [settings]

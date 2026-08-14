@@ -21,7 +21,6 @@ export LESSHISTFILE="-"
 export REDISCLI_HISTFILE="-"
 export ZDOTDIR="$ALL_CONFIG_DIR/zsh"
 export HISTFILE="$ALL_SHARE_DIR/history"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 
 # android path
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -46,5 +45,4 @@ export JJ_CONFIG_LOCATION="$ALL_DOTFILES_DIR/jj/config.toml"
 
 # apps
 export CLOUDSDK_PYTHON="python3"
-# export GOOGLE_CLOUD_PROJECT="prj-dev-app5720ba"
 export GOPATH="$ALL_SHARE_DIR/go"
