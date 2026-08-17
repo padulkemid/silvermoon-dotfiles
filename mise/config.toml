@@ -5,7 +5,7 @@ ruby = "3.3.12"
 flutter = "3.38"
 java = "21"
 node = "20"
-python = "3.13"
+python = "3.14"
 odin = "latest"
 
 [settings]
