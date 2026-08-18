@@ -115,6 +115,8 @@ cask "alfred"
 cask "bruno"
 # Command-line agent for Cursor
 cask "cursor-cli"
+# System-wide audio equaliser
+cask "eqmac"
 cask "font-ibm-plex-serif"
 cask "font-inter"
 # Set of tools to manage resources and applications hosted on Google Cloud
@@ -151,8 +153,6 @@ cask "readdle-spark"
 cask "shottr"
 # Software fix for double key presses on Apple's butterfly keyboard
 cask "unshaky"
-# Multimedia player
-cask "vlc"
 go "cmd/go"
 go "cmd/gofmt"
 npm "corepack"
