@@ -40,6 +40,7 @@ some step missing you could fix it right away!
 # 🗒 Progress
 
 - [x] update install script
-- [x] doesnt work in M chip, need to reconfigure (to cater this, please run down all the plugins and review it 1-by-1)
-- [x] `yabai` doesn't do excellent stuff with `csrutil` enabled (its ok though)
+- [x] Apple Silicon: `install.sh` now `brew shellenv` + CLT-only xcode-select (plugins still review 1-by-1)
+- [x] `yabai` doesn't do excellent stuff with `csrutil` enabled (its ok though) — need partial SIP + `boot-args=-arm64e_preview_abi`
+- [x] post-Tahoe checklist: `~/Work/tahoe-post-upgrade-notes.txt`
 - [x] minimal install works
