@@ -5,14 +5,14 @@ tap "d12frosted/emacs-plus", trusted: true
 brew "openssl@3"
 # CLI of the open-source IDE For exploring and testing APIs
 brew "bruno-cli"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# Collection of GNU find, xargs, and locate
-brew "findutils"
 # TIFF library and utilities
 brew "libtiff"
 # Command-line outline and bitmap font editor/converter
@@ -127,8 +127,6 @@ cask "ghostty"
 cask "helium-browser"
 # Java IDE by JetBrains
 cask "intellij-idea"
-# Menu bar manager
-cask "jordanbaird-ice"
 # Keyboard customiser
 cask "karabiner-elements"
 # Desktop shield and keystroke interceptor
@@ -151,8 +149,8 @@ cask "pop-app"
 cask "readdle-spark"
 # Screenshot measurement and annotation tool
 cask "shottr"
-# Software fix for double key presses on Apple's butterfly keyboard
-cask "unshaky"
+# Menu bar manager
+cask "thaw"
 go "cmd/go"
 go "cmd/gofmt"
 npm "corepack"

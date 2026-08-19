@@ -34,7 +34,7 @@
        (:if (featurep :system 'macos) macos)
 
        :lang
-       (org +roam2 +present)
+       (org +roam +present)
        (dart +flutter)
        kotlin
        web
