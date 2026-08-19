@@ -46,6 +46,7 @@ alias melon="melos"
 alias ftest="flutter test --no-test-assets --reporter=expanded"
 alias update_yabai='echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai'
 alias bubu="brew update && brew outdated && brew upgrade && brew cleanup"
+alias rm="trash"
 
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
