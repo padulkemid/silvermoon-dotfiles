@@ -117,12 +117,6 @@
 
 (add-hook! 'org-mode-hook 'turn-on-auto-fill)
 
-;; Consult settings
-(after! flycheck
-  (map! :leader
-        :prefix "s"
-        :desc "Flycheck diagnostics" "g" #'consult-flycheck))
-
 (defun padul/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep with live preview."
   (interactive)

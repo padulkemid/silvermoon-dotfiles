@@ -11,7 +11,6 @@
        (popup +defaults)
        (vc-gutter +pretty)
        ligatures
-       zen
 
        :editor
        (evil +everywhere)
@@ -20,14 +19,9 @@
        :emacs
        dired
        electric
-       ibuffer
        undo
 
-       :checkers
-       syntax
-
        :tools
-       (eval +overlay)
        magit
 
        :os
@@ -35,13 +29,7 @@
 
        :lang
        (org +roam +present)
-       (dart +flutter)
-       kotlin
-       web
        emacs-lisp
-       json
-       yaml
-       javascript
 
        :config
        (default +bindings +smartparens))
