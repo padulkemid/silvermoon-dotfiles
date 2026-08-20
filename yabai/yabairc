@@ -14,6 +14,7 @@ yabai -m rule --add app="^Emacs$" space=web
 yabai -m rule --add app="^Helium$" space=web
 yabai -m rule --add app="^Spark Desktop$" space=mail
 yabai -m rule --add app="^Ghostty$" space=work
+yabai -m rule --add app="^Bruno$" space=work
 yabai -m rule --add app="^IntelliJ IDEA$" space=work
 yabai -m rule --add app="^OrbStack$" space=work
 yabai -m rule --add app="^OBS$" space=mail
