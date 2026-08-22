@@ -22,8 +22,8 @@ source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # gnu stuffs
-export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
+# export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+# export PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
 
 # fzf
 export FZF_DEFAULT_OPTS='--color=16'
@@ -35,7 +35,7 @@ alias x="exit"
 alias v="nvim"
 alias view="nvim"
 alias please="sudo"
-alias ls="gls --color -AF --group-directories-first"
+alias l="ls -lahG"
 alias tmux="tmux -f $ALL_CONFIG_DIR/tmux/tmux.conf new -s padul"
 alias tctl="docker exec temporal-admin-tools tctl"
 alias man="\man"
