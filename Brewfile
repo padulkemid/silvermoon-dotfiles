@@ -1,36 +1,26 @@
 tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
 tap "chrisedwards/tap", "https://github.com/ChrisEdwards/homebrew-tap", trusted: true
 tap "d12frosted/emacs-plus", trusted: true
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
-# CLI of the open-source IDE For exploring and testing APIs
-brew "bruno-cli"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# TIFF library and utilities
-brew "libtiff"
-# Command-line outline and bitmap font editor/converter
-brew "fontforge"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU compiler collection
 brew "gcc"
+# TIFF library and utilities
+brew "libtiff"
 # Toolkit for image loading and pixel buffer manipulation
 brew "gdk-pixbuf"
 # Distributed revision control system
 brew "git"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Open-source GitLab command-line tool
 brew "glab"
-# GNU implementation of the famous stream editor
-brew "gnu-sed"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Kubernetes package manager
@@ -55,8 +45,6 @@ brew "libgccjit"
 brew "libpq", link: true
 # Library to render SVG files using Cairo
 brew "librsvg"
-# Utility for directing compilation
-brew "make"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Deep clean and optimize your Mac
@@ -65,10 +53,10 @@ brew "mole"
 brew "mongosh"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# AI agent toolkit
+brew "pi-coding-agent"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
-# Package compiler and linker metadata toolkit
-brew "pkgconf"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
@@ -81,16 +69,10 @@ brew "rtk"
 brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
-# Parser generator tool
-brew "tree-sitter-cli"
 # Incremental parsing library
 brew "tree-sitter@0.25"
 # Code review TUI with vim keybindings
 brew "tuicr"
-# Command-line unarchiving tools supporting multiple formats
-brew "unar"
 # Internet file retriever
 brew "wget"
 # Shell extension to navigate your filesystem faster
@@ -119,6 +101,7 @@ cask "cursor-cli"
 cask "eqmac"
 cask "font-ibm-plex-serif"
 cask "font-inter"
+cask "font-symbols-only-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -129,10 +112,6 @@ cask "helium-browser"
 cask "intellij-idea"
 # Keyboard customiser
 cask "karabiner-elements"
-# Desktop shield and keystroke interceptor
-cask "keyboard-cleaner"
-# Free cross-platform office suite, fresh version
-cask "libreoffice"
 # Clipboard manager
 cask "maccy"
 # Open-source software for live streaming and screen recording
@@ -147,10 +126,10 @@ cask "orbstack"
 cask "pop-app"
 # Email client
 cask "readdle-spark"
-# Screenshot measurement and annotation tool
-cask "shottr"
 # Menu bar manager
 cask "thaw"
+# Menu bar toolkit with keep-awake, system monitor and volume mixer
+cask "vorssaint"
 go "cmd/go"
 go "cmd/gofmt"
 npm "corepack"
