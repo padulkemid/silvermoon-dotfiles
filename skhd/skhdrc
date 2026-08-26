@@ -61,13 +61,13 @@ rshift + rcmd - l : yabai -m window --warp east
 cmd + alt - 1 : yabai -m space --focus 1
 cmd + alt - 2 : yabai -m space --focus 2
 cmd + alt - 3 : yabai -m space --focus 3
-cmd + alt - 4 : yabai -m space --focus 4
+# cmd + alt - 4 : yabai -m space --focus 4
 
 # send window to desktop and follow focus
 rshift + rcmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
 rshift + rcmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
 rshift + rcmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
-rshift + rcmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
+# rshift + rcmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
 # shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
 
 # move window
