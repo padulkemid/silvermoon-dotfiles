@@ -21,4 +21,4 @@ executable-path = '/opt/homebrew/bin/git'
 pager = ['delta', 'delta', '--pager', 'less -FRX']
 diff-formatter = ':git'
 diff-editor = ":builtin"
-default-command = "log"
+default-command = "st"

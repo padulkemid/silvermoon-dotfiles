@@ -1,6 +1,7 @@
 tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
 tap "chrisedwards/tap", "https://github.com/ChrisEdwards/homebrew-tap", trusted: true
 tap "d12frosted/emacs-plus", trusted: true
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
 # Simple, fast and user-friendly alternative to find
@@ -91,8 +92,12 @@ brew "asmvik/formulae/yabai"
 brew "chrisedwards/tap/abacus"
 # GNU Emacs text editor
 brew "d12frosted/emacs-plus/emacs-plus@30"
+# A window border system for macOS
+brew "felixkratz/formulae/borders"
 # Application launcher and productivity software
 cask "alfred"
+# Ambient sound mixer for creating custom soundscapes
+cask "blankie"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # Command-line agent for Cursor
