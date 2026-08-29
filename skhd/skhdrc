@@ -98,6 +98,10 @@ rcmd + lalt - 0x21 : yabai -m space --toggle padding; yabai -m space --toggle ga
 # lalt - 0x1E : yabai -m window --toggle zoom-fullscreen
 lalt - 0x32 : yabai -m window --toggle zoom-fullscreen
 
+# toggle autoraise (sometimes it goes error because of display changed)
+# signal ain't working well for this
+rcmd + lalt - 0x32: yabai -m config focus_follows_mouse autoraise
+
 # toggle window native fullscreen
 # shift + alt - f : yabai -m window --toggle native-fullscreen
 
