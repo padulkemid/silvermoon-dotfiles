@@ -15,7 +15,8 @@
                                             "^com\\.microsoft\\.VSCode$",
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^org\\.gnu\\.Emacs$",
-                                            "^org\\.p0deje\\.Maccy$"
+                                            "^org\\.p0deje\\.Maccy$",
+                                            "^org\\.mozilla\\.firefox$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }

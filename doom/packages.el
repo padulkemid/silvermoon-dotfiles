@@ -1,8 +1,12 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
-;; org-babel
-(package! ob-kotlin)
-(package! ob-typescript)
-(package! ob-dart)
-(package! plantuml-mode)
+;; extras
+(package! leetcode)
+
+;; lsp
+(package! lsp-vtsls
+  :recipe
+  (:host github
+   :repo "sdvcrx/lsp-vtsls"))
+(package! mason)

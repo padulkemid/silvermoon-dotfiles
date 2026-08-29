@@ -2,12 +2,12 @@
 
 ;;; EVIL
 ;; OG keymaps
-(setq evil-kill-on-visual-paste nil)
-(evil-ex-define-cmd "W" "w")
-(evil-ex-define-cmd "Q" "q")
-(map! :nv "H" #'evil-first-non-blank
-      :n "L" #'evil-end-of-line
-      :v "L" #'evil-last-non-blank)
+;; (setq evil-kill-on-visual-paste nil)
+;; (evil-ex-define-cmd "W" "w")
+;; (evil-ex-define-cmd "Q" "q")
+;; (map! :nv "H" #'evil-first-non-blank
+;;       :n "L" #'evil-end-of-line
+;;       :v "L" #'evil-last-non-blank)
 
 ;;; SETTINGS
 ;; User settings
@@ -30,17 +30,8 @@
 
 (blink-cursor-mode 1)
 
-;; Plantuml settings
-(setq plantuml-jar-path "~/.local/share/jars/plantuml.jar"
-      plantuml-default-exec-mode 'jar
-      plantuml-svg-background "white")
-
-(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
-(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
-
 ;; Org settings
 (setq org-src-window-setup 'current-window
-      org-plantuml-jar-path "~/.local/share/jars/plantuml.jar"
       org-hide-leading-stars t
       org-startup-indented t
       org-adapt-indentation nil
@@ -55,12 +46,7 @@
       org-agenda-files '("~/Work/personal-journal/work.org"
                          "~/Work/personal-journal/habits.org"
                          "~/Work/personal-journal/meetings.org")
-      org-babel-load-languages '((emacs-lisp . t)
-                                 (kotlin .t)
-                                 (typescript . t)
-                                 (js . t)
-                                 (dart . t)
-                                 (plantuml . t)))
+      org-babel-load-languages '((emacs-lisp . t)))
 
 (after! org
   (require 'org-habit)
@@ -107,8 +93,8 @@
           ("r" "Reminders"
            entry (file+headline "~/Work/personal-journal/habits.org" "Reminders")
            "** NEXT %^{Title} %^g \nSCHEDULED: %^T\n%?"
-           :empty-lines 1)
-          )))
+           :empty-lines 1))))
+
 
 
 (add-hook! 'org-mode-hook
@@ -133,8 +119,8 @@
         ("t" "tumbuh" entry "* %?"
          :if-new (file+head "tumbuh-logs/%<%Y/%m/%d>.org" "#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags::tumbuh:")
          :unnarrowed t
-         :empty-lines 1)
-        ))
+         :empty-lines 1)))
+
 
 (after! org-roam
   (map! :map org-roam-mode-map
@@ -143,8 +129,32 @@
         :desc "Sync database" "S" #'org-roam-db-sync
         :desc "Search org-roam notes" "s" #'padul/org-roam-rg-search))
 
+;;; APPS
 ;; Magit settings
 (setq magit-git-executable "/opt/homebrew/bin/git")
+
+;; Leetcode settings
+(use-package! leetcode
+  :defer t
+  :config
+  (setq leetcode-prefer-language "typescript")
+  (setq leetcode-prefer-sql "mysql")
+  (setq leetcode-save-solutions t)
+  (setq leetcode-directory "~/Work/personal-projects/leetcode/"))
+
+;;; LSP
+;; mason settings
+(use-package! mason
+  :config
+  (mason-setup))
+
+(use-package! lsp-vtsls
+  :after lsp-mode
+  :config
+  (setq
+   lsp-eldoc-render-all t
+   lsp-vtsls-server-side-fuzzy-match t
+   lsp-vtsls-entries-limit 10))
 
 ;;; COLORS
 (custom-set-faces!
@@ -188,15 +198,7 @@
 (add-hook! 'window-configuration-change-hook #'padul-set-selected-window)
 (add-hook! 'window-selection-change-functions #'padul-set-selected-window)
 
-(setq padul/mode-line-right-side '(:eval (when (mode-line-window-selected-p)
-                                           (list
-                                            " "
-                                            mode-line-misc-info
-                                            mode-line-position
-                                            "C%c "))))
-
 (setq padul/mode-line-left-side '(" "
-                                  ;;(:eval (format-time-string "%H:%M"))
                                   display-time-string
                                   (:propertize
                                    (""
@@ -215,5 +217,3 @@
               `(
                 ,@padul/mode-line-left-side
                 mode-line-format-right-align))
-
-;; ,padul/mode-line-right-side))
