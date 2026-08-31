@@ -25,7 +25,6 @@
 
 ;; Emacs settings
 (setq frame-title-format '("%b - @padulemacs")
-      display-line-numbers-type nil
       display-time-format '%H:%M)
 
 (blink-cursor-mode 1)
@@ -95,13 +94,12 @@
            "** NEXT %^{Title} %^g \nSCHEDULED: %^T\n%?"
            :empty-lines 1))))
 
-
-
 (add-hook! 'org-mode-hook
-  (setq-local fill-column 40
-              visual-line-mode nil))
-
-(add-hook! 'org-mode-hook 'turn-on-auto-fill)
+  (setq-local fill-column 40)
+  (turn-on-auto-fill)
+  (visual-line-mode -1)
+  (display-line-numbers-mode -1)
+  (flycheck-mode -1))
 
 (defun padul/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep with live preview."

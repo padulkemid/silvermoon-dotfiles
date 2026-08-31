@@ -26,6 +26,7 @@
        
        :emacs
        dired
+       ibuffer
        electric
        undo
 
