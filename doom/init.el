@@ -11,12 +11,8 @@
        (popup +defaults)
        (vc-gutter +pretty)
        ligatures
-       window-select
 
        :editor
-       ;; I was using this but I want to understand
-       ;; Emacs completely
-       ;; (evil +everywhere) 
        (format +onsave)
        snippets
        parinfer
