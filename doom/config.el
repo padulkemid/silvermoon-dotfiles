@@ -1,19 +1,9 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;;; EVIL
-;; OG keymaps
-;; (setq evil-kill-on-visual-paste nil)
-;; (evil-ex-define-cmd "W" "w")
-;; (evil-ex-define-cmd "Q" "q")
-;; (map! :nv "H" #'evil-first-non-blank
-;;       :n "L" #'evil-end-of-line
-;;       :v "L" #'evil-last-non-blank)
-
 ;;; SETTINGS
 ;; User settings
 (setq user-full-name "Fadhil Muhammad"
-      user-mail-address "fadhil2903@gmail.com"
-      load-prefer-newer t)
+      user-mail-address "fadhil2903@gmail.com")
 
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 
@@ -24,9 +14,7 @@
       doom-serif-font (font-spec :family "IBM Plex Serif"))
 
 ;; Emacs settings
-(setq frame-title-format '("%b - @padulemacs")
-      display-time-format '%H:%M)
-
+(setq frame-title-format '("%b - @padulemacs"))
 (blink-cursor-mode 1)
 
 ;; Org settings
@@ -140,6 +128,13 @@
   (setq leetcode-save-solutions t)
   (setq leetcode-directory "~/Work/personal-projects/leetcode/"))
 
+;; use xref other than better-jumper (because we're not using evil)
+;; I believe it will be remove when 'doom/compat later has moved on
+(after! better-jumper
+  (map! [remap xref-go-back]          #'xref-go-back
+        [remap xref-pop-marker-stack] #'xref-pop-marker-stack
+        [remap xref-go-forward]       #'xref-go-forward))
+
 ;;; LSP
 ;; mason settings
 (use-package! mason
@@ -166,35 +161,11 @@
   '(corfu-default :background "black" :foreground "white")
   '(corfu-current :background "white" :foreground "black"))
 
-;;; UTILITIES
-;; Disable 'cl warning
-(defadvice! fixed-do-after-load-evaluation (abs-file)
-  :override #'do-after-load-evaluation
-  (dolist (a-l-element after-load-alist)
-    (when (and (stringp (car a-l-element))
-               (string-match-p (car a-l-element) abs-file))
-      (mapc #'funcall (cdr a-l-element))))
-  (run-hook-with-args 'after-load-functions abs-file))
-
 ;;; MODELINE
 (setq display-time-interval 60)
 (setq display-time-format "%H:%M")
 (setq display-time-default-load-average nil)
 (display-time-mode 1)
-
-(defvar padul-check-selected-window (frame-selected-window))
-(defun padul-set-selected-window (&rest _args)
-  (when (not (minibuffer-window-active-p (frame-selected-window)))
-    (setq padul-check-selected-window (frame-selected-window))
-    (force-mode-line-update)))
-(defun padul-unset-selected-window ()
-  (setq padul-check-selected-window nil)
-  (force-mode-line-update))
-(defun padul-line-selected-window-active-p ()
-  (eq padul-check-selected-window (selected-window)))
-
-(add-hook! 'window-configuration-change-hook #'padul-set-selected-window)
-(add-hook! 'window-selection-change-functions #'padul-set-selected-window)
 
 (setq padul/mode-line-left-side '(" "
                                   display-time-string
@@ -213,5 +184,4 @@
 
 (setq-default mode-line-format
               `(
-                ,@padul/mode-line-left-side
-                mode-line-format-right-align))
+                ,@padul/mode-line-left-side))
