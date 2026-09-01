@@ -5,8 +5,6 @@
        vertico
 
        :ui
-       doom
-       hl-todo
        ophints
        (popup +defaults)
        (vc-gutter +pretty)

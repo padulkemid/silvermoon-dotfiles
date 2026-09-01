@@ -8,7 +8,7 @@
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 
 ;; Doom settings
-(setq doom-theme 'doom-ir-black
+(setq doom-theme 'almost-mono-black
       doom-font (font-spec :family "Comic Code Ligatures" :size 20)
       doom-variable-pitch-font (font-spec :family "Inter" :size 14)
       doom-serif-font (font-spec :family "IBM Plex Serif"))
@@ -38,13 +38,7 @@
 (after! org
   (require 'org-habit)
   (set-font-ligatures! 'org-mode
-    "|||+" "<===" "===>" "===" "==" "!==" "!=" "--" "---" "->" "=>"
-    ">>" "<<" "<=" ">=" "=>" "||" "&&" "::" "->" "<-" "<->" "-->"
-    "<--" "<-->" "-<" ">-" ">>-" "-<<" "<<-" "<-<" ">->" "<-|" "|->"
-    "-|" "|-" "||-" "<!--" "<#--" "<=" "=>" "==>" "<==" "<=>" "<==>"
-    "=<<" ">>=" "=+=" "!==" "!!" "||=" "|=" "::=" ":=" ":-" ":+"
-    "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++"
-    "+++" "<!--" "<!---")
+    "!=" "--" "->" "=>" "=>" "::" "->" "<-" "<->" "=>" "<=>")
   (setq org-todo-keyword-faces
         '(("TODO" . "red")
           ("ONGOING" . "magenta")
@@ -154,8 +148,8 @@
   '(fringe :background "black")
   '(line-number :background "black" :foreground "dark gray")
   '(line-number-current-line :background "black" :foreground "white" :weight bold)
-  '(mode-line-active :background "white" :foreground "black" :box nil)
-  '(mode-line-inactive :background "dark gray" :foreground "black" :box nil)
+  '(mode-line-active :background "black" :foreground "white" :overline "white" :box nil)
+  '(mode-line-inactive :background "black" :foreground "dark gray" :overline "gray20" :box nil)
 
   ;; corfu + doom-homage-black isn't good that is why I added this
   '(corfu-default :background "black" :foreground "white")
@@ -167,21 +161,25 @@
 (setq display-time-default-load-average nil)
 (display-time-mode 1)
 
-(setq padul/mode-line-left-side '(" "
-                                  display-time-string
-                                  (:propertize
-                                   (""
-                                    mode-line-mule-info
-                                    mode-line-client
-                                    mode-line-modified
-                                    mode-line-remote
-                                    mode-line-window-dedicated)
-                                   display (min-width (6.0)))
-                                  " "
-                                  mode-line-buffer-identification
-                                  (vc-mode vc-mode)
-                                  mode-line-process))
+(setq padul/mode-line-active '(" "
+                               display-time-string
+                               (:propertize
+                                (""
+                                 mode-line-mule-info
+                                 mode-line-client
+                                 mode-line-modified
+                                 mode-line-remote
+                                 mode-line-window-dedicated)
+                                display (min-width (6.0)))
+                               " "
+                               mode-line-buffer-identification
+                               (vc-mode vc-mode)
+                               mode-line-process))
+
+(setq padul/mode-line-inactive
+      '(" " mode-line-buffer-identification))
 
 (setq-default mode-line-format
-              `(
-                ,@padul/mode-line-left-side))
+              '((:eval (if (mode-line-window-selected-p)
+                           padul/mode-line-active
+                         padul/mode-line-inactive))))
