@@ -3,6 +3,7 @@
 
 ;; modes
 (package! markdown-mode)
+(package! json-mode)
 
 ;; extras
 (package! almost-mono-themes)

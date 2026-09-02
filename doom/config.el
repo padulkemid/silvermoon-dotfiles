@@ -57,24 +57,17 @@
         '(
           ("w" "Work: Oxygen"
            entry (file+headline "~/Work/personal-journal/work.org" "Oxygen")
-           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\nLINK: [[%^{URL}][%\\2]]\n%?"
-           :empty-lines 1)
+           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\nLINK: [[%^{URL}][%\\2]]\n%?")
           ("s" "Work: Production Support"
            entry (file+headline "~/Work/personal-journal/work.org" "Production Support")
-           "** ONGOING =[%^{Ticket}]= %^{Title} \n%?"
-           :empty-lines 1)
+           "** ONGOING =[%^{Ticket}]= %^{Title}\nLINK: [[%^{URL}][%\\1]]\n%?")
           ("b" "Work: Side Quest"
            entry (file+headline "~/Work/personal-journal/work.org" "Side Quest")
-           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n%?"
-           :empty-lines 1)
+           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n%?")
           ("m" "Meetings"
            entry (file "~/Work/personal-journal/meetings.org")
            "* SETUP [#%^{Priority|A|B|C}] %^{Title} \nSCHEDULED: %^T\n%?"
-           :empty-lines-before 1)
-          ("r" "Reminders"
-           entry (file+headline "~/Work/personal-journal/habits.org" "Reminders")
-           "** NEXT %^{Title} %^g \nSCHEDULED: %^T\n%?"
-           :empty-lines 1))))
+           :empty-lines-before 1))))
 
 (add-hook! 'org-mode-hook
   (setq-local fill-column 40)
