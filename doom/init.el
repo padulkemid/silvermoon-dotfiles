@@ -5,18 +5,18 @@
        vertico
 
        :ui
-       ophints
        (popup +defaults)
        (vc-gutter +pretty)
        ligatures
-
+       ophints
+       
        :editor
        (format +onsave)
        snippets
        parinfer
 
        :checkers
-       syntax
+       (syntax +flymake)
        
        :emacs
        dired
@@ -25,17 +25,16 @@
        undo
 
        :tools
-       magit
-       lsp
-       tree-sitter
+       (lsp +eglot)
        (eval +overlay)
+       magit
+       tree-sitter
 
        :os
        (:if (featurep :system 'macos) macos)
 
        :lang
        (org +roam +present)
-       (javascript +lsp +tree-sitter)
        (clojure +lsp +tree-sitter)
        emacs-lisp
 

@@ -80,8 +80,7 @@
   (setq-local fill-column 40)
   (turn-on-auto-fill)
   (visual-line-mode -1)
-  (display-line-numbers-mode -1)
-  (flycheck-mode -1))
+  (display-line-numbers-mode -1))
 
 (defun padul/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep with live preview."
@@ -113,15 +112,6 @@
 ;; Magit settings
 (setq magit-git-executable "/opt/homebrew/bin/git")
 
-;; Leetcode settings
-(use-package! leetcode
-  :defer t
-  :config
-  (setq leetcode-prefer-language "typescript")
-  (setq leetcode-prefer-sql "mysql")
-  (setq leetcode-save-solutions t)
-  (setq leetcode-directory "~/Work/personal-projects/leetcode/"))
-
 ;; use xref other than better-jumper (because we're not using evil)
 ;; I believe it will be remove when 'doom/compat later has moved on
 (after! better-jumper
@@ -134,14 +124,6 @@
 (use-package! mason
   :config
   (mason-setup))
-
-(use-package! lsp-vtsls
-  :after lsp-mode
-  :config
-  (setq
-   lsp-eldoc-render-all t
-   lsp-vtsls-server-side-fuzzy-match t
-   lsp-vtsls-entries-limit 10))
 
 ;;; COLORS
 (custom-set-faces!
