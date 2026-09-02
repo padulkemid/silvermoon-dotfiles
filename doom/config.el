@@ -5,8 +5,6 @@
 (setq user-full-name "Fadhil Muhammad"
       user-mail-address "fadhil2903@gmail.com")
 
-(add-to-list 'default-frame-alist '(undecorated-round . t))
-
 ;; Doom settings
 (setq doom-theme 'almost-mono-black
       doom-font (font-spec :family "Comic Code Ligatures" :size 20)
@@ -14,7 +12,7 @@
       doom-serif-font (font-spec :family "IBM Plex Serif"))
 
 ;; Emacs settings
-(setq frame-title-format '("%b - @padulemacs"))
+(setq frame-title-format "@padulemacs")
 (blink-cursor-mode 1)
 
 ;; Org settings
