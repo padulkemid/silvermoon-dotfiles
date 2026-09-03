@@ -103,6 +103,14 @@
 (after! eglot
   (setq eglot-code-action-indications '(left-fringe)))
 
+;; diff-hl settings
+(after! diff-hl
+  (setq diff-hl-margin-symbols-alist
+        '((insert . "+")
+          (delete . "-")
+          (change . "!")))
+  (diff-hl-margin-mode 1))
+
 ;;; APPS
 ;; Magit settings
 (setq magit-git-executable "/opt/homebrew/bin/git")
@@ -122,11 +130,15 @@
 
 ;;; COLORS
 (custom-set-faces!
+  ;; modeline and fringes/margins
   '(fringe :background "black")
   '(line-number :background "black" :foreground "dark gray")
   '(line-number-current-line :background "black" :foreground "white" :weight bold)
   '(mode-line-active :background "black" :foreground "white" :overline "white" :box nil)
   '(mode-line-inactive :background "black" :foreground "dark gray" :overline "gray20" :box nil)
+  '(diff-hl-margin-insert :background nil :foreground "green")
+  '(diff-hl-margin-delete :background nil :foreground "red")
+  '(diff-hl-margin-change :background nil :foreground "orange")
 
   ;; corfu + doom-homage-black isn't good that is why I added this
   '(corfu-default :background "black" :foreground "white")
