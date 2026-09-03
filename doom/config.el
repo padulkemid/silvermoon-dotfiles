@@ -55,13 +55,16 @@
         '(
           ("w" "Work: Oxygen"
            entry (file+headline "~/Work/personal-journal/work.org" "Oxygen")
-           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\nLINK: [[%^{URL}][%\\2]]\n%?")
+           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\nLINK: [[%^{URL}][%\\2]]\n%?"
+           :empty-lines 1)
           ("s" "Work: Production Support"
            entry (file+headline "~/Work/personal-journal/work.org" "Production Support")
-           "** ONGOING =[%^{Ticket}]= %^{Title}\nLINK: [[%^{URL}][%\\1]]\n%?")
+           "** ONGOING =[%^{Ticket}]= %^{Title}\nLINK: [[%^{URL}][%\\1]]\n%?"
+           :empty-lines 1)
           ("b" "Work: Side Quest"
            entry (file+headline "~/Work/personal-journal/work.org" "Side Quest")
-           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n%?")
+           "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\n%?"
+           :empty-lines 1)
           ("m" "Meetings"
            entry (file "~/Work/personal-journal/meetings.org")
            "* SETUP [#%^{Priority|A|B|C}] %^{Title} \nSCHEDULED: %^T\n%?"
@@ -102,14 +105,6 @@
 ;; Eglot settings
 (after! eglot
   (setq eglot-code-action-indications '(left-fringe)))
-
-;; diff-hl settings
-(after! diff-hl
-  (setq diff-hl-margin-symbols-alist
-        '((insert . "+")
-          (delete . "-")
-          (change . "!")))
-  (diff-hl-margin-mode 1))
 
 ;;; APPS
 ;; Magit settings
