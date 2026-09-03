@@ -131,9 +131,6 @@
   '(line-number-current-line :background "black" :foreground "white" :weight bold)
   '(mode-line-active :background "black" :foreground "white" :overline "white" :box nil)
   '(mode-line-inactive :background "black" :foreground "dark gray" :overline "gray20" :box nil)
-  '(diff-hl-margin-insert :background nil :foreground "green")
-  '(diff-hl-margin-delete :background nil :foreground "red")
-  '(diff-hl-margin-change :background nil :foreground "orange")
 
   ;; corfu + doom-homage-black isn't good that is why I added this
   '(corfu-default :background "black" :foreground "white")

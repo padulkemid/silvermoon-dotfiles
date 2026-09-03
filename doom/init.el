@@ -6,7 +6,7 @@
 
        :ui
        (popup +defaults)
-       vc-gutter
+       (vc-gutter +pretty)
        ligatures
        
        :editor
