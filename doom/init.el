@@ -6,9 +6,8 @@
 
        :ui
        (popup +defaults)
-       (vc-gutter +pretty)
+       vc-gutter
        ligatures
-       ophints
        
        :editor
        (format +onsave)

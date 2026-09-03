@@ -99,6 +99,10 @@
         :desc "Sync database" "S" #'org-roam-db-sync
         :desc "Search org-roam notes" "s" #'padul/org-roam-rg-search))
 
+;; Eglot settings
+(after! eglot
+  (setq eglot-code-action-indications '(left-fringe)))
+
 ;;; APPS
 ;; Magit settings
 (setq magit-git-executable "/opt/homebrew/bin/git")
