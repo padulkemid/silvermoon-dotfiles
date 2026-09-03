@@ -31,7 +31,8 @@
       org-agenda-files '("~/Work/personal-journal/work.org"
                          "~/Work/personal-journal/habits.org"
                          "~/Work/personal-journal/meetings.org")
-      org-babel-load-languages '((emacs-lisp . t)))
+      org-babel-load-languages '((emacs-lisp . t)
+                                 (clojure .t)))
 
 (after! org
   (require 'org-habit)
