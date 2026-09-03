@@ -1,6 +1,12 @@
--- Open jar:// / jrt:// URIs via kotlin_lsp `decompile`.
--- Enabled only after a Kotlin buffer is opened (FileType kotlin).
--- Based on AlexandrosAlexiou/kotlin.nvim decompiler + autocommands.
+-- this is a minimal gist if you only use `kotlin_lsp` not `kmp` or anything.
+-- it can help you if you don't want to install fully fledge kotlin.nvim and just need the lsp and goto definitions.
+-- this gist will help you open jar:// / jrt:// uri via kotlin_lsp `decompile`.
+-- enabled only after a kotlin buffer is opened (ft kotlin).
+
+-- based on kotlin.nvim decompiler + autocommands.
+-- credits to AlexandrosAlexiou and guys in https://github.com/Kotlin/kotlin-lsp/issues/44
+-- if you guys need to develop heavily with kotlin I suggest y'all install kotlin.nvim but if you ain't gonna do it
+-- this decompiler will help with minimal lsp + gd responses.
 
 local TIMEOUT_MS = 5000
 local enabled = false
@@ -36,7 +42,7 @@ local function decompile_uri(uri)
     result = res
   end)
 
-  -- Block so gd can place the cursor after content exists.
+  -- block so gd can place the cursor after content exists.
   vim.wait(TIMEOUT_MS, function()
     return done
   end)
@@ -61,6 +67,7 @@ local function enable_jar_handlers()
   if enabled then
     return
   end
+
   enabled = true
 
   local augroup = vim.api.nvim_create_augroup('KotlinJarDecompile', { clear = true })
@@ -69,7 +76,7 @@ local function enable_jar_handlers()
     vim.api.nvim_create_autocmd('BufReadCmd', {
       pattern = protocol .. '://*',
       group = augroup,
-      desc = 'Decompile ' .. protocol .. ':// via kotlin-lsp (kotlin only)',
+      desc = 'decompile ' .. protocol .. ':// via kotlin_lsp (kotlin only)',
       callback = function(args)
         decompile_uri(args.match)
       end,
@@ -79,6 +86,6 @@ end
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'kotlin',
-  desc = 'Enable jar/jrt decompile handlers for Kotlin',
+  desc = 'enable jar/jrt decompile handlers for Kotlin',
   callback = enable_jar_handlers,
 })
