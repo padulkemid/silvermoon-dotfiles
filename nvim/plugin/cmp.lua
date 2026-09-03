@@ -39,6 +39,13 @@ vim.api.nvim_create_autocmd('InsertEnter', {
         ghost_text = {
           enabled = true,
         },
+        accept = {
+          auto_brackets = {
+            blocked_filetypes = {
+              'kotlin',
+            },
+          },
+        },
       },
       signature = {
         enabled = true,
