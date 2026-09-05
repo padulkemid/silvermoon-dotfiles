@@ -16,6 +16,9 @@
       display-line-numbers-type nil)
 (blink-cursor-mode 1)
 
+;; Xref settings
+(setq xref-show-xrefs-function #'consult-xref)
+
 ;; Org settings
 (setq org-src-window-setup 'current-window
       org-hide-leading-stars t
