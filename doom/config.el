@@ -12,7 +12,8 @@
       doom-serif-font (font-spec :family "IBM Plex Serif"))
 
 ;; Emacs settings
-(setq frame-title-format "@padulemacs")
+(setq frame-title-format "@padulemacs"
+      display-line-numbers-type nil)
 (blink-cursor-mode 1)
 
 ;; Org settings
@@ -74,8 +75,7 @@
 (add-hook! 'org-mode-hook
   (setq-local fill-column 40)
   (turn-on-auto-fill)
-  (visual-line-mode -1)
-  (display-line-numbers-mode -1))
+  (visual-line-mode -1))
 
 (defun padul/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep with live preview."
@@ -126,6 +126,10 @@
 
 ;;; COLORS
 (custom-set-faces!
+  ;; selection
+  '(region :background "dark cyan")
+  '(vertico-current :background "dark cyan")
+  
   ;; modeline and fringes/margins
   '(fringe :background "black")
   '(line-number :background "black" :foreground "dark gray")
