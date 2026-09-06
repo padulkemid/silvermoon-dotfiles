@@ -11,6 +11,7 @@
        
        :editor
        (format +onsave)
+       (whitespace +guess +trim)
        snippets
        parinfer
 
