@@ -121,6 +121,13 @@
         [remap xref-pop-marker-stack] #'xref-pop-marker-stack
         [remap xref-go-forward]       #'xref-go-forward))
 
+;; Smartparens settings
+(after! smartparens
+  (map! :map smartparens-mode-map
+        :leader
+        :prefix "r"
+        :desc "Rewrap sexp" "s" #'sp-rewrap-sexp))
+
 ;;; LSP
 ;; mason settings
 (use-package! mason
