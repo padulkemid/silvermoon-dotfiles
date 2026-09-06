@@ -145,30 +145,74 @@
   '(corfu-current :background "white" :foreground "black"))
 
 ;;; MODELINE
-(setq display-time-interval 60)
-(setq display-time-format "%H:%M")
-(setq display-time-default-load-average nil)
+(setq display-time-interval 60
+      display-time-format "[%H:%M]"
+      display-time-default-load-average nil
+      display-time-string-forms
+      '((propertize (format-time-string display-time-format now)
+         'face 'display-time-date-and-time
+         'help-echo (format-time-string "%a %b %e, %Y" now))))
 (display-time-mode 1)
 
-(setq padul/mode-line-active '(" "
-                               display-time-string
-                               (:propertize
-                                (""
-                                 mode-line-mule-info
-                                 mode-line-client
-                                 mode-line-modified
-                                 mode-line-remote
-                                 mode-line-window-dedicated)
-                                display (min-width (6.0)))
-                               " "
-                               mode-line-buffer-identification
-                               (vc-mode vc-mode)
-                               mode-line-process))
+(setq mode-line-percent-position '("["(-3 "%p")"]")
+      mode-line-position-column-line-format '("[%l:%c]"))
+(column-number-mode 1)
+
+(setq-default mode-line-buffer-identification
+              (propertized-buffer-identification "%b"))
+
+(setq padul/mode-line-flags
+      '("["
+        mode-line-mule-info
+        mode-line-client
+        mode-line-modified
+        mode-line-remote
+        mode-line-window-dedicated
+        "]"))
+
+(setq padul/mode-line-buffer
+      '("[" mode-line-buffer-identification "]"))
+
+(defadvice! padul/vc-mode-trim-leading-space-a (&rest _)
+  :after #'vc-mode-line
+  (when (stringp vc-mode)
+    (setq vc-mode (string-trim-left vc-mode))))
+
+(setq padul/mode-line-vc
+      '((vc-mode ("[" vc-mode "]"))))
+
+(setq padul/mode-line-active
+      '(" "
+        display-time-string
+        "["
+        mode-line-mule-info
+        mode-line-client
+        mode-line-modified
+        mode-line-remote
+        mode-line-window-dedicated
+        "]"
+        padul/mode-line-buffer
+        padul/mode-line-vc
+        mode-line-position))
 
 (setq padul/mode-line-inactive
-      '(" " mode-line-buffer-identification))
+      '(" " padul/mode-line-buffer))
 
 (setq-default mode-line-format
               '((:eval (if (mode-line-window-selected-p)
                            padul/mode-line-active
                          padul/mode-line-inactive))))
+
+;;; CUSTOM
+;; vim's C-g info
+(defun padul/file-info ()
+  "Echo buffer path, line count, and percent through the file."
+  (interactive)
+  (let* ((path (if buffer-file-name
+                   (abbreviate-file-name buffer-file-name)
+                 (buffer-name)))
+         (lines (line-number-at-pos (point-max)))
+         (pct (/ (* 100 (point)) (max 1 (point-max)))))
+    (message "\"%s\" %d lines --%d%%--" path lines pct)))
+
+(map! [remap what-cursor-position] #'padul/file-info)
