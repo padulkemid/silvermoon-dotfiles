@@ -132,7 +132,7 @@
   ;; selection
   '(region :background "dark cyan")
   '(vertico-current :background "dark cyan")
-  
+
   ;; modeline and fringes/margins
   '(fringe :background "black")
   '(line-number :background "black" :foreground "dark gray")
@@ -203,16 +203,20 @@
                            padul/mode-line-active
                          padul/mode-line-inactive))))
 
-;;; CUSTOM
-;; vim's C-g info
-(defun padul/file-info ()
-  "Echo buffer path, line count, and percent through the file."
-  (interactive)
-  (let* ((path (if buffer-file-name
-                   (abbreviate-file-name buffer-file-name)
-                 (buffer-name)))
-         (lines (line-number-at-pos (point-max)))
-         (pct (/ (* 100 (point)) (max 1 (point-max)))))
-    (message "\"%s\" %d lines --%d%%--" path lines pct)))
+;;; CUSTOM UTILS
+(defun padul/duplicate-line ()
+  "Duplicate line by yanking and putting it to the next line.
 
-(map! [remap what-cursor-position] #'padul/file-info)
+Derived from tsoding, this is the best duplicate since vim's `yyp'"
+  (interactive)
+  (let ((col (- (point) (pos-bol)))
+        (line (let ((s (thing-at-point 'line t)))
+                (if s (string-remove-suffix "\n" s)
+                  ""))))
+    (move-end-of-line 1)
+    (newline)
+    (insert line)
+    (move-beginning-of-line 1)
+    (forward-char col)))
+
+(map! :desc "Duplicate line" "C-," #'padul/duplicate-line)
