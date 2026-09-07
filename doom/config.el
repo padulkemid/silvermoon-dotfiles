@@ -12,7 +12,7 @@
       doom-serif-font (font-spec :family "IBM Plex Serif"))
 
 ;; Emacs settings
-(setq frame-title-format "@padulemacs"
+(setq frame-title-format "emacs@padulkemid"
       display-line-numbers-type nil)
 (blink-cursor-mode 1)
 
@@ -113,13 +113,6 @@
 ;;; APPS
 ;; Magit settings
 (setq magit-git-executable "/opt/homebrew/bin/git")
-
-;; use xref other than better-jumper (because we're not using evil)
-;; I believe it will be remove when 'doom/compat later has moved on
-(after! better-jumper
-  (map! [remap xref-go-back]          #'xref-go-back
-        [remap xref-pop-marker-stack] #'xref-pop-marker-stack
-        [remap xref-go-forward]       #'xref-go-forward))
 
 ;; Smartparens settings
 (after! smartparens
