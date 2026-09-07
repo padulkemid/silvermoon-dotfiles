@@ -8,7 +8,7 @@
        (popup +defaults)
        (vc-gutter +pretty)
        ligatures
-       
+
        :editor
        (format +onsave)
        (whitespace +guess +trim)
@@ -17,7 +17,7 @@
 
        :checkers
        (syntax +flymake)
-       
+
        :emacs
        dired
        ibuffer
@@ -27,6 +27,7 @@
        :tools
        (lsp +eglot)
        (eval +overlay)
+       lookup
        magit
        tree-sitter
 
