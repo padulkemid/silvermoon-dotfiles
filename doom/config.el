@@ -148,7 +148,11 @@
 
   ;; corfu + doom-homage-black isn't good that is why I added this
   '(corfu-default :background "black" :foreground "white")
-  '(corfu-current :background "white" :foreground "black"))
+  '(corfu-current :background "white" :foreground "black")
+
+  ;; tab-bar mode/inheritance kill
+  '(tab-bar :background nil)
+  '(tab-bar-tab :background nil))
 
 ;;; MODELINE
 (setq display-time-interval 60
