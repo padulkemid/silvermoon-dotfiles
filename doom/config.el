@@ -168,17 +168,8 @@
 (setq-default mode-line-buffer-identification
               (propertized-buffer-identification "%b"))
 
-(setq padul/mode-line-flags
-      '("["
-        mode-line-mule-info
-        mode-line-client
-        mode-line-modified
-        mode-line-remote
-        mode-line-window-dedicated
-        "]"))
-
 (setq padul/mode-line-buffer
-      '("[" mode-line-buffer-identification "]"))
+      '("·[" mode-line-buffer-identification "]·"))
 
 (defadvice! padul/vc-mode-trim-leading-space-a (&rest _)
   :after #'vc-mode-line
@@ -186,10 +177,10 @@
     (setq vc-mode (string-trim-left vc-mode))))
 
 (setq padul/mode-line-vc
-      '((vc-mode ("[" vc-mode "]"))))
+      '((vc-mode ("[" vc-mode "]·"))))
 
 (setq padul/mode-name
-      '("[" mode-name "]"))
+      '("[" mode-name "]·"))
 
 (setq padul/mode-line-active
       '(""
@@ -202,13 +193,9 @@
         mode-line-remote
         mode-line-window-dedicated
         "]"
-        "·"
         padul/mode-line-buffer
-        "·"
         padul/mode-name
-        "·"
         padul/mode-line-vc
-        "·"
         mode-line-position))
 
 (setq padul/mode-line-inactive
