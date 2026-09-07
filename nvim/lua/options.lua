@@ -92,7 +92,7 @@ vim.filetype.add {
 }
 
 -- Separator type
-vim.opt.fillchars:append {
+--[[ vim.opt.fillchars:append {
   stl = '·',
   stlnc = '·',
-}
+} ]]
