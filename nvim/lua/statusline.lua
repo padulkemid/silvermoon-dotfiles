@@ -3,10 +3,10 @@ local branch_status = function()
 
   if branch ~= '' then
     if #branch < 13 then
-      return '[' .. branch .. ']'
+      return '·[' .. branch .. ']·'
     end
 
-    return '[' .. string.sub(branch, 1, 13) .. '..' .. ']'
+    return '·[' .. string.sub(branch, 1, 13) .. '..' .. ']·'
   end
 
   return ''
@@ -17,16 +17,16 @@ local get_filename = function()
   local name = vim.api.nvim_buf_get_name(0)
 
   if bt == 'nofile' then
-    return '[no file opened]'
+    return '[no file opened]·'
   end
   if bt == 'terminal' then
-    return '[terminal]'
+    return '[terminal]·'
   end
   if name == '' then
-    return '[untitled]'
+    return '[untitled]·'
   end
 
-  return '[%t]'
+  return '[%t]·'
 end
 
 local lsp_status = function()
@@ -37,7 +37,7 @@ local lsp_status = function()
   end
 
   if #clients > 1 then
-    return '[lsp:on]'
+    return '[lsp:on]·'
   end
 
   -- usually the first client is utility
@@ -45,7 +45,7 @@ local lsp_status = function()
   local name = last_client.name
   local lsp_state = last_client.initialized and 'on' or 'off'
 
-  return '[' .. name .. ':' .. lsp_state .. ']'
+  return '[' .. name .. ':' .. lsp_state .. ']·'
 end
 
 _G.stl_active = function()
@@ -56,7 +56,7 @@ _G.stl_active = function()
     '%y',
     '%=',
     get_filename(),
-    '%h%w%m%r[%l:%c][%P]',
+    '%h%w%m%r[%l:%c]·[%P]',
   }
 end
 

@@ -13,8 +13,10 @@
 
 ;; Emacs settings
 (setq frame-title-format "emacs@padulkemid"
-      display-line-numbers-type nil)
+      display-line-numbers-type nil
+      window-divider-default-places 'right-only)
 (blink-cursor-mode 1)
+(window-divider-mode 1)
 
 ;; Xref settings
 (setq xref-show-xrefs-function #'consult-xref)
@@ -137,8 +139,13 @@
   '(fringe :background "black")
   '(line-number :background "black" :foreground "dark gray")
   '(line-number-current-line :background "black" :foreground "white" :weight bold)
-  '(mode-line-active :background "black" :foreground "white" :overline "white" :box nil)
-  '(mode-line-inactive :background "black" :foreground "dark gray" :overline "gray20" :box nil)
+  '(mode-line :box nil :underline nil :overline nil
+    :background "black" :foreground "white")
+  '(mode-line-highlight :box nil :underline nil :overline nil)
+  '(mode-line-active :box nil :underline nil :overline nil
+    :background "black" :foreground "white")
+  '(mode-line-inactive :box nil :underline nil :overline nil
+    :background "black" :foreground "dark gray")
 
   ;; corfu + doom-homage-black isn't good that is why I added this
   '(corfu-default :background "black" :foreground "white")
@@ -154,7 +161,7 @@
          'help-echo (format-time-string "%a %b %e, %Y" now))))
 (display-time-mode 1)
 
-(setq mode-line-percent-position '("["(-3 "%p")"]")
+(setq mode-line-percent-position '("["(-3 "%p")"]·")
       mode-line-position-column-line-format '("[%l:%c]"))
 (column-number-mode 1)
 
@@ -181,9 +188,13 @@
 (setq padul/mode-line-vc
       '((vc-mode ("[" vc-mode "]"))))
 
+(setq padul/mode-name
+      '("[" mode-name "]"))
+
 (setq padul/mode-line-active
-      '(" "
+      '(""
         display-time-string
+        "·"
         "["
         mode-line-mule-info
         mode-line-client
@@ -191,8 +202,13 @@
         mode-line-remote
         mode-line-window-dedicated
         "]"
+        "·"
         padul/mode-line-buffer
+        "·"
+        padul/mode-name
+        "·"
         padul/mode-line-vc
+        "·"
         mode-line-position))
 
 (setq padul/mode-line-inactive
