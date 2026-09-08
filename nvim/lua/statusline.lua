@@ -17,16 +17,16 @@ local get_filename = function()
   local name = vim.api.nvim_buf_get_name(0)
 
   if bt == 'nofile' then
-    return '[no file opened]·'
+    return '[no file opened]'
   end
   if bt == 'terminal' then
-    return '[terminal]·'
+    return '[terminal]'
   end
   if name == '' then
-    return '[untitled]·'
+    return '[untitled]'
   end
 
-  return '[%t]·'
+  return '[%t]'
 end
 
 local lsp_status = function()
@@ -56,7 +56,7 @@ _G.stl_active = function()
     '%y',
     '%=',
     get_filename(),
-    '%h%w%m%r[%l:%c]·[%P]',
+    '·%h%w%m%r[%l:%c]·[%P]',
   }
 end
 
