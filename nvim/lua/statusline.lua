@@ -3,10 +3,10 @@ local branch_status = function()
 
   if branch ~= '' then
     if #branch < 13 then
-      return '·[' .. branch .. ']·'
+      return '[' .. branch .. ']·'
     end
 
-    return '·[' .. string.sub(branch, 1, 13) .. '..' .. ']·'
+    return '[' .. string.sub(branch, 1, 13) .. '..' .. ']·'
   end
 
   return ''
