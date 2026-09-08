@@ -37,7 +37,7 @@
                          "~/Work/personal-journal/habits.org"
                          "~/Work/personal-journal/meetings.org")
       org-babel-load-languages '((emacs-lisp . t)
-                                 (clojure .t)))
+                                 (clojure . t)))
 
 (after! org
   (require 'org-habit)
@@ -54,7 +54,7 @@
           ("SETUP" . "aquamarine")
           ("OFF" . "tomato")
           ("NEXT" . "deep sky blue"))
-        org-tags-column 65
+        org-tags-column -40
         org-attach-dir-relative t)
   (setq org-habit-show-habits-only-for-today nil)
   (setq org-capture-templates
