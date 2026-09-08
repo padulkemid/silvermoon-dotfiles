@@ -37,6 +37,9 @@
        :lang
        (org +roam +present)
        (clojure +lsp +tree-sitter)
+       (json +tree-sitter)
+       (yaml +tree-sitter)
+       (markdown +tree-sitter)
        emacs-lisp
 
        :config
