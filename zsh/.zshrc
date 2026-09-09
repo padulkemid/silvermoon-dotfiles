@@ -48,6 +48,11 @@ alias update_yabai='echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 
 alias bubu="brew update && brew outdated && brew upgrade && brew cleanup"
 alias rm="trash"
 
+## yabai override
+alias ybaref="yabai -m config focus_follows_mouse autoraise"
+# this will refresh the autoraiser because sometimes it doesn't
+# work
+
 ## files
 alias zc="nvim $ZSHRC_LOCATION"
 alias zpc="nvim $ZPROFILE_LOCATION"
