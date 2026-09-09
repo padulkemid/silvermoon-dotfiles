@@ -14,7 +14,13 @@
 ;; Emacs settings
 (setq frame-title-format "emacs@padulkemid"
       display-line-numbers-type nil
-      window-divider-default-places 'right-only)
+      window-divider-default-places 'right-only
+      select-enable-clipboard nil)
+
+;; this so emacs will not interfere with `pbcopy'
+(map! :desc "Copy to OSX clipboard" "s-c" #'clipboard-kill-ring-save
+      :desc "Paste from OSX clipboard" "s-v" #'clipboard-yank)
+
 (blink-cursor-mode 1)
 (window-divider-mode 1)
 
