@@ -6,11 +6,16 @@ straight into their respected config folder ( e.g : `~/.config` ) because the
 symlinks all already done.  
 
 always put everything CLI first. I use `nvim` to code and `emacs` to journal
-and document my work, etc. (org mode is greater than markdown)
+and document my work, etc. (org mode is greater than markdown) but nowadays I 
+use `emacs` to code lisp-family languages only but still uses `nvim` as default.
 
 # 📷 Pics
 
-![nvim_screen](https://i.imgur.com/nRuWr9I.png)
+![emacs_clojure](https://i.imgur.com/VVjqObS.png)
+![emacs_org](https://i.imgur.com/onQdA22.png)
+![nvim_lua](https://i.imgur.com/Tb9kzai.png)
+
+font is comic code
 
 # 🏃🏻‍♂️ 💨 Running the Script
 
@@ -36,11 +41,3 @@ padulkemid@silvermoon: ~/.dotfiles $ ./install.sh
 the installer will still dry-run everything so you're not mistaken, if there is
 some step missing you could fix it right away!
 
-
-# 🗒 Progress
-
-- [x] update install script
-- [x] Apple Silicon: `install.sh` now `brew shellenv` + CLT-only xcode-select (plugins still review 1-by-1)
-- [x] `yabai` doesn't do excellent stuff with `csrutil` enabled (its ok though) — need partial SIP + `boot-args=-arm64e_preview_abi`
-- [x] post-Tahoe checklist: `~/Work/tahoe-post-upgrade-notes.txt`
-- [x] minimal install works
