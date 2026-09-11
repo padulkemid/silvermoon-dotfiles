@@ -13,7 +13,7 @@
 
 ;; Emacs settings
 (setq frame-title-format "emacs@padulkemid"
-      display-line-numbers-type nil
+      display-line-numbers-type 'relative
       window-divider-default-places 'right-only
       select-enable-clipboard nil)
 
@@ -62,7 +62,8 @@
           ("NEXT" . "deep sky blue"))
         org-tags-column -40
         org-attach-dir-relative t)
-  (setq org-habit-show-habits-only-for-today nil)
+  (setq org-habit-show-habits-only-for-today nil
+        display-line-numbers-type nil)
   (setq org-capture-templates
         '(
           ("w" "Work: Oxygen"
