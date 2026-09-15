@@ -24,11 +24,16 @@
   (setopt treesit-font-lock-level 4)	; Enable maximum boldness for variables.
   (setopt treesit-auto-install-grammar 'ask)) ; Manually `ask' in grammar installation.
 
-;; Auto pairs, barf, slurp, everything.
+;; Auto pairs; slurp/barf on demand (not parinfer — no full binding table).
+;; Paredit's C-) / C-} / C-( / C-{ — needs Shift, but skips windmove's C-<arrows>.
 (use-package smartparens
   :hook (prog-mode text-mode)
   :config
-  (require 'smartparens-config))
+  (require 'smartparens-config)
+  (keymap-set smartparens-mode-map "C-)" #'sp-forward-slurp-sexp)
+  (keymap-set smartparens-mode-map "C-}" #'sp-forward-barf-sexp)
+  (keymap-set smartparens-mode-map "C-(" #'sp-backward-slurp-sexp)
+  (keymap-set smartparens-mode-map "C-{" #'sp-backward-barf-sexp))
 
 ;; Magit, your one stop shop Git client.
 (use-package magit
@@ -45,11 +50,11 @@
 (use-package eglot
   :ensure nil
   :defer t
+  :bind (("C-." . eglot-code-actions))
   :custom
   (eglot-send-changes-idle-time 0.1)	; Don't tell server for this "n" amount of time when idle.
   (eglot-extend-to-xref t)		; Extend to `xref'.
   :config
-  (keymap-global-set "C-." #'eglot-code-actions)
   (setopt eglot-code-action-indicator "h")
   (setq eglot-code-action-indications '(left-fringe))
   (fset #'jsonrpc--log-event #'ignore)

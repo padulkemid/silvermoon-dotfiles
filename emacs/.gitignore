@@ -8,6 +8,7 @@
 /transient/
 /tree-sitter/
 /mason/
+/package-quickstart.el
 
 *.db
 *.eld

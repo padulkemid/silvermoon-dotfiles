@@ -70,8 +70,8 @@
    org-habit-show-habits-only-for-today nil ; Used: show habit graph beyond today.
    ;; Used: the capture menu behind `C-c c'.
    org-capture-templates
-   '(("w" "Work: Oxygen"
-      entry (file+headline "~/Work/personal-journal/work.org" "Oxygen")
+   '(("w" "Work: Paracetamol"
+      entry (file+headline "~/Work/personal-journal/work.org" "Paracetamol")
       "** TODO [#%^{Priority|A|B|C}] =[%^{Ticket}]= %^{Title} \nSCHEDULED: %^T\nLINK: [[%^{URL}][%\\2]]\n%?"
       :empty-lines 1)
      ("s" "Work: Production Support"
@@ -93,7 +93,8 @@
 (use-package org-roam
   :bind (("C-c n t" . org-roam-dailies-capture-today)
 	 ("C-c n y" . org-roam-dailies-goto-yesterday)
-	 ("C-c n m" . org-roam-dailies-goto-tomorrow))
+	 ("C-c n m" . org-roam-dailies-goto-tomorrow)
+	 ("C-c n f" . org-roam-node-find))
   :init
   (setopt org-roam-directory (file-truename "~/Work/personal-journal/roam/")
 	  ;; Used: daily coding log + tumbuh mental-health log.

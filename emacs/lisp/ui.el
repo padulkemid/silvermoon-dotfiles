@@ -8,9 +8,10 @@
 ;;; Code:
 
 ;; `which-key': shows a popup of available keybindings when typing a long key
-;; sequence (e.g: C-x ...)
+;; sequence (e.g: C-x ...). Idle-defer — not needed on the INIT clock.
 (use-package which-key
   :ensure nil
+  :defer 1
   :config
   (which-key-mode))
 
@@ -51,14 +52,22 @@
 
 ;; Show matching delimiters.
 (setopt show-paren-delay 0
-	show-paren-style 'expression   ; default is 'parenthesis and just does delimiters.
+	show-paren-style 'expression
 	show-paren-context-when-offscreen 'overlay)
 (show-paren-mode 1)
+
+;; Font ligatures support.
+(use-package ligature
+  :hook ((prog-mode text-mode) . ligature-mode)
+  :config
+  (ligature-set-ligatures
+   '(prog-mode text-mode)
+   '("!=" "--" "---" "->" "->>" "=>" "::" "<-" "<->" "<=" ">=")))
 
 ;; Show tab bar.
 (setopt tab-bar-show 1)
 
-;; Set theme.
+;; Set theme (must be eager — otherwise first frame flashes).
 (use-package almost-mono-themes         ; Monochromatic black and white, fuck syntax highlighting.
   :config
   (load-theme 'almost-mono-black t))

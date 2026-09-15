@@ -56,6 +56,9 @@
 ;; Use `:ensure nil' in packages you *don't* want to install
 (setq use-package-always-ensure t)
 
+;; Concatenate package autoloads — big win after `package-quickstart-refresh'.
+(setq package-quickstart t)
+
 ;; Frame: avoid expensive resize/font work during startup (minimal-emacs.d).
 (setq frame-resize-pixelwise t
       frame-inhibit-implied-resize t
