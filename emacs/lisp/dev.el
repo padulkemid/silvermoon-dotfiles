@@ -61,6 +61,16 @@
   (setopt eglot-workspace-configuration
 	  '((clojure (maxCompletions . 100)))))
 
+;; use `flymake' for diagnostics
+(use-package flymake
+  :ensure nil				; Built-in; don't pull the GNU ELPA twin.
+  :defer t
+  :bind (:map flymake-mode-map
+	      ("M-n" . flymake-goto-next-error)
+	      ("M-p" . flymake-goto-prev-error)
+	      ("C-c ! l" . flymake-show-buffer-diagnostics)
+	      ("C-c ! p" . flymake-show-project-diagnostics)))
+
 ;; Format-on-save. First idle after init — keeps INIT message honest.
 (use-package apheleia
   :ensure nil
