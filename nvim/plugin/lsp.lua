@@ -5,7 +5,7 @@ local capabilities = blink.get_lsp_capabilities(default_capabilities, false)
 local servers = {
   'lua_ls',
   'vtsls',
-  'clangd',
+  -- 'clangd',
   'cssls',
   'html',
   'jsonls',
@@ -13,8 +13,7 @@ local servers = {
   'emmet_languange_server',
   'sourcekit',
   'kotlin_lsp',
-  'vue_ls',
-  'ols',
+  -- 'vue_ls',
 }
 
 vim.lsp.config('*', {

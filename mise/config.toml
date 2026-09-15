@@ -6,7 +6,6 @@ flutter = "3.38"
 java = "21"
 node = "20"
 python = "3.14"
-odin = "latest"
 leiningen = "2.12"
 
 [settings]
