@@ -46,9 +46,10 @@
   :ensure nil
   :defer t
   :custom
-  (eglot-send-changes-idle-time 0.1)
-  (eglot-extend-to-xref t)
+  (eglot-send-changes-idle-time 0.1)	; Don't tell server for this "n" amount of time when idle.
+  (eglot-extend-to-xref t)		; Extend to `xref'.
   :config
+  (keymap-global-set "C-." #'eglot-code-actions)
   (setopt eglot-code-action-indicator "h")
   (setq eglot-code-action-indications '(left-fringe))
   (fset #'jsonrpc--log-event #'ignore)

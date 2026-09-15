@@ -24,10 +24,7 @@
   :ensure nil				; Built-in.
   :bind (;; Used: daily capture + agenda.
 	 ("C-c a" . org-agenda)
-	 ("C-c c" . org-capture)
-	 ;; Activation also suggests this; I basically never store→insert.
-	 ;; Pair with `C-c C-l' (`org-insert-link') if I ever do.
-	 ("C-c l" . org-store-link))
+	 ("C-c c" . org-capture))
   :hook (org-mode . padul/org-mode-setup)
   :init
   ;; Need these before first agenda/capture press.
@@ -94,7 +91,7 @@
 ;; Yesterday/tomorrow = dailies goto (not `org-roam-node-find').
 ;; DOOM consult-ripgrep search skipped until Consult lands; db autosyncs.
 (use-package org-roam
-  :bind (("C-c n j" . org-roam-dailies-capture-today)
+  :bind (("C-c n t" . org-roam-dailies-capture-today)
 	 ("C-c n y" . org-roam-dailies-goto-yesterday)
 	 ("C-c n m" . org-roam-dailies-goto-tomorrow))
   :init
