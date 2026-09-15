@@ -1,0 +1,39 @@
+#+TITLE: padul emacs
+#+AUTHOR: Fadhil Muhammad
+#+EMAIL: fadhil2903@gmail.com
+#+OPTIONS: toc:nil num:nil html-postamble:nil
+
+** Welcome
+this is my vanilla barebone emacs config
+that is derived from the universe. many
+of the stuff that I picked here were
+actually other person stuff or being
+based on.
+
+because I'm learning ~emacs-lisp~ and
+~clojure~ I need a lisp-family interpreter
+that work very seamlessly and fast.
+
+I was using doom emacs but its too
+bloated and I wanted to have my own
+custom configuration that is tunable and
+quick to use.
+
+** Bases
+more or less everything were customed by
+me but several of the startups and
+optimizations came from many stuff,
+including:
+
+1. [[https://codeberg.org/ashton314/emacs-bedrock][emacs-bedrock]] by @ashton314
+2. [[https://github.com/jamescherti/minimal-emacs.d][minimal-emacs.d]] by @jamescherti
+
+these heroes made my transisting journey
+progress from neovim to emacs easier and
+faster so I can run and start quick.
+
+well I already used doom for a year so
+its relatively easy now and bonus I can
+map my custom keymap easily so it
+doesn't overlap with anything like in
+doom lol.

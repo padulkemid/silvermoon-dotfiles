@@ -7,6 +7,7 @@
 /projects
 /transient/
 /tree-sitter/
+/emacs-backup/
 /mason/
 /package-quickstart.el
 
