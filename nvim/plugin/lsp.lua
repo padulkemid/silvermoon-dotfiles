@@ -13,6 +13,7 @@ local servers = {
   'emmet_languange_server',
   'sourcekit',
   'kotlin_lsp',
+  'ols',
   -- 'vue_ls',
 }
 

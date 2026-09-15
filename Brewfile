@@ -4,6 +4,8 @@ tap "d12frosted/emacs-plus", trusted: true
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# C implementation of Markdown
+brew "discount"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Command-line fuzzy finder written in Go
@@ -70,8 +72,6 @@ brew "rtk"
 brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash", link: true
-# Incremental parsing library
-brew "tree-sitter@0.25"
 # Code review TUI with vim keybindings
 brew "tuicr"
 # Internet file retriever
@@ -91,19 +91,16 @@ brew "asmvik/formulae/yabai"
 # TUI viewer for Beads issue tracking
 brew "chrisedwards/tap/abacus"
 # GNU Emacs text editor
-brew "d12frosted/emacs-plus/emacs-plus@30"
+brew "d12frosted/emacs-plus/emacs-plus@31"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Application launcher and productivity software
 cask "alfred"
-# Ambient sound mixer for creating custom soundscapes
-cask "blankie"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
-# Command-line agent for Cursor
-cask "cursor-cli"
 # System-wide audio equaliser
 cask "eqmac"
+cask "font-aporetic"
 cask "font-ibm-plex-serif"
 cask "font-inter"
 cask "font-symbols-only-nerd-font"
@@ -117,8 +114,6 @@ cask "helium-browser"
 cask "intellij-idea"
 # Keyboard customiser
 cask "karabiner-elements"
-# Clipboard manager
-cask "maccy"
 # Open-source software for live streaming and screen recording
 cask "obs"
 # Verify system files structure, run miscellaneous maintenance and more
