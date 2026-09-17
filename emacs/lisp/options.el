@@ -123,7 +123,7 @@
 (setopt help-window-select t)
 
 ;; Use spaces not tabs. (although I liked tabs)
-;; (setopt indent-tabs-mode nil)
+(setopt indent-tabs-mode nil)
 
 ;; Yellow minibuffer when focus leaves an active prompt (e.g. Completions).
 (minibuffer-nonselected-mode -1)
