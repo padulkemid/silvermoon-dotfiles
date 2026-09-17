@@ -16,7 +16,8 @@
                                             "^com\\.mitchellh\\.ghostty$",
                                             "^org\\.gnu\\.Emacs$",
                                             "^org\\.p0deje\\.Maccy$",
-                                            "^org\\.mozilla\\.firefox$"
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^com\\.vorssaint\\.utils$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }

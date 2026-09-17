@@ -52,7 +52,7 @@
 
 ;; Show matching delimiters.
 (setopt show-paren-delay 0
-	show-paren-style 'expression
+	show-paren-style 'parenthesis
 	show-paren-context-when-offscreen 'overlay)
 (show-paren-mode 1)
 

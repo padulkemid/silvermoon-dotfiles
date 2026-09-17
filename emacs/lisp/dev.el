@@ -22,7 +22,9 @@
   :config
   (setopt treesit-enabled-modes t)	; Enable tree-sitter in all available modes.
   (setopt treesit-font-lock-level 4)	; Enable maximum boldness for variables.
-  (setopt treesit-auto-install-grammar 'ask)) ; Manually `ask' in grammar installation.
+  (setopt treesit-auto-install-grammar 'ask) ; Manually `ask' in grammar installation.
+  (setopt major-mode-remap-alist
+	  (cons '(json-mode . json-ts-mode) major-mode-remap-alist)))
 
 ;; Auto pairs; slurp/barf on demand (not parinfer — no full binding table).
 ;; Paredit's C-) / C-} / C-( / C-{ — needs Shift, but skips windmove's C-<arrows>.

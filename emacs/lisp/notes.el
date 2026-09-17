@@ -53,6 +53,9 @@
   (require 'org-habit)			; Used: habits.org + consistency graph.
   ;; Keywords live in the journal files (`#+TODO:'); faces only paint them.
   (setopt
+   org-timer-display 'frame-title	; display countdown time in frame title.
+   org-clock-clocked-in-display 'frame-title ; display clocked in/out time in frame title.
+   org-clock-sound "/System/Library/Sounds/Glass.aiff" ; add sound after time is finished.
    ;; Used: colors for the keywords I actually type in the journal.
    org-todo-keyword-faces
    '(("TODO" . "red")

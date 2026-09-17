@@ -94,8 +94,6 @@ brew "chrisedwards/tap/abacus"
 brew "d12frosted/emacs-plus/emacs-plus@31"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
-# Application launcher and productivity software
-cask "alfred"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # System-wide audio equaliser
@@ -122,8 +120,6 @@ cask "onyx"
 cask "openvpn-connect"
 # Replacement for Docker Desktop
 cask "orbstack"
-# Remote pair programming
-cask "pop-app"
 # Email client
 cask "readdle-spark"
 # Menu bar manager
