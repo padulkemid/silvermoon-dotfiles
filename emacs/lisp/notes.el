@@ -23,8 +23,8 @@
 (use-package org
   :ensure nil				; Built-in.
   :bind (;; Used: daily capture + agenda.
-	 ("C-c a" . org-agenda)
-	 ("C-c c" . org-capture))
+         ("C-c a" . org-agenda)
+         ("C-c c" . org-capture))
   :hook (org-mode . padul/org-mode-setup)
   :init
   ;; Need these before first agenda/capture press.
@@ -32,17 +32,18 @@
    ;; Used: where the journal lives + what agenda scans.
    org-directory "~/Work/personal-journal/"
    org-agenda-files '("~/Work/personal-journal/work.org"
-		      "~/Work/personal-journal/habits.org"
-		      "~/Work/personal-journal/meetings.org")
+                      "~/Work/personal-journal/habits.org"
+                      "~/Work/personal-journal/meetings.org")
    ;; Used: src edit in same window (babel/elisp+clj blocks).
    org-src-window-setup 'current-window
    org-babel-load-languages '((emacs-lisp . t)
-			      (clojure . t))
+                              (clojure . t))
    ;; Used: how Org buffers look while I write.
    org-hide-leading-stars t
    org-startup-indented t
    org-adapt-indentation nil
    org-startup-truncated t
+   org-startup-folded 'content
    org-return-follows-link t
    org-hide-emphasis-markers t
    ;; Used: DONE stamps + state notes go in a drawer, not littering the tree.
@@ -88,30 +89,36 @@
      ("m" "Meetings"
       entry (file "~/Work/personal-journal/meetings.org")
       "* SETUP [#%^{Priority|A|B|C}] %^{Title} \nSCHEDULED: %^T\n%?"
-      :empty-lines-before 1))))
+      :empty-lines-before 1)))
+  (advice-add 'org-clock-play-sound :override
+              (lambda (&optional clock-sound)
+                (let ((file (or clock-sound org-clock-sound)))
+                  (when (stringp file)
+                    (start-process "org-clock-sound" nil
+                                   "/usr/bin/afplay" file))))))
 
 ;; Org-roam — MELPA, not builtin. Used: Zettelkasten under personal-journal/roam/.
 ;; Yesterday/tomorrow = dailies goto (not `org-roam-node-find').
 ;; DOOM consult-ripgrep search skipped until Consult lands; db autosyncs.
 (use-package org-roam
   :bind (("C-c n t" . org-roam-dailies-capture-today)
-	 ("C-c n y" . org-roam-dailies-goto-yesterday)
-	 ("C-c n m" . org-roam-dailies-goto-tomorrow)
-	 ("C-c n f" . org-roam-node-find))
+         ("C-c n y" . org-roam-dailies-goto-yesterday)
+         ("C-c n m" . org-roam-dailies-goto-tomorrow)
+         ("C-c n f" . org-roam-node-find))
   :init
   (setopt org-roam-directory (file-truename "~/Work/personal-journal/roam/")
-	  ;; Used: daily coding log + tumbuh mental-health log.
-	  org-roam-dailies-capture-templates
-	  '(("d" "default" entry "* %?"
-	     :if-new (file+head "%<%Y/%m/%d>.org"
-				"#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags::coding:")
-	     :unnarrowed t
-	     :empty-lines 1)
-	    ("t" "tumbuh" entry "* %?"
-	     :if-new (file+head "tumbuh-logs/%<%Y/%m/%d>.org"
-				"#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags::tumbuh:")
-	     :unnarrowed t
-	     :empty-lines 1)))
+          ;; Used: daily coding log + tumbuh mental-health log.
+          org-roam-dailies-capture-templates
+          '(("d" "default" entry "* %?"
+             :if-new (file+head "%<%Y/%m/%d>.org"
+                                "#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags::coding:")
+             :unnarrowed t
+             :empty-lines 1)
+            ("t" "tumbuh" entry "* %?"
+             :if-new (file+head "tumbuh-logs/%<%Y/%m/%d>.org"
+                                "#+title: %^{Title}\n#+date: <%<%Y-%m-%d %a %H:%M>>\n#+filetags::tumbuh:")
+             :unnarrowed t
+             :empty-lines 1)))
   :config
   (org-roam-db-autosync-mode))
 

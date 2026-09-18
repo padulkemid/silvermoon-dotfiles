@@ -108,8 +108,6 @@ cask "gcloud-cli"
 cask "ghostty"
 # Chromium-based web browser
 cask "helium-browser"
-# Java IDE by JetBrains
-cask "intellij-idea"
 # Keyboard customiser
 cask "karabiner-elements"
 # Open-source software for live streaming and screen recording
