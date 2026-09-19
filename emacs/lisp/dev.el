@@ -24,7 +24,7 @@
   (setopt treesit-font-lock-level 4)	; Enable maximum boldness for variables.
   (setopt treesit-auto-install-grammar 'ask) ; Manually `ask' in grammar installation.
   (setopt major-mode-remap-alist
-	  (cons '(json-mode . json-ts-mode) major-mode-remap-alist)))
+          (cons '(json-mode . json-ts-mode) major-mode-remap-alist)))
 
 ;; Auto pairs; slurp/barf on demand (not parinfer — no full binding table).
 ;; Paredit's C-) / C-} / C-( / C-{ — needs Shift, but skips windmove's C-<arrows>.
@@ -35,7 +35,9 @@
   (keymap-set smartparens-mode-map "C-)" #'sp-forward-slurp-sexp)
   (keymap-set smartparens-mode-map "C-}" #'sp-forward-barf-sexp)
   (keymap-set smartparens-mode-map "C-(" #'sp-backward-slurp-sexp)
-  (keymap-set smartparens-mode-map "C-{" #'sp-backward-barf-sexp))
+  (keymap-set smartparens-mode-map "C-{" #'sp-backward-barf-sexp)
+  (keymap-set smartparens-mode-map "M-[" #'sp-rewrap-sexp)
+  (keymap-set smartparens-mode-map "M-]" #'sp-unwrap-sexp))
 
 ;; Magit, your one stop shop Git client.
 (use-package magit
@@ -61,17 +63,17 @@
   (setq eglot-code-action-indications '(left-fringe))
   (fset #'jsonrpc--log-event #'ignore)
   (setopt eglot-workspace-configuration
-	  '((clojure (maxCompletions . 100)))))
+          '((clojure (maxCompletions . 100)))))
 
 ;; use `flymake' for diagnostics
 (use-package flymake
   :ensure nil				; Built-in; don't pull the GNU ELPA twin.
   :defer t
   :bind (:map flymake-mode-map
-	      ("M-n" . flymake-goto-next-error)
-	      ("M-p" . flymake-goto-prev-error)
-	      ("C-c ! l" . flymake-show-buffer-diagnostics)
-	      ("C-c ! p" . flymake-show-project-diagnostics)))
+              ("M-n" . flymake-goto-next-error)
+              ("M-p" . flymake-goto-prev-error)
+              ("C-c ! l" . flymake-show-buffer-diagnostics)
+              ("C-c ! p" . flymake-show-project-diagnostics)))
 
 ;; Format-on-save. First idle after init — keeps INIT message honest.
 (use-package apheleia
@@ -85,9 +87,11 @@
   (setf (alist-get 'clojure-ts-clojurec-mode apheleia-mode-alist) 'cljfmt)
   (apheleia-global-mode +1))
 
+;; Enable `markdown-mode' when in markdown files.
+;; Because `markdown-ts-mode' is trash, we fallback.
 (use-package markdown-mode
   :mode (("\\.md\\'" . markdown-mode)
-	 ("\\.markdown\\'" . markdown-mode)))
+         ("\\.markdown\\'" . markdown-mode)))
 
 (provide 'dev)
 ;;; dev.el ends here
