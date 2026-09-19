@@ -29,7 +29,7 @@
 ;; Same :hook style as smartparens — use-package infers diff-hl-mode.
 (use-package diff-hl
   :hook (prog-mode text-mode
-		   (magit-post-refresh . diff-hl-magit-post-refresh)))
+                   (magit-post-refresh . diff-hl-magit-post-refresh)))
 
 ;; Blinking cursor.
 (blink-cursor-mode 1)
@@ -37,14 +37,14 @@
 ;; Side-by-side dividers only (bottom dividers draw a hairline above the minibuffer).
 ;; Width 1 is a thin divider (stock default is a fat 6px block; DOOM uses 1).
 (setopt window-divider-default-places 'right-only
-	window-divider-default-right-width 1
-	window-divider-default-bottom-width 1)
+        window-divider-default-right-width 1
+        window-divider-default-bottom-width 1)
 (window-divider-mode 1)
 
 ;; Display line numbers in programming mode only.
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (setopt display-line-numbers-width 3
-	display-line-numbers-type 'relative)
+        display-line-numbers-type 'relative)
 
 ;; Visually highlights entire line in the active point (cursor).
 (setopt global-hl-line-sticky-flag 'window)
@@ -52,8 +52,8 @@
 
 ;; Show matching delimiters.
 (setopt show-paren-delay 0
-	show-paren-style 'parenthesis
-	show-paren-context-when-offscreen 'overlay)
+        show-paren-style 'expression
+        show-paren-context-when-offscreen 'overlay)
 (show-paren-mode 1)
 
 ;; Font ligatures support.

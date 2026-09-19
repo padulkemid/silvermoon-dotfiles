@@ -40,7 +40,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(almost-mono-themes cider clojure-ts-mode diff-hl ibuffer-project magit
-			markdown-mode mason smartparens)))
+                        markdown-mode mason smartparens)))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -53,16 +54,18 @@
  '(mode-line-active ((t (:box nil :underline nil :overline nil :background "black" :foreground "white"))))
  '(mode-line-highlight ((t (:box nil :underline nil :overline nil))))
  '(mode-line-inactive ((t (:box nil :underline nil :overline nil :background "black" :foreground "dark gray"))))
- '(region ((t (:background "dark cyan" :extend t))))
+ '(region ((t (:background "dark cyan"))))
  '(tab-bar ((t (:background unspecified))))
- '(tab-bar-tab ((t (:background unspecified)))))
+ '(tab-bar-tab ((t (:background unspecified))))
+ '(show-paren-match-expression ((t (:background "dark slate gray")))))
+
 
 ;; DOOM-style startup line (echo area + *Messages*).
 (add-hook 'emacs-startup-hook
-	  (lambda ()
-	    (message "padul emacs loaded %d packages in %.03fs"
-		     (length package-activated-list)
-		     (float-time
-		      (time-subtract after-init-time before-init-time)))))
+          (lambda ()
+            (message "padul emacs loaded %d packages in %.03fs"
+                     (length package-activated-list)
+                     (float-time
+                      (time-subtract after-init-time before-init-time)))))
 
 ;;; init.el ends here

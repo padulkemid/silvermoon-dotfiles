@@ -9,8 +9,8 @@
 
 ;; User config, this way emacs knows me better.
 (setopt user-full-name "Fadhil Muhammad"
-	user-mail-address "fadhil2903@gmail.com"
-	frame-title-format '("emacs@padulkemid"))
+        user-mail-address "fadhil2903@gmail.com"
+        frame-title-format '("emacs@padulkemid"))
 
 ;; Turn off welcome screen.
 (setopt inhibit-splash-screen t)
@@ -25,8 +25,8 @@
 ;; changes by using OS file change notification interface
 ;; rather than polling repeteadly.
 (setopt auto-revert-avoid-polling t
-	auto-revert-interval 5
-	auto-revert-check-vc-info t)
+        auto-revert-interval 5
+        auto-revert-check-vc-info t)
 (global-auto-revert-mode)
 
 ;; Save history in minibuffer.
@@ -45,9 +45,9 @@
 ;; Kill/yank use Emacs kill-ring only (nvim-register style).
 ;; Cmd+c / Cmd+v still use the macOS clipboard via clipboard-* in keymaps.
 (setopt save-interprogram-paste-before-kill t
-	kill-do-not-save-duplicates t
-	select-enable-clipboard nil
-	select-enable-primary nil)
+        kill-do-not-save-duplicates t
+        select-enable-clipboard nil
+        select-enable-primary nil)
 
 ;; Sane syntax in re-builder (M-x `re-builder') or regexp builder.
 (setopt reb-re-syntax 'string)
@@ -77,17 +77,17 @@
 (defun padul/backup-file-name (fpath)
   "Return a backup path for FPATH under `user-emacs-directory'/emacs-backup/."
   (let* ((backup-root-dir (concat user-emacs-directory "emacs-backup/"))
-	 (file-path (replace-regexp-in-string "[A-Za-z]:" "" fpath))
-	 (backup-file-path
-	  (replace-regexp-in-string
-	   "//" "/" (concat backup-root-dir file-path "~"))))
+         (file-path (replace-regexp-in-string "[A-Za-z]:" "" fpath))
+         (backup-file-path
+          (replace-regexp-in-string
+           "//" "/" (concat backup-root-dir file-path "~"))))
     (make-directory (file-name-directory backup-file-path) t)
     backup-file-path))
 (setopt make-backup-file-name-function #'padul/backup-file-name)
 
 ;; Disable bidirectional text scanning.
 (setq-default bidi-display-reordering 'left-to-right
-	      bidi-paragraph-direction 'left-to-right)
+              bidi-paragraph-direction 'left-to-right)
 (setq bidi-inhibit-bpa t)
 
 ;; Set the default fill-column to 80.
@@ -115,9 +115,9 @@
 
 ;; Recenter after `save-place-mode' restores position.
 (advice-add 'save-place-find-file-hook
-	    :after
-	    (lambda (&rest _)
-	      (when buffer-file-name (ignore-errors (recenter)))))
+            :after
+            (lambda (&rest _)
+              (when buffer-file-name (ignore-errors (recenter)))))
 
 ;; Auto select help windows.
 (setopt help-window-select t)
@@ -130,26 +130,26 @@
 
 ;; Disable bell ringing, its uncomfortable.
 (setopt ring-bell-function #'ignore
-	visible-bell nil)
+        visible-bell nil)
 
 ;; Minibuffer settings.
 ;; For help, see: https://www.masteringemacs.org/article/understanding-minibuffer-completion
 (setopt enable-recursive-minibuffers t  ; Use the minibuffer whilst in the minibuffer.
-	completion-cycle-threshold 1    ; TAB cycles candidates.
-	completions-detailed t          ; Show annotations.
-	tab-always-indent 'complete     ; When I hit TAB, try to complete, otherwise, indent.
-	completion-styles '(basic initials substring) ; Different styles to match input to candidates.
-	minibuffer-visible-completions t             ; Use ↑↓ to select candidates.
-	completion-auto-help 'always                 ; Open completion always; could be `lazy' for another option.
-	completions-max-height 20                    ; This is an arbitrary value.
-	completions-format 'one-column               ; Makes it easier to scroll.
-	completions-group t
-	completion-show-help nil	; Remove the M-<arrow> help.
+        completion-cycle-threshold 1    ; TAB cycles candidates.
+        completions-detailed t          ; Show annotations.
+        tab-always-indent 'complete     ; When I hit TAB, try to complete, otherwise, indent.
+        completion-styles '(basic initials substring) ; Different styles to match input to candidates.
+        minibuffer-visible-completions t             ; Use ↑↓ to select candidates.
+        completion-auto-help 'always                 ; Open completion always; could be `lazy' for another option.
+        completions-max-height 20                    ; This is an arbitrary value.
+        completions-format 'one-column               ; Makes it easier to scroll.
+        completions-group t
+        completion-show-help nil	; Remove the M-<arrow> help.
 
-	;; Eager completion setup.
-	completion-auto-select 'second-tab ; Much more eager
-	completion-eager-display t         ; Show the *Completions* buffer immediately.
-	completion-eager-update t)         ; Update display as-you-type.
+        ;; Eager completion setup.
+        completion-auto-select 'second-tab ; Much more eager
+        completion-eager-display t         ; Show the *Completions* buffer immediately.
+        completion-eager-update t)         ; Update display as-you-type.
 
 ;; Automatic inline completion previews if you enable this
 ;; but please try the settings above first because its build into
@@ -164,7 +164,7 @@
   :ensure nil                           ; Already installed.
   :bind
   (:map isearch-mode-map
-	("C-." . isearch-forward-thing-at-point)) ; Search occurence under cursor.
+        ("C-." . isearch-forward-thing-at-point)) ; Search occurence under cursor.
   :custom
   (lazy-count-prefix-format "(%s/%s) ") ; Count format.
   (isearch-repeat-on-direction-change t) ; C-r immediately goes to previous match.
@@ -172,9 +172,9 @@
 
 ;; Modeline modes.
 (setopt mode-line-collapse-minor-modes nil ; Collapse minor mode.
-	x-underline-at-descent-line nil    ; Check this for underline later.
-	switch-to-buffer-obey-display-actions t ; Make switching buffer more consistent
-	show-trailing-whitespace nil)           ; Not showing whitespaces.
+        x-underline-at-descent-line nil    ; Check this for underline later.
+        switch-to-buffer-obey-display-actions t ; Make switching buffer more consistent
+        show-trailing-whitespace nil)           ; Not showing whitespaces.
 
 ;; Enable horizontal scrolling.
 (setopt mouse-wheel-tilt-scroll t)

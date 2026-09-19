@@ -28,10 +28,10 @@
   (interactive)
   (if (derived-mode-p 'clojure-mode)	; includes clojure-ts-* on Emacs 30+
       (progn
-	(require 'apheleia)
-	(if-let* ((fmt (apheleia--get-formatters)))
-	    (apheleia-format-buffer fmt)
-	  (indent-region (point-min) (point-max))))
+        (require 'apheleia)
+        (if-let* ((fmt (apheleia--get-formatters)))
+            (apheleia-format-buffer fmt)
+          (indent-region (point-min) (point-max))))
     (indent-region (point-min) (point-max))))
 
 (keymap-global-set "C-x M-q" #'indent-buffer)
@@ -45,22 +45,8 @@
 ;; `isearch' uses `rgrep'.
 (keymap-global-set "M-s r" #'rgrep)
 
-;; Duplicate line, extended from "rexim/tsoding".
-(defun padul/duplicate-line ()
-  "Duplicate line by yanking and putting it to the next line.
-Derived from tsoding, this is the best duplicate since vim's `yyp'"
-  (interactive)
-  (let ((col (- (point) (pos-bol)))
-	(line (let ((s (thing-at-point 'line t)))
-		(if s (string-remove-suffix "\n" s)
-		  ""))))
-    (move-end-of-line 1)
-    (newline)
-    (insert line)
-    (move-beginning-of-line 1)
-    (forward-char col)))
-
-(keymap-global-set "C-," #'padul/duplicate-line)
+;; use `duplicate-dwim' instead, its builtin.
+(keymap-global-set "C-," #'duplicate-dwim)
 
 (provide 'keymaps)
 ;;; keymaps.el ends here

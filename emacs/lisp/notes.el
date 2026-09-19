@@ -52,6 +52,7 @@
    org-log-done 'time)
   :config
   (require 'org-habit)			; Used: habits.org + consistency graph.
+  (keymap-unset org-mode-map "C-," t)
   ;; Keywords live in the journal files (`#+TODO:'); faces only paint them.
   (setopt
    org-timer-display 'frame-title	; display countdown time in frame title.
