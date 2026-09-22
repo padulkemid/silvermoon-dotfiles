@@ -123,5 +123,18 @@
   :config
   (org-roam-db-autosync-mode))
 
+;; Present mode shenanigans, i really wanted to have
+;; the capabilities that `org-mode' can present or at least
+;; do very well when I did screen sharing.
+(use-package org-present
+  :ensure t
+  :bind (("C-c p" . org-present))
+  :hook ((org-present-mode . (lambda ()
+                               (org-present-big)
+                               (org-display-inline-images)))
+         (org-present-mode-quit . (lambda ()
+                                    (org-present-small)
+                                    (org-display-inline-images)))))
+
 (provide 'notes)
 ;;; notes.el ends here

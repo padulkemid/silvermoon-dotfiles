@@ -55,9 +55,9 @@
  '(mode-line-highlight ((t (:box nil :underline nil :overline nil))))
  '(mode-line-inactive ((t (:box nil :underline nil :overline nil :background "black" :foreground "dark gray"))))
  '(region ((t (:background "dark cyan"))))
+ '(show-paren-match-expression ((t (:background "dark slate gray"))))
  '(tab-bar ((t (:background unspecified))))
- '(tab-bar-tab ((t (:background unspecified))))
- '(show-paren-match-expression ((t (:background "dark slate gray")))))
+ '(tab-bar-tab ((t (:background unspecified)))))
 
 
 ;; DOOM-style startup line (echo area + *Messages*).
