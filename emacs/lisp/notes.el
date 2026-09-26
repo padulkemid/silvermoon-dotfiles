@@ -103,6 +103,7 @@
 ;; DOOM consult-ripgrep search skipped until Consult lands; db autosyncs.
 (use-package org-roam
   :bind (("C-c n t" . org-roam-dailies-capture-today)
+         ("C-c n T" . org-roam-dailies-goto-today)
          ("C-c n y" . org-roam-dailies-goto-yesterday)
          ("C-c n m" . org-roam-dailies-goto-tomorrow)
          ("C-c n f" . org-roam-node-find))
