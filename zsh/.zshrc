@@ -22,7 +22,7 @@ source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # source $(brew --prefix)/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # gnu stuffs
-# export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$BREW_PREFIX/opt/make/libexec/gnubin:$PATH"
 # export PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
 
 # fzf

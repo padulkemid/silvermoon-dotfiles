@@ -11,6 +11,8 @@
 /mason/
 /package-quickstart.el
 
+.org*
+
 *.db
 *.eld
 *.elc
