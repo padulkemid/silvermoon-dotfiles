@@ -146,5 +146,13 @@
   :init (require 'reader-autoloads)
   :defer 0)
 
+;; I hate C-f after a `org-hide-emphasis-marker' it will always go to
+;; the next line even though `forward-char' already goes after the cursor
+;; marker.
+(use-package org-appear
+  :ensure t
+  :hook (org-mode))
+
+
 (provide 'notes)
 ;;; notes.el ends here
