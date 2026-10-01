@@ -140,9 +140,10 @@
 ;; this will add a feature so that emacs can read PDFs
 ;; and many other stuff(s). its new so its not hosted in MELPA
 ;; or any package repositories just yet.
-(use-package emacs-reader
+(use-package reader
   :ensure nil
   :load-path ("/Users/padulkemid/Work/personal-projects/emacs-reader")
+  :init (require 'reader-autoloads)
   :defer 0)
 
 (provide 'notes)
