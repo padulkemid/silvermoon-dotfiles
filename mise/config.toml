@@ -7,8 +7,7 @@ java = "21"
 node = "22"
 python = "3.14"
 leiningen = "2.12"
-odin = "latest"
-gradle = "latest"
+rust = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
