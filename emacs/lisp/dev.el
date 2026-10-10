@@ -90,6 +90,7 @@
 ;; Enable `markdown-mode' when in markdown files.
 ;; Because `markdown-ts-mode' is trash, we fallback.
 (use-package markdown-mode
+  :ensure t
   :mode (("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode)))
 

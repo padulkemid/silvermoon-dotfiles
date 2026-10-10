@@ -4,4 +4,9 @@ vim.pack.add {
 
 local mason = require 'mason'
 
-mason.setup()
+mason.setup {
+  registries = {
+    "file:~/Work/personal-projects/nvim-plugins/mason-registry"
+  }
+}
+-- mason.setup()

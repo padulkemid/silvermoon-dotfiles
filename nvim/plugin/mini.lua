@@ -113,7 +113,7 @@ set('n', '<leader>sw', ':Pick grep pattern="<cword>"<CR>', { desc = '[S]earch [L
 set('n', '<leader>sd', function()
   extra.pickers.diagnostic { scope = 'current' }
 end, { desc = '[S]earch [D]iagnostics' })
-set('n', 'gr', function()
+set('n', '<leader>gr', function()
   extra.pickers.lsp { scope = 'references' }
 end, { desc = '[G]oto [R]eferences' })
 set('n', '<leader>ds', function()
