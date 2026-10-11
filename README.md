@@ -11,9 +11,8 @@ use `emacs` to code lisp-family languages only but still uses `nvim` as default.
 
 # 📷 Pics
 
-![emacs_clojure](https://i.imgur.com/VVjqObS.png)
-![emacs_org](https://i.imgur.com/onQdA22.png)
-![nvim_lua](https://i.imgur.com/Tb9kzai.png)
+![emacs_lisp](https://i.imgur.com/RcTZ0is.png)
+![nvim_lua](https://i.imgur.com/2HMHhLL.png)
 
 font is comic code
 
