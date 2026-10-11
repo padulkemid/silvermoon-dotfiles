@@ -16,6 +16,10 @@
 (use-package ledger-mode
   :ensure t
   :mode ("\\.ledger\\'" "\\.dat\\'" "\\.lgr\\'")
-  )
+  :config
+  (add-to-list 'ledger-reports '("trend"    "%(binary) -f %(ledger-file) -M bal Expenses") t)
+  (add-to-list 'ledger-reports '("pnl"      "%(binary) -f %(ledger-file) -p %(month) bal ^Income ^Expenses") t)
+  (add-to-list 'ledger-reports '("budget"   "%(binary) -f %(ledger-file) budget -p %(month)") t)
+  (add-to-list 'ledger-reports '("forecast" "%(binary) -f %(ledger-file) --forecast 'd<[2027/02/01]' -M reg ^Assets:Checking") t))
 
 (provide 'extras)
