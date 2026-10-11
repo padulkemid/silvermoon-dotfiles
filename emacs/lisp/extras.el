@@ -17,6 +17,7 @@
   :ensure t
   :mode ("\\.ledger\\'" "\\.dat\\'" "\\.lgr\\'")
   :config
+  (setopt ledger-report-use-native-highlighting nil)
   (add-to-list 'ledger-reports '("trend"    "%(binary) -f %(ledger-file) -M bal Expenses") t)
   (add-to-list 'ledger-reports '("pnl"      "%(binary) -f %(ledger-file) -p %(month) bal ^Income ^Expenses") t)
   (add-to-list 'ledger-reports '("budget"   "%(binary) -f %(ledger-file) budget -p %(month)") t)
