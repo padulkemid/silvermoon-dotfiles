@@ -1,5 +1,4 @@
 tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git", trusted: true
-tap "chrisedwards/tap", "https://github.com/ChrisEdwards/homebrew-tap", trusted: true
 tap "d12frosted/emacs-plus", trusted: true
 tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae", trusted: true
 # Resource monitor. C++ version and continuation of bashtop and bpytop
@@ -18,8 +17,6 @@ brew "libtiff"
 brew "gdk-pixbuf"
 # Distributed revision control system
 brew "git"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Open-source GitLab command-line tool
@@ -42,18 +39,26 @@ brew "k9s"
 brew "kubernetes-cli"
 # Graphical front-end for GCC's coverage testing tool (gcov)
 brew "lcov"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Command-line, double-entry accounting tool
+brew "ledger"
 # JIT library for the GNU compiler collection
 brew "libgccjit"
 # Postgres C API library
 brew "libpq", link: true
 # Library to render SVG files using Cairo
 brew "librsvg"
+# Utility for directing compilation
+brew "make"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Deep clean and optimize your Mac
 brew "mole"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
+# Lightweight PDF and XPS viewer
+brew "mupdf"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # AI agent toolkit
@@ -88,8 +93,6 @@ brew "zsh-completions"
 brew "asmvik/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "asmvik/formulae/yabai"
-# TUI viewer for Beads issue tracking
-brew "chrisedwards/tap/abacus"
 # GNU Emacs text editor
 brew "d12frosted/emacs-plus/emacs-plus@31"
 # A window border system for macOS
@@ -110,6 +113,8 @@ cask "ghostty"
 cask "helium-browser"
 # Keyboard customiser
 cask "karabiner-elements"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
 # Open-source software for live streaming and screen recording
 cask "obs"
 # Verify system files structure, run miscellaneous maintenance and more
@@ -127,4 +132,3 @@ cask "vorssaint"
 go "cmd/go"
 go "cmd/gofmt"
 npm "corepack"
-npm "react"
