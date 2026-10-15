@@ -49,8 +49,6 @@ brew "libgccjit"
 brew "libpq", link: true
 # Library to render SVG files using Cairo
 brew "librsvg"
-# Utility for directing compilation
-brew "make"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Deep clean and optimize your Mac
@@ -94,7 +92,7 @@ brew "asmvik/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "asmvik/formulae/yabai"
 # GNU Emacs text editor
-brew "d12frosted/emacs-plus/emacs-plus@31"
+brew "d12frosted/emacs-plus/emacs-plus@31", args: ["HEAD"]
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Open source IDE for exploring and testing APIs
