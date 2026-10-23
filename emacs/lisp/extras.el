@@ -23,6 +23,7 @@
   (add-to-list 'ledger-reports '("pnl"  "%(binary) -f %(ledger-file) -p %(month) --percent bal ^Assets ^Expenses") t)
   (add-to-list 'ledger-reports '("left"     "%(binary) -f %(ledger-file) -p %(month) --budget bal ^Assets ^Expenses") t)
   (add-to-list 'ledger-reports '("carry"    "%(binary) -f %(ledger-file) -p 'until %(month)' bal ^Assets") t)
-  (add-to-list 'ledger-reports '("forecast" "%(binary) -f %(ledger-file) --forecast 'd<[2027/02/01]' -M reg ^Assets:Checking") t))
+  (add-to-list 'ledger-reports '("forecast" "%(binary) -f %(ledger-file) --forecast 'd<[2027/02/01]' -M reg ^Assets:Checking") t)
+  (add-to-list 'ledger-reports '("net" "%(binary) -f %(ledger-file) bal ^Assets ^Liabilities")))
 
 (provide 'extras)
