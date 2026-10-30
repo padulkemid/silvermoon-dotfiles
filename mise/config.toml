@@ -2,7 +2,7 @@
 go = "latest"
 kotlin = "1.9.23"
 ruby = "3.4.7"
-flutter = "3.38"
+flutter = "3.47"
 java = "21"
 node = "22"
 python = "3.14"
