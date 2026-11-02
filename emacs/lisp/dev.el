@@ -78,7 +78,8 @@
 ;; Format-on-save. First idle after init — keeps INIT message honest.
 (use-package apheleia
   :ensure nil
-  :load-path ("/Users/padulkemid/Work/personal-projects/apheleia")
+  ;; remove local path
+  ;; :load-path ("/Users/padulkemid/Work/personal-projects/apheleia")
   :defer 0
   :config
   (setf (alist-get 'clojurescript-mode apheleia-mode-alist) 'cljfmt)
